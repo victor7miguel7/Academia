@@ -7,4 +7,7 @@ module com.academia {
 
     opens gui to javafx.fxml;
     exports gui;
+
+    opens models to javafx.fxml;
+    exports models;
 }

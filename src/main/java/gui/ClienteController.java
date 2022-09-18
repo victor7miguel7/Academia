@@ -70,6 +70,7 @@ public class ClienteController implements Initializable {
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
         lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento()));
 
+        carregarTableViewClientes();
 
     }
 
@@ -78,12 +79,12 @@ public class ClienteController implements Initializable {
         columnExerciciosNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnExerciciosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         columnExerciciosIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
-        columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("series"));
-        columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("repeticoes"));
+        //columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("series"));
+        //columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("repeticoes"));
 
-        Exercicio exer1 = new Exercicio("Supino Reto", "Peito", Duration.ofMinutes(10), 4, 10);
-        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", Duration.ofMinutes(15), 4, 10);
-        Exercicio exer3 = new Exercicio("Tríceps Pulley", "Tríceps", Duration.ofMinutes(7), 3, 12);
+        Exercicio exer1 = new Exercicio("Supino Reto", "Peito", Duration.ofMinutes(1), 4, 10);
+        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", Duration.ofMinutes(1), 4, 10);
+        Exercicio exer3 = new Exercicio("Tríceps Pulley", "Tríceps", Duration.ofMinutes(1), 3, 12);
 
         listExercicios.add(exer1);
         listExercicios.add(exer2);

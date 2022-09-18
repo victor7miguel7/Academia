@@ -115,7 +115,7 @@
                   </Label>
                </top>
                <right>
-                  <TableView fx:id="tableViewExercicios" prefHeight="331.0" prefWidth="502.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="tableViewExercicios" onSort="#carregarTableViewClientes" prefHeight="331.0" prefWidth="502.0" BorderPane.alignment="CENTER">
                     <columns>
                       <TableColumn fx:id="columnExerciciosNome" prefWidth="100.0" text="Nome" />
                       <TableColumn fx:id="columnExerciciosTipo" prefWidth="100.0" text="Tipo" />

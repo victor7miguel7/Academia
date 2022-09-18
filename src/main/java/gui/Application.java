@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
 
     private static Stage stg;
-    //static ServidorAcademia servidor = ServidorAcademia.getInstance();
+    static ServidorAcademia servidor = ServidorAcademia.getInstance();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
