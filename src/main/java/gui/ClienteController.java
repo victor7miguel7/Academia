@@ -4,12 +4,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import models.*;
 import negocio.ServidorAcademia;
 
@@ -50,9 +54,9 @@ public class ClienteController implements Initializable {
     @FXML
     private TableColumn<Exercicio, Duration> columnExerciciosIntervalo;
     @FXML
-    private TableColumn<Exercicio, Integer> columnExerciciosSeries;
+    private TableColumn<Exercicio, String> columnExerciciosSeries;
     @FXML
-    private TableColumn<Exercicio, Integer> columnExerciciosRepeticoes;
+    private TableColumn<Exercicio, String> columnExerciciosRepeticoes;
 
     private List<Exercicio> listExercicios = new ArrayList();
 
@@ -74,13 +78,18 @@ public class ClienteController implements Initializable {
 
     }
 
+
+
+
     public void carregarTableViewClientes() {
+
+
 
         columnExerciciosNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnExerciciosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         columnExerciciosIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
-        //columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("series"));
-        //columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("repeticoes"));
+        columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("qtdDeSeries"));
+        columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("qtdDeRepeticao"));
 
         Exercicio exer1 = new Exercicio("Supino Reto", "Peito", Duration.ofMinutes(1), 4, 10);
         Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", Duration.ofMinutes(1), 4, 10);
@@ -96,23 +105,14 @@ public class ClienteController implements Initializable {
     }
 
     public void userLogOut(ActionEvent event) throws IOException {
-        Application m = new Application();
-        m.changeScene("login.fxml");
+        Stage stage;
+        Parent root;
+
+        stage = (Stage) logout.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("telaLogin.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
+   }
 
-    //public  void importarCliente() {
-
-        //Usuario u = ServidorAcademia.getInstance().usuarioListar().get(0);
-
-
-//        String id = u.getId();
-//        String peso =  String.valueOf(((Cliente) u).getPeso());
-//        String altura = String.valueOf(((Cliente)u).getAltura());
-//        String genero = ((Cliente)u).getGenero();
-
-//        lblID.setText(id);
-//        lblPeso.setText(peso);
-//        lblAltura.setText(altura);
-//        lblGenero.setText(genero);
-//}
-}

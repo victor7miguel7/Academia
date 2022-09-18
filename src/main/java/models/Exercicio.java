@@ -10,7 +10,9 @@ public class Exercicio implements Serializable{
     private String nome;
     private String tipo;
     private Duration intervalo;
+
     private int qtdDeSeries;
+
     private int qtdDeRepeticao;
 
     public Exercicio(String nome, String tipo, Duration intervalo, int qtdDeSeries, int qtdDeRepeticao) {
