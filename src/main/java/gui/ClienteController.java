@@ -54,13 +54,15 @@ public class ClienteController implements Initializable {
     @FXML
     private TableColumn<Exercicio, Duration> columnExerciciosIntervalo;
     @FXML
-    private TableColumn<Exercicio, String> columnExerciciosSeries;
+    private TableColumn<Exercicio, Integer> columnExerciciosSeries;
     @FXML
-    private TableColumn<Exercicio, String> columnExerciciosRepeticoes;
+    private TableColumn<Exercicio, Integer> columnExerciciosRepeticoes;
 
     private List<Exercicio> listExercicios = new ArrayList();
+    private List<Treino> listTreinos = new ArrayList();
 
     private ObservableList<Exercicio> observableListExercicios;
+    private ObservableList<Treino> observableListTreinos;
     Login login = new Login("maria", "123");
     Usuario cliente = new Cliente("32", "Maria Beatriz", "F", login, LocalDate.of(2000, 2,14),57,1.57);
 
@@ -74,22 +76,18 @@ public class ClienteController implements Initializable {
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
         lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento()));
 
-        carregarTableViewClientes();
+        carregarTableView();
+        carregarTableView();
 
     }
-
-
-
-
-    public void carregarTableViewClientes() {
-
-
+    public void carregarTableView() {
 
         columnExerciciosNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnExerciciosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         columnExerciciosIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
         columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("qtdDeSeries"));
         columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("qtdDeRepeticao"));
+        columnTreinosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
         Exercicio exer1 = new Exercicio("Supino Reto", "Peito", Duration.ofMinutes(1), 4, 10);
         Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", Duration.ofMinutes(1), 4, 10);
@@ -99,9 +97,17 @@ public class ClienteController implements Initializable {
         listExercicios.add(exer2);
         listExercicios.add(exer3);
 
-        observableListExercicios = FXCollections.observableArrayList(listExercicios);
+        Treino treino1 = new Treino("Superior", listExercicios);
+        Treino treino2 = new Treino("Inferior", listExercicios);
 
-        tableViewExercicios.setItems(observableListExercicios) ;
+        listTreinos.add(treino1);
+        listTreinos.add(treino2);
+
+        observableListExercicios = FXCollections.observableArrayList(listExercicios);
+        observableListTreinos = FXCollections.observableArrayList(listTreinos);
+
+        tableViewExercicios.setItems(observableListExercicios);
+        tableViewTreinos.setItems(observableListTreinos);
     }
 
     public void userLogOut(ActionEvent event) throws IOException {
@@ -109,10 +115,10 @@ public class ClienteController implements Initializable {
         Parent root;
 
         stage = (Stage) logout.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("telaLogin.fxml"));
+        root = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-   }
 
+}
