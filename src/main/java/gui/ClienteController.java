@@ -101,7 +101,7 @@ public class ClienteController implements Initializable {
 
         observableListExercicios = FXCollections.observableArrayList(listExercicios);
 
-        tableViewExercicios.setItems(observableListExercicios);
+        tableViewExercicios.setItems(observableListExercicios) ;
     }
 
     public void userLogOut(ActionEvent event) throws IOException {
