@@ -125,7 +125,7 @@
                   </Label>
                </top>
                <right>
-                  <TableView fx:id="tableViewExercicios" onSort="#carregarTableView" prefHeight="331.0" prefWidth="502.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="tableViewExercicios" prefHeight="331.0" prefWidth="502.0" BorderPane.alignment="CENTER">
                     <columns>
                       <TableColumn fx:id="columnExerciciosNome" prefWidth="100.0" text="Nome" />
                       <TableColumn fx:id="columnExerciciosTipo" prefWidth="100.0" text="Tipo" />
@@ -136,7 +136,7 @@
                   </TableView>
                </right>
                <left>
-                  <TableView fx:id="tableViewTreinos" onSort="#carregarTableView" prefHeight="331.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="tableViewTreinos" prefHeight="331.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                     <columns>
                       <TableColumn fx:id="columnTreinosTipo" prefWidth="100.0" text="Treinos" />
                     </columns>
