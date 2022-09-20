@@ -56,7 +56,7 @@
                         <Font name="System Bold Italic" size="30.0" />
                     </font>
                 </Label>
-                <Label fx:id="wrongLogIn" contentDisplay="CENTER" layoutX="40.0" layoutY="93.0" prefHeight="17.0" prefWidth="274.0" textFill="#e40808">
+                <Label fx:id="wrongLogIn" contentDisplay="CENTER" layoutX="56.0" layoutY="87.0" prefHeight="17.0" prefWidth="285.0" text="         " textAlignment="CENTER" textFill="#e40808">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font></Label>

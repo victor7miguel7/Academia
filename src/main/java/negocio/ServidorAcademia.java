@@ -6,13 +6,7 @@ import java.util.List;
 
 import exception.ElementoJaExisteException;
 import exception.ElementoNaoExisteException;
-import models.Cliente;
-import models.Exercicio;
-import models.Login;
-import models.PlanoDeTreino;
-import models.Treino;
-import models.TreinoExecutado;
-import models.Usuario;
+import models.*;
 
 public class ServidorAcademia {
 
@@ -23,6 +17,7 @@ public class ServidorAcademia {
     private ControladorPlanoTreinos controladorPlanoTreino;
     private ControladorTreinos controladorTreino;
     private ControladorTreinosExecutados controladorTreinoExecutado;
+    private ControladorPagamentos controladorPagamentos;
 
     private ServidorAcademia() {
         this.controladorExercicios = ControladorExercicios.getInstance();
@@ -30,6 +25,7 @@ public class ServidorAcademia {
         this.controladorPlanoTreino = ControladorPlanoTreinos.getInstance();
         this.controladorTreino = ControladorTreinos.getInstance();
         this.controladorTreinoExecutado = ControladorTreinosExecutados.getInstance();
+        this.controladorPagamentos = ControladorPagamentos.getInstance();
     }
 
     public static ServidorAcademia getInstance() {
@@ -117,6 +113,21 @@ public class ServidorAcademia {
 
     public void atualizar(TreinoExecutado newObj) throws ElementoNaoExisteException {
         this.controladorTreinoExecutado.atualizar(newObj);
+    }
+    public void inserir(Pagamento obj) throws ElementoJaExisteException {
+        this.controladorPagamentos.inserir(obj);
+    }
+
+    public List<Pagamento> pagamentolistar() {
+        return this.controladorPagamentos.listar();
+    }
+
+    public void remover(Pagamento obj) throws ElementoNaoExisteException {
+        this.controladorPagamentos.remover(obj);
+    }
+
+    public void atualizar(Pagamento newObj) throws ElementoNaoExisteException {
+        this.controladorPagamentos.atualizar(newObj);
     }
 
     public int consultarFrequenciaCliente(Cliente c, LocalDate inicio, LocalDate fim) {
