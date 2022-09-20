@@ -1,13 +1,15 @@
 package models;
 
+import java.time.LocalDate;
+
 public class Pagamento {
 
     String nome;
     String numero;
-    String dtVencimento;
+    LocalDate dtVencimento;
     String cvv;
 
-    public Pagamento(String nome, String numero, String dtVencimento, String cvv) {
+    public Pagamento(String nome, String numero, LocalDate dtVencimento, String cvv) {
         this.nome = nome;
         this.numero = numero;
         this.dtVencimento = dtVencimento;
@@ -30,11 +32,11 @@ public class Pagamento {
         this.numero = numero;
     }
 
-    public String getDtVencimento() {
+    public LocalDate getDtVencimento() {
         return dtVencimento;
     }
 
-    public void setDtVencimento(String dtVencimento) {
+    public void setDtVencimento(LocalDate dtVencimento) {
         this.dtVencimento = dtVencimento;
     }
 
