@@ -41,16 +41,4 @@ public class ControladorUsuarios {
         this.repositorioDeUsuarios.atualizar(newObj);
     }
 
-    public boolean validarLogin(Login login) {
-        boolean igual = false;
-
-        List<Usuario> usuarios = repositorioDeUsuarios.listar();
-
-        for (int i = 0; i < usuarios.size(); i++) {
-            if (usuarios.get(i).getLogin().compare(login)) {
-                igual = true;
-            }
-        }
-        return igual;
-    }
 }

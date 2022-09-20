@@ -6,23 +6,22 @@ public abstract class Usuario {
 
     private String id;
     private String nome;
-    private Login login;
+
+    private String email;
+    private String senha;
     private LocalDate dtNascimento;
 
-    public Usuario(String id, String nome, Login login, LocalDate dtNascimento) {
+    public Usuario(String id, String nome, String email, String senha, LocalDate dtNascimento) {
         this.id = id;
         this.nome = nome;
-        this.login = login;
+        this.email = email;
+        this.senha = senha;
         this.dtNascimento = dtNascimento;
     }
 
-    public Login getLogin() {
-        return login;
-    }
+    public String getEmail() { return email; }
 
-    public void setLogin(Login login) {
-        this.login = login;
-    }
+    public String getSenha() { return senha; }
 
     public String getNome() {
         return nome;
