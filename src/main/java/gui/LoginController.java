@@ -1,5 +1,8 @@
 package gui;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,20 +10,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.stage.Stage;
 import models.Usuario;
 import negocio.ServidorAcademia;
 
 import java.io.IOException;
 import java.util.List;
 
-public class TelaLogin {
+public class LoginController {
 
-    public TelaLogin() {
+    public LoginController() {
 
     }
 
     @FXML
-    private Button button;
+    private Button cadastro;
     @FXML
     private AnchorPane paneAcademia;
     @FXML
@@ -36,6 +40,18 @@ public class TelaLogin {
     }
 
 
+    public void telaCadastro(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
+
+        stage = (Stage) cadastro.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("cadastro.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
     private void checkLogin() throws IOException {
         Application m = new Application();
@@ -46,7 +62,6 @@ public class TelaLogin {
 
         for(int i = 0; i < usuarios.size(); i++){
 
-//            System.out.println(usuarios.get(i).getLogin().getEmail());
             if(usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)){
                 m.changeScene("cliente.fxml");
             }
