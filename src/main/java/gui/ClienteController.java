@@ -60,12 +60,20 @@ public class ClienteController implements Initializable {
     private TableColumn<Exercicio, Integer> columnExerciciosSeries;
     @FXML
     private TableColumn<Exercicio, Integer> columnExerciciosRepeticoes;
+    @FXML
+    private TableView<Pagamento> tableViewPagamento;
+    @FXML
+    private TableColumn<Pagamento, Double> columnValor;
+    @FXML
+    private TableColumn<Pagamento, LocalDate> columnDtPagamento;
 
     private List<Exercicio> listExercicios = new ArrayList();
     private List<Treino> listTreinos = new ArrayList();
+    private List<Pagamento> listPagamentos = new ArrayList();
 
     private ObservableList<Exercicio> observableListExercicios;
     private ObservableList<Treino> observableListTreinos;
+    private ObservableList<Pagamento> observableListPagamentos;
     Login login = new Login("maria", "123");
     Usuario cliente = new Cliente("32", "Maria Beatriz", "F", "maria@gmail.com", "m12345", LocalDate.of(2000, 2,14),57,1.57);
 
@@ -81,6 +89,7 @@ public class ClienteController implements Initializable {
 
         carregarTableView();
         carregarTableView();
+        //listarPagamento();
 
     }
     public void carregarTableView() {
@@ -133,6 +142,15 @@ public class ClienteController implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+    }
+
+    public void listarPagamento(){
+        columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
+
+        listPagamentos = ServidorAcademia.getInstance().pagamentolistar();
+        observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
+        tableViewPagamento.setItems(observableListPagamentos);
     }
 
 }

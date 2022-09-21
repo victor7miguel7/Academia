@@ -1,16 +1,24 @@
 package gui;
 
 import exception.ElementoJaExisteException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import models.Pagamento;
 import models.Usuario;
 import negocio.ServidorAcademia;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
@@ -30,6 +38,8 @@ public class PagamentoController implements Initializable {
     private Spinner<Integer> ano;
     @FXML
     private Button btnPagar;
+    @FXML
+    private Button voltar;
     private int valorMes;
     private int valorAno;
 
@@ -53,5 +63,16 @@ public class PagamentoController implements Initializable {
 
         Pagamento pagamento = new Pagamento(nome, numero, valorMes, valorAno, cvv);
         ServidorAcademia.getInstance().inserir(pagamento);
+    }
+
+    public void onVoltar(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
+
+        stage = (Stage) voltar.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("cliente.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

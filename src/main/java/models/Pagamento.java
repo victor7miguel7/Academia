@@ -8,9 +8,11 @@ public class Pagamento implements Serializable {
     private static final long serialVersionUID = 4864179243205862834L;
     String nome;
     String numero;
+    Double valor;
     int mes;
     int ano;
     String cvv;
+    LocalDate dtPagamento;
 
     public Pagamento(String nome, String numero, int mes, int ano, String cvv) {
         this.nome = nome;
@@ -18,6 +20,8 @@ public class Pagamento implements Serializable {
         this.mes = mes;
         this.ano = ano;
         this.cvv = cvv;
+        this.valor = 120.0;
+        this.dtPagamento = LocalDate.now();
     }
 
     public String getNome() {

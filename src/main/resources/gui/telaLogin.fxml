@@ -29,7 +29,7 @@
             <children>
                 <ImageView fitHeight="408.0" fitWidth="246.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@backgroudAcademia.jpg" />
+                        <Image url="@img/backgroudAcademia.jpg" />
                     </image>
                 </ImageView>
             </children>
