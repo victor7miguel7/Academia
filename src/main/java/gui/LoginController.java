@@ -22,6 +22,8 @@ import java.util.List;
 
 public class LoginController {
 
+    PersonalController enviaTexto;
+
     public LoginController() {
 
     }
@@ -77,20 +79,10 @@ public class LoginController {
             }
             else if(usuarios.get(i) instanceof PersonalTrainer) {
                 if (usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)) {
-                    m.changeScene("personal.fxml");
+                        m.changeScene("personal.fxml");
                 }
             }
         }
-
-//        if(username.getText().toString().equals("maria") && password.getText().toString().equals("123")) {
-//
-//            m.changeScene("cliente.fxml");
-//        }
-//        Login login = new Login(username.getText().toString(), password.getText().toString());
-//        if(ServidorAcademia.getInstance().validarLogin(login)) {
-//        	wrongLogIn.setText("Login realizado");
-//            m.changeScene("cliente.fxml");
-//        }
 
         if(username.getText().isEmpty() && password.getText().isEmpty()) {
             wrongLogIn.setText("Por favor, preencha os espaços em branco.");
@@ -100,4 +92,5 @@ public class LoginController {
             wrongLogIn.setText("Login ou senha incorretos!");
         }
     }
+
 }

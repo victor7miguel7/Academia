@@ -24,7 +24,7 @@
                <left>
                     <AnchorPane prefHeight="375.0" prefWidth="294.0" BorderPane.alignment="CENTER">
                         <children>
-                            <Label fx:id="lblNome" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="33.0" prefWidth="182.0" textAlignment="JUSTIFY" textFill="#f2c70a">
+                            <Label fx:id="nomeTitulo" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="33.0" prefWidth="182.0" textAlignment="JUSTIFY" textFill="#f2c70a">
                                 <font>
                                     <Font name="System Bold" size="28.0" />
                                 </font>
@@ -46,7 +46,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="20.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1">
+                              <Label fx:id="id" prefHeight="20.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -56,7 +56,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="17.0" prefWidth="90.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="cref" prefHeight="17.0" prefWidth="90.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -66,7 +66,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="17.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Label fx:id="nascimento" prefHeight="17.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
