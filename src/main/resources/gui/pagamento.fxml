@@ -19,6 +19,12 @@
                   <Font name="Arial Rounded MT Bold" size="30.0" />
                </font>
             </Label>
+            <ImageView fitHeight="26.0" fitWidth="37.0" layoutX="21.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/voltar.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="voltar" layoutX="10.0" layoutY="13.0" minWidth="45.0" mnemonicParsing="false" onAction="#onVoltar" opacity="0.0" prefHeight="35.0" prefWidth="45.0" />
          </children>
       </AnchorPane>
    </top>
@@ -49,7 +55,7 @@
                </image>
             </ImageView>
             <Button fx:id="btnPagar" layoutX="393.0" layoutY="276.0" mnemonicParsing="false" onAction="#onRealizarPagamento" style="-fx-background-color: #f2c70a;" text="Realizar pagamento" textFill="black" />
-            <Button fx:id="voltar" layoutX="79.0" layoutY="276.0" mnemonicParsing="false" onAction="#onVoltar" style="-fx-background-color: #f2c70a;" text="Voltar" />
+            <Button layoutX="79.0" layoutY="276.0" mnemonicParsing="false" onAction="#onVoltar" style="-fx-background-color: #f2c70a;" text="Voltar" />
          </children>
       </AnchorPane>
    </center>
