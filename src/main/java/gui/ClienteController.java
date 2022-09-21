@@ -127,7 +127,7 @@ public class ClienteController implements Initializable {
         Parent root;
 
         stage = (Stage) logout.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
+        root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

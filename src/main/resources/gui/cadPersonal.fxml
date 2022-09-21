@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneCadastro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="549.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadPersonalController">
+<AnchorPane fx:id="paneCadastro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="549.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadPersonalController">
     <children>
         <AnchorPane layoutX="-6.0" prefHeight="68.0" prefWidth="558.0" style="-fx-background-color: #f2c70a;">
             <children>
                 <Label layoutX="14.0" layoutY="17.0" text="Cadastro de Personal">
                     <font>
-                        <Font size="24.0" />
+                        <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
             </children>
@@ -51,15 +51,15 @@
         <PasswordField fx:id="confirmacaoSenha" layoutX="317.0" layoutY="230.0" prefHeight="25.0" prefWidth="174.0" promptText="Ex: xxxxxxxx" />
         <Button fx:id="cadastro" layoutX="147.0" layoutY="348.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: #f2c70a;" text="Cadastrar-se">
             <font>
-                <Font name="System Bold" size="15.0" />
+                <Font size="15.0" />
             </font>
         </Button>
         <Button fx:id="voltar" layoutX="147.0" layoutY="407.0" mnemonicParsing="false" onAction="#voltarAdm" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: #f2c70a;" text="Voltar">
             <font>
-                <Font name="System Bold" size="15.0" />
+                <Font size="15.0" />
             </font>
         </Button>
-        <Label fx:id="senhasDif" alignment="CENTER" layoutX="89.0" layoutY="310.0" prefHeight="17.0" prefWidth="374.0" textFill="RED">
+        <Label fx:id="senhasDif" alignment="CENTER" layoutX="89.0" layoutY="279.0" prefHeight="17.0" prefWidth="374.0" textFill="RED">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>

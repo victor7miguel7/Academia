@@ -45,7 +45,7 @@ public class AdmController implements Initializable {
         Parent root;
 
         stage = (Stage) voltar.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("telaLogin.fxml"));
+        root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
