@@ -11,6 +11,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import models.Administrador;
+import models.Cliente;
+import models.PersonalTrainer;
 import models.Usuario;
 import negocio.ServidorAcademia;
 
@@ -62,8 +65,20 @@ public class LoginController {
 
         for(int i = 0; i < usuarios.size(); i++){
 
-            if(usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)){
-                m.changeScene("cliente.fxml");
+            if(usuarios.get(i) instanceof Cliente) {
+                if (usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)) {
+                    m.changeScene("cliente.fxml");
+                }
+            }
+            else if(usuarios.get(i) instanceof Administrador) {
+                if (usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)) {
+                    m.changeScene("adm.fxml");
+                }
+            }
+            else if(usuarios.get(i) instanceof PersonalTrainer) {
+                if (usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)) {
+                    m.changeScene("personal.fxml");
+                }
             }
         }
 
