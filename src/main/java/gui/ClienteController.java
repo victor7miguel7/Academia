@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -29,6 +30,8 @@ public class ClienteController implements Initializable {
 
     @FXML
     private Button logout;
+    @FXML
+    private Button btnPagar;
     @FXML
     private Label lblID;
     @FXML
@@ -74,7 +77,7 @@ public class ClienteController implements Initializable {
         lblPeso.setText(String.valueOf((((Cliente)cliente).getPeso())));
         lblAltura.setText(String.valueOf((((Cliente)cliente).getAltura())));
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
-        lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento()));
+        lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
 
         carregarTableView();
         carregarTableView();
@@ -119,6 +122,17 @@ public class ClienteController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML
+    public void onbtnRealizarPagamento(ActionEvent event) throws IOException{
+            Stage stage;
+            Parent root;
+
+            stage = (Stage) btnPagar.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("pagamento.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
     }
 
 }

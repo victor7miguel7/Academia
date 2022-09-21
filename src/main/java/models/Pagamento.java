@@ -1,18 +1,22 @@
 package models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Pagamento {
+public class Pagamento implements Serializable {
 
+    private static final long serialVersionUID = 4864179243205862834L;
     String nome;
     String numero;
-    LocalDate dtVencimento;
+    int mes;
+    int ano;
     String cvv;
 
-    public Pagamento(String nome, String numero, LocalDate dtVencimento, String cvv) {
+    public Pagamento(String nome, String numero, int mes, int ano, String cvv) {
         this.nome = nome;
         this.numero = numero;
-        this.dtVencimento = dtVencimento;
+        this.mes = mes;
+        this.ano = ano;
         this.cvv = cvv;
     }
 
@@ -32,12 +36,20 @@ public class Pagamento {
         this.numero = numero;
     }
 
-    public LocalDate getDtVencimento() {
-        return dtVencimento;
+    public int getMes() {
+        return mes;
     }
 
-    public void setDtVencimento(LocalDate dtVencimento) {
-        this.dtVencimento = dtVencimento;
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
     public String getCvv() {
@@ -53,7 +65,7 @@ public class Pagamento {
         return "Pagamento" +
                 "nome='" + nome + '\'' +
                 ", numero='" + numero + '\'' +
-                ", dtVencimento='" + dtVencimento + '\'' +
+                ", data de Vencimento='" + mes + '/' + ano +
                 ", cvv='" + cvv;
     }
 }
