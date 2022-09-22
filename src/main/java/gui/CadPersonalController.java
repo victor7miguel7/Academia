@@ -1,6 +1,9 @@
 package gui;
 
+import dados.IRepositorioGenerico;
+import dados.RepositorioGenerico;
 import exception.ElementoJaExisteException;
+import javafx.css.Size;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +17,7 @@ import javafx.stage.Stage;
 import models.PersonalTrainer;
 import models.Usuario;
 import negocio.ServidorAcademia;
+import negocio.ControladorUsuarios;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -78,11 +82,14 @@ public class CadPersonalController {
 
 
        if(senha.equals(confirmarSenha)) {
+
            Usuario personal = new PersonalTrainer(iD, cref, nome, email, senha,dataNascimento);
 
            ServidorAcademia servidor = ServidorAcademia.getInstance();
 
            servidor.inserir(personal);
+
+
        }
        else{
            lblSenhasDiferentes.setText("As senhas digitadas são diferentes!");
