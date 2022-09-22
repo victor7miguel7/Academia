@@ -61,7 +61,7 @@ public class ClienteController {
 
     private List<Exercicio> listExercicios = new ArrayList();
     private List<Treino> listTreinos = new ArrayList();
-    //private List<Pagamento> listPagamentos = servidor.pagamentolistar();
+    private List<Pagamento> listPagamentos = servidor.pagamentolistar();
     private ObservableList<Exercicio> observableListExercicios;
     private ObservableList<Treino> observableListTreinos;
 
