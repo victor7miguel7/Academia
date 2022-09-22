@@ -17,121 +17,123 @@
 <?import javafx.scene.text.Font?>
 
 <TabPane prefHeight="390.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PersonalController">
-   <tabs>
-      <Tab closable="false" text="Perfil">
-         <content>
-            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #323232;">
-               <left>
-                    <AnchorPane prefHeight="375.0" prefWidth="294.0" BorderPane.alignment="CENTER">
-                        <children>
-                            <Label fx:id="nomeTitulo" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="33.0" prefWidth="182.0" textAlignment="JUSTIFY" textFill="#f2c70a">
-                                <font>
-                                    <Font name="System Bold" size="28.0" />
-                                </font>
-                            </Label>
-                        <Button fx:id="logout" alignment="CENTER" layoutX="43.0" layoutY="302.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #f2c70a;" text="Sair" />
-                        <GridPane layoutX="47.0" layoutY="123.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="ID:" textFill="#f2c70a">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="id" prefHeight="20.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="CREF:" textFill="#f2c70a" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="cref" prefHeight="17.0" prefWidth="90.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label prefHeight="17.0" prefWidth="119.0" text="Nascimento:" textFill="#f2c70a" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="nascimento" prefHeight="17.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </GridPane>
-                        </children>
-                    </AnchorPane>
-               </left>
-               <right>
-                  <AnchorPane prefHeight="375.0" prefWidth="300.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <ImageView fitHeight="363.0" fitWidth="304.0" layoutX="2.0" layoutY="-1.0">
-                           <image>
-                              <Image url="@img/personal.jpg" />
-                           </image>
-                        </ImageView>
-                     </children></AnchorPane>
-               </right>
-            </BorderPane>
-         </content>
-      </Tab>
-      <Tab closable="false" text="Plano de Treino">
-        <content>
-            <BorderPane prefHeight="361.0" prefWidth="433.0">
-               <top>
-                  <Label prefHeight="30.0" prefWidth="175.0" text="Treinos e Exercícios" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-               </top>
-               <right>
-                  <TableView fx:id="tableViewExercicios" prefHeight="331.0" prefWidth="502.0" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TableColumn fx:id="columnExerciciosNome" prefWidth="100.0" text="Nome" />
-                      <TableColumn fx:id="columnExerciciosTipo" prefWidth="100.0" text="Tipo" />
-                        <TableColumn fx:id="columnExerciciosIntervalo" prefWidth="100.0" text="Intervalo" />
-                        <TableColumn fx:id="columnExerciciosSeries" prefWidth="100.0" text="Nº de Séries" />
-                        <TableColumn fx:id="columnExerciciosRepeticoes" prefWidth="100.0" text="Repetições" />
-                    </columns>
-                  </TableView>
-               </right>
-               <left>
-                  <TableView fx:id="tableViewTreinos" prefHeight="331.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TableColumn fx:id="columnTreinosTipo" prefWidth="100.0" text="Treinos" />
-                    </columns>
-                  </TableView>
-               </left>
-               <bottom>
-                  <Pane prefHeight="47.0" prefWidth="602.0" BorderPane.alignment="CENTER" />
-               </bottom>
-            </BorderPane>
-        </content>
-      </Tab>
-      <Tab text="Treinos">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="Exercícios">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-   </tabs>
+    <tabs>
+        <Tab closable="false" text="Perfil">
+            <content>
+                <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #323232;">
+                    <left>
+                        <AnchorPane prefHeight="375.0" prefWidth="294.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label fx:id="lblNome" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="33.0" prefWidth="182.0" textAlignment="JUSTIFY" textFill="#f2c70a">
+                                    <font>
+                                        <Font name="System Bold" size="28.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="logout" alignment="CENTER" layoutX="43.0" layoutY="302.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #f2c70a;" text="Sair" />
+                                <GridPane layoutX="47.0" layoutY="123.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="ID:" textFill="#f2c70a">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="20.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="CREF:" textFill="#f2c70a" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="17.0" prefWidth="90.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="17.0" prefWidth="119.0" text="Nascimento:" textFill="#f2c70a" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label prefHeight="17.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <right>
+                        <AnchorPane prefHeight="375.0" prefWidth="312.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <ImageView fitHeight="374.0" fitWidth="308.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/adm.jpg" />
+                                    </image>
+                                </ImageView>
+                            </children></AnchorPane>
+                    </right>
+                </BorderPane>
+            </content>
+        </Tab>
+        <Tab closable="false" text="Plano de Treino">
+            <content>
+                <BorderPane prefHeight="361.0" prefWidth="433.0">
+                    <top>
+                        <Label prefHeight="30.0" prefWidth="175.0" text="Treinos e Exercícios" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                    </top>
+                    <right>
+                        <TableView fx:id="tableViewExercicios" prefHeight="331.0" prefWidth="502.0" BorderPane.alignment="CENTER">
+                            <columns>
+                                <TableColumn fx:id="columnExerciciosNome" prefWidth="100.0" text="Nome" />
+                                <TableColumn fx:id="columnExerciciosTipo" prefWidth="100.0" text="Tipo" />
+                                <TableColumn fx:id="columnExerciciosIntervalo" prefWidth="100.0" text="Intervalo" />
+                                <TableColumn fx:id="columnExerciciosSeries" prefWidth="100.0" text="Nº de Séries" />
+                                <TableColumn fx:id="columnExerciciosRepeticoes" prefWidth="100.0" text="Repetições" />
+                            </columns>
+                        </TableView>
+                    </right>
+                    <left>
+                        <TableView fx:id="tableViewTreinos" prefHeight="331.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                            <columns>
+                                <TableColumn fx:id="columnTreinosTipo" prefWidth="100.0" text="Treinos" />
+                            </columns>
+                        </TableView>
+                    </left>
+                    <bottom>
+                        <Pane prefHeight="47.0" prefWidth="602.0" BorderPane.alignment="CENTER" />
+                    </bottom>
+                </BorderPane>
+            </content>
+        </Tab>
+        <Tab text="Treinos">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+        </Tab>
+        <Tab text="Exercícios">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+        </Tab>
+    </tabs>
 </TabPane>
+
+

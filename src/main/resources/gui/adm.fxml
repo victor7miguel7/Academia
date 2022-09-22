@@ -60,11 +60,11 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button fx:id="cadPersonal" layoutX="40.0" layoutY="224.0" mnemonicParsing="false" onAction="#cadPersonal" prefHeight="26.0" prefWidth="151.0" text="Cadastrar Personal" />
+      <Button fx:id="butCadPersonal" layoutX="40.0" layoutY="224.0" mnemonicParsing="false" onAction="#cadPersonal" prefHeight="26.0" prefWidth="151.0" text="Cadastrar Personal" />
       <ImageView fitHeight="401.0" fitWidth="365.0" layoutX="251.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@adm.jpg" />
+            <Image url="@img/adm.jpg" />
          </image></ImageView>
-      <Button fx:id="voltar" layoutX="192.0" layoutY="340.0" mnemonicParsing="false" onAction="#voltarLogin" text="Sair" />
+      <Button fx:id="butSair" layoutX="192.0" layoutY="340.0" mnemonicParsing="false" onAction="#voltarLogin" text="Sair" />
    </children>
 </AnchorPane>

@@ -27,9 +27,9 @@ public class AdmController implements Initializable {
     private Label lblNome;
 
     @FXML
-    private Button cadPersonal;
+    private Button butCadPersonal;
     @FXML
-    private Button voltar;
+    private Button butSair;
 
     Usuario adm = new Administrador("13","Lula","lulinha@gmail.com","lulinha123", LocalDate.of(1945,10,07));
 
@@ -44,7 +44,7 @@ public class AdmController implements Initializable {
         Stage stage;
         Parent root;
 
-        stage = (Stage) voltar.getScene().getWindow();
+        stage = (Stage) butSair.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -54,7 +54,7 @@ public class AdmController implements Initializable {
         Stage stage;
         Parent root;
 
-        stage = (Stage) cadPersonal.getScene().getWindow();
+        stage = (Stage) butCadPersonal.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("cadPersonal.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
