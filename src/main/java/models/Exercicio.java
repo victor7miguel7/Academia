@@ -24,6 +24,11 @@ public class Exercicio implements Serializable{
         this.qtdDeRepeticao = qtdDeRepeticao;
     }
 
+    public Exercicio(String nome, String tipo) {
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
     public String getNome() {
         return nome;
     }

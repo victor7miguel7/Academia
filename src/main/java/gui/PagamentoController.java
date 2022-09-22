@@ -26,30 +26,24 @@ import java.util.ResourceBundle;
 
 public class PagamentoController implements Initializable {
 
-    @FXML
-    private TextField txtNumero;
-    @FXML
-    private TextField txtNome;
-    @FXML
-    private TextField txtCVV;
-    @FXML
-    private Spinner<Integer> mes;
-    @FXML
-    private Spinner<Integer> ano;
-    @FXML
-    private Button btnPagar;
-    @FXML
-    private Button voltar;
+    @FXML private TextField txtNumero;
+    @FXML private TextField txtNome;
+    @FXML private TextField txtCVV;
+    @FXML private Spinner<Integer> mes;
+    @FXML private Spinner<Integer> ano;
+    @FXML private Button btnPagar;
+    @FXML private Button voltar;
+    @FXML private Button btnLimpar;
     private int valorMes;
     private int valorAno;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SpinnerValueFactory<Integer> valueFactoryMes = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,31);
-        SpinnerValueFactory<Integer> valueFactoryAno = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,12);
+        SpinnerValueFactory<Integer> valueFactoryMes = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,12);
+        SpinnerValueFactory<Integer> valueFactoryAno = new SpinnerValueFactory.IntegerSpinnerValueFactory(2022,2030);
 
         valueFactoryMes.setValue(1);
-        valueFactoryAno.setValue(1);
+        valueFactoryAno.setValue(2022);
 
         mes.setValueFactory(valueFactoryMes);
         ano.setValueFactory(valueFactoryAno);
@@ -74,5 +68,22 @@ public class PagamentoController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void onKeyReleased () {
+        boolean cadastrar;
+        boolean limpar;
+
+        cadastrar=(txtNome.getText().isEmpty() |txtNumero.getText().isEmpty() | txtCVV.getText().isEmpty());
+        btnPagar.setDisable(cadastrar);
+        limpar = (txtNome.getText().isEmpty() & txtNumero.getText().isEmpty() & txtCVV.getText().isEmpty());
+        btnLimpar.setDisable(limpar);
+
+    }
+
+    public void onBtnLimpar() {
+        txtNome.setText("");
+        txtNumero.setText("");
+        txtCVV.setText("");
     }
 }

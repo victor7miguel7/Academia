@@ -73,15 +73,16 @@ public class ClienteController implements Initializable {
 
     private ObservableList<Exercicio> observableListExercicios;
     private ObservableList<Treino> observableListTreinos;
-    private ObservableList<Pagamento> observableListPagamentos;
+    private ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList();
+
     Login login = new Login("maria", "123");
     Usuario cliente = new Cliente("32", "Maria Beatriz", "F", "maria@gmail.com", "m12345", LocalDate.of(2000, 2,14),57,1.57);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         lblID.setText(String.valueOf((cliente.getId())));
         lblNome.setText(String.valueOf(cliente.getNome()));
-        lblID.setText(String.valueOf((cliente.getId())));
         lblPeso.setText(String.valueOf((((Cliente)cliente).getPeso())));
         lblAltura.setText(String.valueOf((((Cliente)cliente).getAltura())));
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
@@ -89,7 +90,7 @@ public class ClienteController implements Initializable {
 
         carregarTableView();
         carregarTableView();
-        //listarPagamento();
+        observableListPagamentos.addAll(ServidorAcademia.getInstance().pagamentolistar());
 
     }
     public void carregarTableView() {
@@ -144,13 +145,13 @@ public class ClienteController implements Initializable {
             stage.show();
     }
 
-    public void listarPagamento(){
-        columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
-
-        listPagamentos = ServidorAcademia.getInstance().pagamentolistar();
-        observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
-        tableViewPagamento.setItems(observableListPagamentos);
-    }
+//    public void listarPagamento(){
+//        columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+//        columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
+//
+//        listPagamentos = ServidorAcademia.getInstance().pagamentolistar();
+//        observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
+//        tableViewPagamento.setItems(observableListPagamentos);
+//    }
 
 }

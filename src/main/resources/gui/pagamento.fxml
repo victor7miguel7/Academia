@@ -32,13 +32,13 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="79.0" layoutY="111.0" text="Número do cartão" />
-            <TextField fx:id="txtNumero" layoutX="79.0" layoutY="129.0" prefHeight="26.0" prefWidth="216.0" />
+            <TextField fx:id="txtNumero" layoutX="79.0" layoutY="129.0" onKeyReleased="#onKeyReleased" prefHeight="26.0" prefWidth="216.0" />
             <Label layoutX="79.0" layoutY="189.0" text="Nome do titular" />
-            <TextField fx:id="txtNome" layoutX="79.0" layoutY="207.0" prefHeight="26.0" prefWidth="216.0" />
+            <TextField fx:id="txtNome" layoutX="79.0" layoutY="207.0" onKeyReleased="#onKeyReleased" prefHeight="26.0" prefWidth="216.0" />
             <Label layoutX="384.0" layoutY="111.0" text="Expira em:" />
             <Spinner fx:id="mes" editable="true" layoutX="384.0" layoutY="130.0" prefHeight="26.0" prefWidth="59.0" />
-            <Spinner fx:id="ano" layoutX="461.0" layoutY="130.0" prefHeight="26.0" prefWidth="59.0" />
-            <TextField fx:id="txtCVV" layoutX="384.0" layoutY="207.0" prefHeight="26.0" prefWidth="62.0" />
+            <Spinner fx:id="ano" layoutX="461.0" layoutY="130.0" prefHeight="26.0" prefWidth="83.0" />
+            <TextField fx:id="txtCVV" layoutX="384.0" layoutY="207.0" onKeyReleased="#onKeyReleased" prefHeight="26.0" prefWidth="62.0" />
             <Label layoutX="384.0" layoutY="189.0" text="Código de segurança" />
             <AnchorPane layoutX="106.0" layoutY="4.0" prefHeight="72.0" prefWidth="388.0">
                <children>
@@ -49,13 +49,13 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <ImageView fitHeight="24.0" fitWidth="52.0" layoutX="459.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="52.0" layoutX="459.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/CVV.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnPagar" layoutX="393.0" layoutY="276.0" mnemonicParsing="false" onAction="#onRealizarPagamento" style="-fx-background-color: #f2c70a;" text="Realizar pagamento" textFill="black" />
-            <Button layoutX="79.0" layoutY="276.0" mnemonicParsing="false" onAction="#onVoltar" style="-fx-background-color: #f2c70a;" text="Voltar" />
+            <Button fx:id="btnPagar" disable="true" layoutX="393.0" layoutY="276.0" mnemonicParsing="false" onAction="#onRealizarPagamento" style="-fx-background-color: #f2c70a;" text="Realizar pagamento" textFill="black" />
+            <Button fx:id="btnLimpar" disable="true" layoutX="79.0" layoutY="276.0" mnemonicParsing="false" onAction="#onBtnLimpar" style="-fx-background-color: #f2c70a;" text="Limpar" />
          </children>
       </AnchorPane>
    </center>
