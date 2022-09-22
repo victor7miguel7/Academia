@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<TabPane prefHeight="390.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PersonalController">
+<TabPane prefHeight="390.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PersonalController">
     <tabs>
         <Tab closable="false" text="Perfil">
             <content>
@@ -130,10 +130,11 @@
         </Tab>
         <Tab text="Exercícios">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnCadExercicio" layoutX="274.0" layoutY="119.0" mnemonicParsing="false" onAction="#onBtnCadExercicio" text="Button" />
+               </children></AnchorPane>
             </content>
         </Tab>
     </tabs>
 </TabPane>
-
-

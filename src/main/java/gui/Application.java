@@ -24,7 +24,7 @@ public class Application extends javafx.application.Application {
     public void start(Stage primaryStage) throws Exception{
         stg = primaryStage;
         primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("cadExercicio.fxml"));
         primaryStage.setTitle("Academia MMRSV");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();

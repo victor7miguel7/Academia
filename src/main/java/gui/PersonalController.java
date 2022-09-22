@@ -32,6 +32,8 @@ public class PersonalController {
     private Label cref;
     @FXML
     private Label nascimento;
+    @FXML
+    private Button btnCadExercicio;
 
     private String emailLogado;
 
@@ -77,6 +79,17 @@ public class PersonalController {
 
         stage = (Stage) logout.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onBtnCadExercicio(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
+
+        stage = (Stage) btnCadExercicio.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("cadExercicio.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
