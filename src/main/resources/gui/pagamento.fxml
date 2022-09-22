@@ -54,8 +54,8 @@
                   <Image url="@img/CVV.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnPagar" disable="true" layoutX="393.0" layoutY="276.0" mnemonicParsing="false" onAction="#onRealizarPagamento" style="-fx-background-color: #f2c70a;" text="Realizar pagamento" textFill="black" />
-            <Button fx:id="btnLimpar" disable="true" layoutX="79.0" layoutY="276.0" mnemonicParsing="false" onAction="#onBtnLimpar" style="-fx-background-color: #f2c70a;" text="Limpar" />
+            <Button fx:id="btnPagar" disable="true" layoutX="393.0" layoutY="276.0" mnemonicParsing="false" onAction="#onRealizarPagamento" onKeyReleased="#onKeyReleased" style="-fx-background-color: #f2c70a;" text="Realizar pagamento" textFill="black" />
+            <Button fx:id="btnLimpar" disable="true" layoutX="79.0" layoutY="276.0" mnemonicParsing="false" onAction="#onBtnLimpar" onKeyReleased="#onKeyReleased" style="-fx-background-color: #f2c70a;" text="Limpar" />
          </children>
       </AnchorPane>
    </center>

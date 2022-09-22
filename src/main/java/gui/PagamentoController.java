@@ -84,11 +84,11 @@ public class PagamentoController implements Initializable {
     }
 
     public void onKeyReleased () {
-        boolean cadastrar;
+        boolean pagar;
         boolean limpar;
 
-        cadastrar=(txtNome.getText().isEmpty() |txtNumero.getText().isEmpty() | txtCVV.getText().isEmpty());
-        btnPagar.setDisable(cadastrar);
+        pagar=(txtNome.getText().isEmpty() |txtNumero.getText().isEmpty() | txtCVV.getText().isEmpty());
+        btnPagar.setDisable(pagar);
         limpar = (txtNome.getText().isEmpty() & txtNumero.getText().isEmpty() & txtCVV.getText().isEmpty());
         btnLimpar.setDisable(limpar);
 
@@ -98,5 +98,7 @@ public class PagamentoController implements Initializable {
         txtNome.setText("");
         txtNumero.setText("");
         txtCVV.setText("");
+        btnLimpar.setDisable(true);
+        btnPagar.setDisable(true);
     }
 }
