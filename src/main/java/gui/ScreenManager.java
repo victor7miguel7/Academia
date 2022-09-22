@@ -2,8 +2,11 @@ package gui;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ScreenManager {
     private static ScreenManager instance;
@@ -44,30 +47,99 @@ public class ScreenManager {
             this.admController = (AdmController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            GridPane addVooPane = fxmlLoader.load(getClass()
-                    .getResource("/br/ufrpe/flight_system/gui/AddVoo.fxml").openStream());
-            this.addVooScene = new Scene(addVooPane);
-            this.addVooScreenController = (AddVooScreenController) fxmlLoader.getController();
+            TabPane cadPane = fxmlLoader.load(getClass()
+                    .getResource("cadCliente.fxml").openStream());
+            this.cadastroScene = new Scene(cadPane);
+            this.cadastroController = (CadastroController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            BorderPane listaPassageirosPane = fxmlLoader.load(getClass()
-                    .getResource("/br/ufrpe/flight_system/gui/ListaPassageiros.fxml").openStream());
-            this.listaPassageirosScene = new Scene(listaPassageirosPane);
-            this.listaPassageirosPorVooScreenController = (ListaPassageirosPorVooScreenController) fxmlLoader.getController();
+            TabPane cadPersonalPane = fxmlLoader.load(getClass()
+                    .getResource("cadPersonal.fxml").openStream());
+            this.cadPersonalScene = new Scene(cadPersonalPane);
+            this.cadPersonalController = (CadPersonalController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            GridPane addPassageirosPane = fxmlLoader.load(getClass()
-                    .getResource("/br/ufrpe/flight_system/gui/AddPassageiro.fxml").openStream());
-            this.addPassageirosScene = new Scene(addPassageirosPane);
-            this.addPassageiroScreenController = (AddPassageiroScreenController) fxmlLoader.getController();
+            TabPane clientePane = fxmlLoader.load(getClass()
+                    .getResource("cliente.fxml").openStream());
+            this.clienteScene = new Scene(clientePane);
+            this.clienteController = (ClienteController) fxmlLoader.getController();
 
             fxmlLoader = new FXMLLoader();
-            BorderPane emitirBilhetePane = fxmlLoader.load(getClass()
-                    .getResource("/br/ufrpe/flight_system/gui/EmitirBilhete.fxml").openStream());
-            this.emitirBilheteScene = new Scene(emitirBilhetePane);
-            this.emitirBilheteScreenController = (EmitirBilheteScreenController) fxmlLoader.getController();
+            TabPane loginPane = fxmlLoader.load(getClass()
+                    .getResource("login.fxml").openStream());
+            this.loginScene = new Scene(loginPane);
+            this.loginController = (LoginController) fxmlLoader.getController();
+
+            fxmlLoader = new FXMLLoader();
+            TabPane pagamanetoPane = fxmlLoader.load(getClass()
+                    .getResource("pagamento.fxml").openStream());
+            this.pagamentoScene = new Scene(pagamanetoPane);
+            this.pagamentoController = (PagamentoController) fxmlLoader.getController();
+
+            fxmlLoader = new FXMLLoader();
+            TabPane personalPane = fxmlLoader.load(getClass()
+                    .getResource("personal.fxml").openStream());
+            this.personalScene = new Scene(personalPane);
+            this.personalController = (PersonalController) fxmlLoader.getController();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Scene getAdmScene() {
+        return admScene;
+    }
+
+    public AdmController getAdmController() {
+        return admController;
+    }
+
+    public Scene getCadastroScene() {
+        return cadastroScene;
+    }
+
+    public CadastroController getCadastroController() {
+        return cadastroController;
+    }
+
+    public Scene getCadPersonalScene() {
+        return cadPersonalScene;
+    }
+
+    public CadPersonalController getCadPersonalController() {
+        return cadPersonalController;
+    }
+
+    public Scene getClienteScene() {
+        return clienteScene;
+    }
+
+    public ClienteController getClienteController() {
+        return clienteController;
+    }
+
+    public Scene getLoginScene() {
+        return loginScene;
+    }
+
+    public LoginController getLoginController() {
+        return loginController;
+    }
+
+    public Scene getPagamentoScene() {
+        return pagamentoScene;
+    }
+
+    public PagamentoController getPagamentoController() {
+        return pagamentoController;
+    }
+
+    public Scene getPersonalScene() {
+        return personalScene;
+    }
+
+    public PersonalController getPersonalController() {
+        return personalController;
     }
 }
