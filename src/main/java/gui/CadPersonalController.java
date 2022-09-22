@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.PersonalTrainer;
 import models.Usuario;
@@ -47,8 +44,13 @@ public class CadPersonalController {
     private Button btnLimpar;
     @FXML
     private TextField txtConfirmarSenha;
+//    @FXML
+//    private Label lblPersonalExiste;
 
+    @FXML
+    private Label lblPersonalCadastrado;
 
+    ServidorAcademia servidor = ServidorAcademia.getInstance();
 
     public void voltarAdm(ActionEvent event) throws IOException {
         Stage stage;
@@ -85,9 +87,22 @@ public class CadPersonalController {
 
            Usuario personal = new PersonalTrainer(iD, cref, nome, email, senha,dataNascimento);
 
-           ServidorAcademia servidor = ServidorAcademia.getInstance();
+            try {
+                lblPersonalCadastrado.setText("Personal cadastrado!");
+                servidor.inserir(personal);
+                onBtnLimpar();
+            }catch (ElementoJaExisteException e){
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("Erro no pagamento");
+                alerta.setHeaderText("Pagamento já realizado");
+                alerta.setContentText("Esse pagamento já foi realizado");
+                alerta.showAndWait();
+             //   lblPersonalExiste.setText("Personal já existe");
+                throw new RuntimeException(e);
 
-           servidor.inserir(personal);
+
+
+            }
 
 
        }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneCadastro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="549.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadPersonalController">
+<AnchorPane fx:id="lblPersonalExiste" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="549.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadPersonalController">
     <children>
         <AnchorPane layoutX="-6.0" prefHeight="68.0" prefWidth="558.0" style="-fx-background-color: #f2c70a;">
             <children>
@@ -72,5 +72,7 @@
       <TextField fx:id="txtID" layoutX="60.0" layoutY="243.0" prefHeight="25.0" prefWidth="174.0" promptText="EX:1234" />
       <Label layoutX="59.0" layoutY="221.0" text="ID" textFill="WHITE" />
       <Label layoutX="320.0" layoutY="80.0" textFill="#e40808" />
+      <Label fx:id="lblPersonalExiste" layoutX="262.0" layoutY="416.0" textFill="RED" />
+      <Label fx:id="lblPersonalCadastrado" layoutX="261.0" layoutY="336.0" textFill="#09ff00" />
     </children>
 </AnchorPane>
