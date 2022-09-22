@@ -163,10 +163,10 @@
                   </Label>
                </top>
                <right>
-                  <TableView fx:id="tableViewExercicios1" prefHeight="284.0" prefWidth="604.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="tableViewPagamento" prefHeight="284.0" prefWidth="604.0" BorderPane.alignment="CENTER">
                      <columns>
-                        <TableColumn fx:id="columnExerciciosNome1" prefWidth="100.0" text="Data de Pagamento" />
-                        <TableColumn fx:id="columnExerciciosTipo1" prefWidth="100.0" text="Valor" />
+                        <TableColumn fx:id="columnDtPagamento" prefWidth="100.0" text="Data de Pagamento" />
+                        <TableColumn fx:id="columnValor" prefWidth="100.0" text="Valor" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -177,6 +177,7 @@
                   <Pane prefHeight="47.0" prefWidth="602.0" BorderPane.alignment="CENTER">
                      <children>
                         <Button fx:id="btnPagar" layoutX="456.0" layoutY="11.0" mnemonicParsing="false" onAction="#onbtnRealizarPagamento" prefHeight="25.0" prefWidth="131.0" text="Realizar Pagamento" />
+                        <Button fx:id="btnAtualizar" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#onBtnAtualizar" text="Atualizar" />
                      </children>
                   </Pane>
                </bottom>

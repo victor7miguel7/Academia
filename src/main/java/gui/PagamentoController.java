@@ -5,12 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -36,7 +34,7 @@ public class PagamentoController implements Initializable {
     @FXML private Button btnLimpar;
     private int valorMes;
     private int valorAno;
-
+    ServidorAcademia servidor = ServidorAcademia.getInstance();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         SpinnerValueFactory<Integer> valueFactoryMes = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,12);
@@ -48,15 +46,30 @@ public class PagamentoController implements Initializable {
         mes.setValueFactory(valueFactoryMes);
         ano.setValueFactory(valueFactoryAno);
     }
-    public void onRealizarPagamento() throws ElementoJaExisteException {
+    public void onRealizarPagamento(ActionEvent event) {
         String numero = txtNumero.getText().toString();
         String nome = txtNome.getText().toString();
         valorMes = mes.getValue();
         valorAno = ano.getValue();
         String cvv = txtCVV.getText().toString();
 
-        Pagamento pagamento = new Pagamento(nome, numero, valorMes, valorAno, cvv);
-        ServidorAcademia.getInstance().inserir(pagamento);
+        Pagamento pagamento = new Pagamento(nome, numero, cvv);
+
+        try {
+            servidor.inserir(pagamento);
+        } catch (ElementoJaExisteException e) {
+            System.out.println("Pagamento já realizado");
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Erro no pagamento");
+            alerta.setHeaderText("Pagamento já realizado");
+            alerta.setContentText("Esse pagamento já foi realizado");
+            alerta.showAndWait();
+            throw new RuntimeException(e);
+        }
+//        ClienteController.getInstance().onBtnAtualizar();
+//        this.onBtnLimpar();
+//        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+
     }
 
     public void onVoltar(ActionEvent event) throws IOException {

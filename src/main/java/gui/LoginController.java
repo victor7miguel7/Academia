@@ -27,7 +27,6 @@ public class LoginController {
     public LoginController() {
 
     }
-
     @FXML
     private Button cadastro;
     @FXML
@@ -44,19 +43,17 @@ public class LoginController {
 
     }
 
-
     public void telaCadastro(ActionEvent event) throws IOException {
         Stage stage;
         Parent root;
 
         stage = (Stage) cadastro.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("cadastro.fxml"));
+        root = FXMLLoader.load(getClass().getResource("cadCliente.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
     }
-
 
     private void checkLogin() throws IOException {
         Application m = new Application();
