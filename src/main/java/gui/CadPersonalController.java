@@ -22,6 +22,8 @@ import java.time.format.DateTimeFormatter;
 
 public class CadPersonalController {
     @FXML
+    private Label lblSenhasDiferentes;
+    @FXML
     private TextField txtNome;
     @FXML
     private TextField txtID;
@@ -64,7 +66,7 @@ public class CadPersonalController {
         String iD;
         String confirmarSenha;
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         nome = txtNome.getText();
         email =  txtEmail.getText();
@@ -74,12 +76,19 @@ public class CadPersonalController {
         dataNascimento =   LocalDate.parse(txtDataNascimento.getText(),formatter);
         iD = txtID.getText();
 
-       Usuario personal = new PersonalTrainer(iD,cref,nome,email,senha,dataNascimento);
 
-        ServidorAcademia servidor = ServidorAcademia.getInstance();
+       if(senha.equals(confirmarSenha)) {
+           Usuario personal = new PersonalTrainer(iD, cref, nome, email, senha,dataNascimento);
 
-        servidor.inserir(personal);
+           ServidorAcademia servidor = ServidorAcademia.getInstance();
 
+           servidor.inserir(personal);
+       }
+       else{
+           lblSenhasDiferentes.setText("As senhas digitadas são diferentes!");
+           txtSenha.setText("");
+           txtConfirmarSenha.setText("");
+       }
 
     }
     public void onBtnLimpar() {
@@ -89,19 +98,24 @@ public class CadPersonalController {
         txtID.setText("");
         txtSenha.setText("");
         txtConfirmarSenha.setText("");
+        txtDataNascimento.setText("");
         btnCadastro.setDisable(true);
         btnLimpar.setDisable(true);
 
 
-    }
-    public void onKeyReleased () {
-        boolean cadastrar;
-        boolean limpar;
 
-        cadastrar=(txtNome.getText().isEmpty() | txtID.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() );
+    }
+
+    public void onKeyReleased () {
+       boolean cadastrar;
+       boolean limpar;
+
+        cadastrar =(txtNome.getText().isEmpty() | txtID.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty() );
         btnCadastro.setDisable(cadastrar);
-        limpar = (txtNome.getText().isEmpty() & txtSenha.getText().isEmpty() & txtEmail.getText().isEmpty() & txtID.getId().isEmpty() & txtCref.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty());
+
+        limpar =(txtNome.getText().isEmpty() & txtSenha.getText().isEmpty() & txtEmail.getText().isEmpty() & txtID.getText().isEmpty() & txtCref.getText().isEmpty() & txtConfirmarSenha.getText().isEmpty() & txtDataNascimento.getText().isEmpty());
         btnLimpar.setDisable(limpar);
+
 
     }
 
