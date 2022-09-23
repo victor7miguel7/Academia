@@ -93,9 +93,9 @@ public class CadPersonalController {
                 onBtnLimpar();
             }catch (ElementoJaExisteException e){
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setTitle("Erro no pagamento");
-                alerta.setHeaderText("Pagamento já realizado");
-                alerta.setContentText("Esse pagamento já foi realizado");
+                alerta.setTitle("Erro no cadastro");
+                alerta.setHeaderText("cadastro já realizado anteriormente");
+                alerta.setContentText("Esse cadastro já foi realizado anteriormente");
                 alerta.showAndWait();
              //   lblPersonalExiste.setText("Personal já existe");
                 throw new RuntimeException(e);
@@ -105,6 +105,9 @@ public class CadPersonalController {
             }
 
 
+       }
+       else if(txtNome.getText().isEmpty() | txtID.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty()){
+           lblSenhasDiferentes.setText("Por favor, preencha os espaços em branco!");
        }
        else{
            lblSenhasDiferentes.setText("As senhas digitadas são diferentes!");

@@ -27,7 +27,9 @@ public class CadastroController {
     @FXML
     private Button cadastro;
     @FXML
-    private Button voltar;
+    private Button btnLimpar;
+    @FXML
+    private Button voltarI;
     @FXML
     private AnchorPane paneCadastro;
     @FXML
@@ -61,7 +63,7 @@ public class CadastroController {
         Stage stage;
         Parent root;
 
-        stage = (Stage) voltar.getScene().getWindow();
+        stage = (Stage) voltarI.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -110,12 +112,28 @@ public class CadastroController {
 
     }
 
+    public void onBtnLimpar() {
+        txtNome.setText("");
+        txtemail.setText("");
+        txtSenha.setText("");
+        txtAltura.setText("");
+        txtPeso.setText("");
+        txtConfirmacaoSenha.setText("");
+        txtDataNascimento.setText("");
+        cadastro.setDisable(true);
+        btnLimpar.setDisable(true);
+
+    }
+
     public void onKeyReleased () {
         boolean cadastrar;
         boolean limpar;
 
         cadastrar =(txtNome.getText().isEmpty() | txtSenha.getText().isEmpty() | txtemail.getText().isEmpty() | txtConfirmacaoSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty() );
         cadastro.setDisable(cadastrar);
+
+        limpar =(txtNome.getText().isEmpty() & txtSenha.getText().isEmpty() & txtemail.getText().isEmpty() & txtAltura.getText().isEmpty() & txtPeso.getText().isEmpty() & txtConfirmacaoSenha.getText().isEmpty() & txtDataNascimento.getText().isEmpty());
+        btnLimpar.setDisable(limpar);
 
     }
 }

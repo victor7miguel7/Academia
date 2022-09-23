@@ -67,7 +67,7 @@ public class ClienteController {
 
 
     Login login = new Login("maria", "123");
-    Usuario cliente = new Cliente("32", "Maria Beatriz", "F", "maria@gmail.com", "m12345", LocalDate.of(2000, 2,14),57,1.57);
+    Usuario cliente = new Cliente("32", "Maria Beatriz", "F", "maria@gmail.com", "m12345", LocalDate.of(2000, 2,14),"57","1.57");
 
 
     public void initialize() {
