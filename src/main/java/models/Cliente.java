@@ -9,24 +9,24 @@ public class  Cliente extends Usuario implements Serializable{
     private static final long serialVersionUID = 4864028013205862834L;
 
     private String genero;
-    private double peso;
-    private double altura;
+    private String peso;
+    private String altura;
     private double imc;
 
     public Cliente(String id, String nome, String genero, String email, String senha, LocalDate dtNascimento,
-                   double peso, double altura) {
+                   String peso, String altura) {
         super(id, nome, email, senha, dtNascimento);
         this.genero = genero;
         this.peso = peso;
         this.altura = altura;
-        this.imc = calcularImc();
+        //this.imc = calcularImc();
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
@@ -42,7 +42,7 @@ public class  Cliente extends Usuario implements Serializable{
         return genero;
     }
 
-    public double getAltura() {
+    public String getAltura() {
         return altura;
     }
 
@@ -52,11 +52,11 @@ public class  Cliente extends Usuario implements Serializable{
         return idade;
     }
 
-    public double calcularImc() {
-        double imc = peso / (altura * altura);
-
-        return imc;
-    }
+//    public double calcularImc() {
+//        double imc = peso / (altura * altura);
+//
+//        return imc;
+//    }
 
     @Override
     public String toString() {

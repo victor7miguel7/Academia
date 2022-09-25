@@ -39,12 +39,12 @@ public class Application extends javafx.application.Application {
 
 
         Usuario personal1 = new PersonalTrainer("23", "João", "34", "joao@gmail.com", "12345", LocalDate.of(2000, 5, 20));
-        Usuario cliente1 = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), 80,
-                1.63);
-        Usuario cliente2 = new Cliente("55", "Stella", "F", "stella@gmail.com", "m15423", LocalDate.of(1995, 5, 19), 60,
-                1.65);
-        Usuario cliente3 = new Cliente("56", "Rafael", "M", "rafael@gmail.com", "m54321", LocalDate.of(2003, 8, 19), 75,
-                1.74);
+        Usuario cliente1 = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), "80",
+                "1.63");
+        Usuario cliente2 = new Cliente("55", "Stella", "F", "stella@gmail.com", "m15423", LocalDate.of(1995, 5, 19), "60",
+                "1.65");
+        Usuario cliente3 = new Cliente("56", "Rafael", "M", "rafael@gmail.com", "m54321", LocalDate.of(2003, 8, 19), "75",
+                "1.74");
 
         Usuario adm1 = new Administrador("01", "Marina", "marina@gmail.com", "2002", LocalDate.of(2003, 3, 20));
 
