@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="448.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadExercicioController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="400.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadExercicioController">
     <top>
-        <AnchorPane prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #f2c70a;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="60.0" prefWidth="400.0" style="-fx-background-color: #f2c70a;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="106.0" layoutY="12.0" text="Cadastro de Exercício">
+                <Label layoutX="65.0" layoutY="15.0" text="Cadastro de Exercício">
                     <font>
-                        <Font size="25.0" />
+                        <Font name="Arial Rounded MT Bold" size="25.0" />
                     </font>
                 </Label>
             <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="8.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
@@ -31,19 +31,19 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="113.0" layoutY="39.0" text="Nome:" textFill="#eeecec">
+            <Label layoutX="86.0" layoutY="31.0" text="Nome:" textFill="#eeecec">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNome" layoutX="193.0" layoutY="47.0" />
-            <Label layoutX="113.0" layoutY="91.0" text="Tipo:" textFill="WHITE">
+            <TextField fx:id="txtNome" layoutX="166.0" layoutY="39.0" />
+            <Label layoutX="86.0" layoutY="83.0" text="Tipo:" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="tipoBox" layoutX="192.0" layoutY="96.0" prefWidth="150.0" />
-            <Button fx:id="btnCadastrar" layoutX="259.0" layoutY="161.0" mnemonicParsing="false" style="-fx-background-color: #f2c70a;" text="Cadastrar" textFill="#0a0a0a">
+            <ChoiceBox fx:id="tipoBox" layoutX="165.0" layoutY="88.0" prefWidth="150.0" />
+            <Button fx:id="btnCadastrar" layoutX="232.0" layoutY="146.0" mnemonicParsing="false" style="-fx-background-color: #f2c70a;" text="Cadastrar" textFill="#0a0a0a">
                <font>
                   <Font size="15.0" />
                </font>

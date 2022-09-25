@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="60.0" prefWidth="400.0" style="-fx-background-color: #f2c70a;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="76.0" layoutY="15.0" text="Cadastro de Treinos">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/voltar.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="9.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="43.0" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane fx:id="lplAnchor" prefHeight="287.0" prefWidth="400.0" style="-fx-background-color: #141413;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="pnlLabel2" layoutX="80.0" layoutY="25.0" text="Tipo de treino" textAlignment="RIGHT" textFill="#fcfcf5">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="pnlTextField" layoutX="80.0" layoutY="47.0" prefHeight="25.0" prefWidth="240.0" promptText="Ex:  Superior">
+               <tooltip>
+                  <Tooltip fx:id="lplTooltip1" text="Deve-se digitar o treino desejado" />
+               </tooltip>
+            </TextField>
+            <ListView fx:id="pnlListView" layoutX="80.0" layoutY="109.0" prefHeight="104.0" prefWidth="244.0">
+               <tooltip>
+                  <Tooltip fx:id="lplTooltip3" text="Deve-se selecionar o exercício de lista" />
+               </tooltip>
+            </ListView>
+            <Label layoutX="80.0" layoutY="87.0" text="Exercícios" textFill="#e1e0d7">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="pnlbuttom2" layoutX="80.0" layoutY="231.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #f2c70a;" text="Limpar">
+               <tooltip>
+                  <Tooltip fx:id="lplTooltip4" text="Limpar" />
+               </tooltip>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="pnlbuttom21" layoutX="242.0" layoutY="231.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #f2c70a;" text="Cadastrar">
+               <tooltip>
+                  <Tooltip fx:id="lplTooltip41" text="Limpar" />
+               </tooltip>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
