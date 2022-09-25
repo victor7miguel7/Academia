@@ -19,7 +19,6 @@ import negocio.ServidorAcademia;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 
 public class CadastroController {
 
@@ -30,7 +29,7 @@ public class CadastroController {
     @FXML
     private Button btnLimpar;
     @FXML
-    private Button voltar;
+    private Button voltarI;
     @FXML
     private AnchorPane paneCadastro;
     @FXML
@@ -64,7 +63,7 @@ public class CadastroController {
         Stage stage;
         Parent root;
 
-        stage = (Stage) voltar.getScene().getWindow();
+        stage = (Stage) voltarI.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -84,7 +83,6 @@ public class CadastroController {
         String confirmarSenha = txtConfirmacaoSenha.getText();
         String iD;
 
-
         if(senha.equals(confirmarSenha)) {
 
             Usuario cliente = new Cliente("50", nome, genero, email, senha, dataNascimento, peso, altura);
@@ -103,6 +101,7 @@ public class CadastroController {
                 alerta.showAndWait();
                 throw new RuntimeException(e);
             }
+
 
         }
         else{

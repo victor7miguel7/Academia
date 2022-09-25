@@ -7,14 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import exception.ElementoJaExisteException;
-import models.Cliente;
-import models.Exercicio;
-import models.Login;
-import models.PersonalTrainer;
-import models.PlanoDeTreino;
-import models.Treino;
-import models.TreinoExecutado;
-import models.Usuario;
+import models.*;
 import negocio.ServidorAcademia;
 
 public class MainTeste {
@@ -23,18 +16,15 @@ public class MainTeste {
 
 //        ServidorAcademia servidor = ServidorAcademia.getInstance();
 //
-//        Login login1 = new Login("joao@gmail.com", "123456");
-//        Login login2 = new Login("maria@gmail.com", "m12345");
-//        Login login3 = new Login("stella@gmail.com", "m54321");
-//        Login login4 = new Login("rafael@gmail.com", "m32145");
-//
-//        Usuario personal1 = new PersonalTrainer("23", "João", "34", login1, LocalDate.of(2000, 5, 20));
-//        Usuario cliente1 = new Cliente("54", "Maria", "F", login2, LocalDate.of(1994, 7, 2), 80,
+//        Usuario personal1 = new PersonalTrainer("23", "João", "34", "joao@gmail.com", "12345", LocalDate.of(2000, 5, 20));
+//        Usuario cliente1 = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), 80,
 //                1.63);
-//        Usuario cliente2 = new Cliente("55", "Stella", "F", login3, LocalDate.of(1995, 5, 19), 60,
+//        Usuario cliente2 = new Cliente("55", "Stella", "F", "stella@gmail.com", "m15423", LocalDate.of(1995, 5, 19), 60,
 //                1.65);
-//        Usuario cliente3 = new Cliente("56", "Rafael", "M", login4, LocalDate.of(2003, 8, 19), 75,
+//        Usuario cliente3 = new Cliente("56", "Rafael", "M", "rafael@gmail.com", "m54321", LocalDate.of(2003, 8, 19), 75,
 //                1.74);
+//
+//        Usuario adm1 = new Administrador("01", "Marina", "marina@gmail.com", "2002", LocalDate.of(2003, 3, 20));
 //
 //        Exercicio exer1 = new Exercicio("Supino Reto", "Peito", Duration.ofMinutes(10), 4, 10);
 //        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", Duration.ofMinutes(15), 4, 10);
@@ -101,16 +91,17 @@ public class MainTeste {
 //            servidor.inserir(cliente1);
 //            servidor.inserir(cliente2);
 //            servidor.inserir(cliente3);
+//            //servidor.inserir(cliente1);
 //
 //        } catch (ElementoJaExisteException jaExiste) {
 //            System.out.println("Elemento já existente");
 //            jaExiste.printStackTrace();
 //        }
-
+//
 //        List<Usuario> usuarios = ServidorAcademia.getInstance().usuarioListar();
 //        //System.out.println(usuarios);
 //        for(int i = 0; i < usuarios.size(); i++){
-//            System.out.println(usuarios.get(i).getLogin().getEmail());
+//            System.out.println(usuarios.get(i).getEmail());
 //        }
 
 

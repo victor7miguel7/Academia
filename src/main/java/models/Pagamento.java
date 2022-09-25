@@ -14,11 +14,19 @@ public class Pagamento implements Serializable {
     String cvv;
     LocalDate dtPagamento;
 
-    public Pagamento(String nome, String numero, int mes, int ano, String cvv) {
+    public Pagamento(String nome, String numero, int mes, int ano, String cvv, Double valor, LocalDate dtPagamento) {
         this.nome = nome;
         this.numero = numero;
         this.mes = mes;
         this.ano = ano;
+        this.cvv = cvv;
+        this.valor = 120.0;
+        this.dtPagamento = LocalDate.now();
+    }
+
+    public Pagamento(String nome, String numero, String cvv) {
+        this.nome = nome;
+        this.numero = numero;
         this.cvv = cvv;
         this.valor = 120.0;
         this.dtPagamento = LocalDate.now();
@@ -62,6 +70,22 @@ public class Pagamento implements Serializable {
 
     public void setCvv(String cvv) {
         this.cvv = cvv;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
+
+    public LocalDate getDtPagamento() {
+        return dtPagamento;
+    }
+
+    public void setDtPagamento(LocalDate dtPagamento) {
+        this.dtPagamento = dtPagamento;
     }
 
     @Override

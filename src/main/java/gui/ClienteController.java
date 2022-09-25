@@ -26,60 +26,43 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ClienteController implements Initializable {
+public class ClienteController {
 
-    @FXML
-    private Button logout;
-    @FXML
-    private Button btnPagar;
-    @FXML
-    private Label lblID;
-    @FXML
-    private Label lblDtNascimento;
-    @FXML
-    private Label lblNome;
-    @FXML
-    private Label lblPeso;
-    @FXML
-    private Label lblAltura;
-    @FXML
-    private Label lblGenero;
-    @FXML
-    private TableView<Exercicio> tableViewExercicios;
-    @FXML
-    private TableView<Treino> tableViewTreinos;
-    @FXML
-    private TableColumn<Treino, String> columnTreinosTipo;
-    @FXML
-    private TableColumn<Exercicio, String> columnExerciciosNome;
-    @FXML
-    private TableColumn<Exercicio, String> columnExerciciosTipo;
-    @FXML
-    private TableColumn<Exercicio, Duration> columnExerciciosIntervalo;
-    @FXML
-    private TableColumn<Exercicio, Integer> columnExerciciosSeries;
-    @FXML
-    private TableColumn<Exercicio, Integer> columnExerciciosRepeticoes;
-    @FXML
-    private TableView<Pagamento> tableViewPagamento;
-    @FXML
-    private TableColumn<Pagamento, Double> columnValor;
-    @FXML
-    private TableColumn<Pagamento, LocalDate> columnDtPagamento;
+    @FXML private Button logout;
+    @FXML private Button btnPagar;
+    @FXML private Button btnAtualizar;
+    @FXML private Label lblID;
+    @FXML private Label lblDtNascimento;
+    @FXML private Label lblNome;
+    @FXML private Label lblPeso;
+    @FXML private Label lblAltura;
+    @FXML private Label lblGenero;
+    @FXML private TableView<Exercicio> tableViewExercicios;
+    @FXML private TableView<Treino> tableViewTreinos;
+    @FXML private TableColumn<Treino, String> columnTreinosTipo;
+    @FXML private TableColumn<Exercicio, String> columnExerciciosNome;
+    @FXML private TableColumn<Exercicio, String> columnExerciciosTipo;
+    @FXML private TableColumn<Exercicio, Duration> columnExerciciosIntervalo;
+    @FXML private TableColumn<Exercicio, Integer> columnExerciciosSeries;
+    @FXML private TableColumn<Exercicio, Integer> columnExerciciosRepeticoes;
+    @FXML private TableView<Pagamento> tableViewPagamento;
+    @FXML private TableColumn<Pagamento, Double> columnValor;
+    @FXML private TableColumn<Pagamento, LocalDate> columnDtPagamento;
+
+    ServidorAcademia servidor = ServidorAcademia.getInstance();
 
     private List<Exercicio> listExercicios = new ArrayList();
     private List<Treino> listTreinos = new ArrayList();
-    private List<Pagamento> listPagamentos = new ArrayList();
-
+    private List<Pagamento> listPagamentos;
     private ObservableList<Exercicio> observableListExercicios;
     private ObservableList<Treino> observableListTreinos;
-    private ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList();
+
 
     Login login = new Login("maria", "123");
     Usuario cliente = new Cliente("32", "Maria Beatriz", "F", "maria@gmail.com", "m12345", LocalDate.of(2000, 2,14),"57","1.57");
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+
+    public void initialize() {
 
         lblID.setText(String.valueOf((cliente.getId())));
         lblNome.setText(String.valueOf(cliente.getNome()));
@@ -88,9 +71,10 @@ public class ClienteController implements Initializable {
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
         lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
 
+        columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
+        columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        this.onBtnAtualizar();
         carregarTableView();
-        carregarTableView();
-        observableListPagamentos.addAll(ServidorAcademia.getInstance().pagamentolistar());
 
     }
     public void carregarTableView() {
@@ -134,7 +118,7 @@ public class ClienteController implements Initializable {
         stage.show();
     }
     @FXML
-    public void onbtnRealizarPagamento(ActionEvent event) throws IOException{
+    public void onbtnRealizarPagamento(ActionEvent event) throws IOException {
             Stage stage;
             Parent root;
 
@@ -145,13 +129,12 @@ public class ClienteController implements Initializable {
             stage.show();
     }
 
-//    public void listarPagamento(){
-//        columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
-//        columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
-//
-//        listPagamentos = ServidorAcademia.getInstance().pagamentolistar();
-//        observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
-//        tableViewPagamento.setItems(observableListPagamentos);
-//    }
+    public void onBtnAtualizar(){
+
+        listPagamentos = servidor.pagamentolistar();
+        ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
+        this.tableViewPagamento.setItems(observableListPagamentos);
+
+    }
 
 }

@@ -24,8 +24,7 @@
                   <Image url="@img/voltar.png" />
                </image>
             </ImageView>
-            <Button fx:id="voltar" layoutX="10.0" layoutY="13.0" minWidth="45.0" mnemonicParsing="false" onAction="#voltarLogin" opacity="0.0" prefHeight="35.0" prefWidth="45.0" />
-
+            <Button fx:id="voltarI" layoutX="10.0" layoutY="13.0" minWidth="45.0" mnemonicParsing="false" onAction="#voltarLogin" opacity="0.0" prefHeight="35.0" prefWidth="45.0" />
          </children>
       </AnchorPane>
       <Label layoutX="64.0" layoutY="89.0" text="Nome" textFill="WHITE">
@@ -81,7 +80,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" layoutX="147.0" layoutY="407.0" mnemonicParsing="false" onAction="#onBtnLimpar" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: #f2c70a;" text="Limpar">
+      <Button fx:id="btnLimpar" layoutX="147.0" layoutY="407.0" mnemonicParsing="false" onAction="#onBtnLimpar" onKeyReleased="#onKeyReleased" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: #f2c70a;" text="Limpar">
          <font>
             <Font size="15.0" />
          </font>
