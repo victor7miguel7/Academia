@@ -66,9 +66,10 @@ public class PagamentoController implements Initializable {
             alerta.showAndWait();
             throw new RuntimeException(e);
         }
-//        ClienteController.getInstance().onBtnAtualizar();
-//        this.onBtnLimpar();
-//        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+        this.onBtnLimpar();
+        ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+        ScreenManager.getInstance().getClienteController();
+
 
     }
 

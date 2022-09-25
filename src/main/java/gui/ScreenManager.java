@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -40,47 +41,59 @@ public class ScreenManager {
 
     private void initialize() {
         try {
+//            FXMLLoader fxmlLoader = new FXMLLoader();
+//            TabPane admPane = fxmlLoader.load(getClass()
+//                    .getResource("adm.fxml").openStream());
+//            this.admScene = new Scene(admPane);
+//            this.admController = (AdmController) fxmlLoader.getController();
+//
+//            fxmlLoader = new FXMLLoader();
+//            TabPane cadPane = fxmlLoader.load(getClass()
+//                    .getResource("cadCliente.fxml").openStream());
+//            this.cadastroScene = new Scene(cadPane);
+//            this.cadastroController = (CadastroController) fxmlLoader.getController();
+//
+//            fxmlLoader = new FXMLLoader();
+//            TabPane cadPersonalPane = fxmlLoader.load(getClass()
+//                    .getResource("cadPersonal.fxml").openStream());
+//            this.cadPersonalScene = new Scene(cadPersonalPane);
+//            this.cadPersonalController = (CadPersonalController) fxmlLoader.getController();
+            Stage primaryStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            TabPane admPane = fxmlLoader.load(getClass()
-                    .getResource("adm.fxml").openStream());
-            this.admScene = new Scene(admPane);
-            this.admController = (AdmController) fxmlLoader.getController();
+            Parent root = fxmlLoader.load(getClass().getResource("cliente.fxml"));
+            primaryStage.setTitle("Academia MMRSV");
+            primaryStage.setScene(new Scene(root,600,400));
+            primaryStage.show();
 
-            fxmlLoader = new FXMLLoader();
-            TabPane cadPane = fxmlLoader.load(getClass()
-                    .getResource("cadCliente.fxml").openStream());
-            this.cadastroScene = new Scene(cadPane);
-            this.cadastroController = (CadastroController) fxmlLoader.getController();
+            Stage primaryStage1 = new Stage();
+            FXMLLoader adm = new FXMLLoader();
+            Parent root1 = adm.load(getClass().getResource("adm.fxml"));
+            primaryStage1.setTitle("Academia MMRSV");
+            primaryStage1.setScene(new Scene(root1,600,400));
+            primaryStage1.show();
 
-            fxmlLoader = new FXMLLoader();
-            TabPane cadPersonalPane = fxmlLoader.load(getClass()
-                    .getResource("cadPersonal.fxml").openStream());
-            this.cadPersonalScene = new Scene(cadPersonalPane);
-            this.cadPersonalController = (CadPersonalController) fxmlLoader.getController();
+//            TabPane clientePane = fxmlLoader.load(getClass()
+//                    .getResource("cliente.fxml").openStream());
+//            this.clienteScene = new Scene(clientePane);
+//            this.clienteController = (ClienteController) fxmlLoader.getController();
 
-            fxmlLoader = new FXMLLoader();
-            TabPane clientePane = fxmlLoader.load(getClass()
-                    .getResource("cliente.fxml").openStream());
-            this.clienteScene = new Scene(clientePane);
-            this.clienteController = (ClienteController) fxmlLoader.getController();
-
-            fxmlLoader = new FXMLLoader();
-            TabPane loginPane = fxmlLoader.load(getClass()
-                    .getResource("login.fxml").openStream());
-            this.loginScene = new Scene(loginPane);
-            this.loginController = (LoginController) fxmlLoader.getController();
-
-            fxmlLoader = new FXMLLoader();
-            TabPane pagamanetoPane = fxmlLoader.load(getClass()
-                    .getResource("pagamento.fxml").openStream());
-            this.pagamentoScene = new Scene(pagamanetoPane);
-            this.pagamentoController = (PagamentoController) fxmlLoader.getController();
-
-            fxmlLoader = new FXMLLoader();
-            TabPane personalPane = fxmlLoader.load(getClass()
-                    .getResource("personal.fxml").openStream());
-            this.personalScene = new Scene(personalPane);
-            this.personalController = (PersonalController) fxmlLoader.getController();
+//            fxmlLoader = new FXMLLoader();
+//            TabPane loginPane = fxmlLoader.load(getClass()
+//                    .getResource("login.fxml").openStream());
+//            this.loginScene = new Scene(loginPane);
+//            this.loginController = (LoginController) fxmlLoader.getController();
+//
+//            fxmlLoader = new FXMLLoader();
+//            TabPane pagamanetoPane = fxmlLoader.load(getClass()
+//                    .getResource("pagamento.fxml").openStream());
+//            this.pagamentoScene = new Scene(pagamanetoPane);
+//            this.pagamentoController = (PagamentoController) fxmlLoader.getController();
+//
+//            fxmlLoader = new FXMLLoader();
+//            TabPane personalPane = fxmlLoader.load(getClass()
+//                    .getResource("personal.fxml").openStream());
+//            this.personalScene = new Scene(personalPane);
+//            this.personalController = (PersonalController) fxmlLoader.getController();
 
         } catch (IOException e) {
             e.printStackTrace();

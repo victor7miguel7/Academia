@@ -27,14 +27,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ClienteController {
-    private static ClienteController instance;
-
-    public static ClienteController getInstance() {
-        if (instance == null) {
-            instance = new ClienteController();
-        }
-        return instance;
-    }
 
     @FXML private Button logout;
     @FXML private Button btnPagar;
@@ -53,15 +45,15 @@ public class ClienteController {
     @FXML private TableColumn<Exercicio, Duration> columnExerciciosIntervalo;
     @FXML private TableColumn<Exercicio, Integer> columnExerciciosSeries;
     @FXML private TableColumn<Exercicio, Integer> columnExerciciosRepeticoes;
-//    @FXML private TableView<Pagamento> tableViewPagamento;
-//    @FXML private TableColumn<Pagamento, Double> columnValor;
-//    @FXML private TableColumn<Pagamento, LocalDate> columnDtPagamento;
+    @FXML private TableView<Pagamento> tableViewPagamento;
+    @FXML private TableColumn<Pagamento, Double> columnValor;
+    @FXML private TableColumn<Pagamento, LocalDate> columnDtPagamento;
 
     ServidorAcademia servidor = ServidorAcademia.getInstance();
 
     private List<Exercicio> listExercicios = new ArrayList();
     private List<Treino> listTreinos = new ArrayList();
-    private List<Pagamento> listPagamentos = servidor.pagamentolistar();
+    private List<Pagamento> listPagamentos;
     private ObservableList<Exercicio> observableListExercicios;
     private ObservableList<Treino> observableListTreinos;
 
@@ -79,10 +71,9 @@ public class ClienteController {
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
         lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
 
-//        columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
-//        columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
-//        this.onBtnAtualizar();
-
+        columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
+        columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        this.onBtnAtualizar();
         carregarTableView();
 
     }
@@ -138,12 +129,12 @@ public class ClienteController {
             stage.show();
     }
 
-//    public void onBtnAtualizar(){
-//
-//        ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
-//        observableListPagamentos.addAll(servidor.pagamentolistar());
-//        this.tableViewPagamento.setItems(observableListPagamentos);
-//
-//    }
+    public void onBtnAtualizar(){
+
+        listPagamentos = servidor.pagamentolistar();
+        ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
+        this.tableViewPagamento.setItems(observableListPagamentos);
+
+    }
 
 }
