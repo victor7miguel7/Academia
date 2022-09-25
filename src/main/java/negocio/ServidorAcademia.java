@@ -153,16 +153,16 @@ public class ServidorAcademia {
         return novaLista;
     }
 
-//    public boolean validarLogin(Login login) {
-//        boolean igual = false;
-//
-//        List<Usuario> usuarios = controladorUsuarios.listar();
-//
-//        for (int i = 0; i < usuarios.size(); i++) {
-//            if (usuarios.get(i).getLogin().compare(login)) {
-//                igual = true;
-//            }
-//        }
-//        return igual;
-//    }
+    public boolean validarLogin(String email, String senha) {
+        boolean igual = false;
+
+        List<Usuario> usuarios = controladorUsuarios.listar();
+
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getEmail().equals(email) && usuarios.get(i).getSenha().equals(senha)) {
+                igual = true;
+            }
+        }
+        return igual;
+    }
 }

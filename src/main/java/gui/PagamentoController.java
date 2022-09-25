@@ -10,8 +10,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import models.Cliente;
 import models.Pagamento;
 import models.Usuario;
 import negocio.ServidorAcademia;
@@ -32,6 +34,7 @@ public class PagamentoController implements Initializable {
     @FXML private Button btnPagar;
     @FXML private Button voltar;
     @FXML private Button btnLimpar;
+    @FXML private Label lblPagamentoCadastrado;
     private int valorMes;
     private int valorAno;
     ServidorAcademia servidor = ServidorAcademia.getInstance();
@@ -46,14 +49,16 @@ public class PagamentoController implements Initializable {
         mes.setValueFactory(valueFactoryMes);
         ano.setValueFactory(valueFactoryAno);
     }
-    public void onRealizarPagamento(ActionEvent event) {
+    public void onRealizarPagamento(ActionEvent event) throws IOException {
         String numero = txtNumero.getText().toString();
         String nome = txtNome.getText().toString();
         valorMes = mes.getValue();
         valorAno = ano.getValue();
         String cvv = txtCVV.getText().toString();
 
-        Pagamento pagamento = new Pagamento(nome, numero, cvv);
+        Usuario cliente = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), "80",
+                "1.63");
+        Pagamento pagamento = new Pagamento((Cliente) cliente, nome, numero, cvv);
 
         try {
             servidor.inserir(pagamento);
@@ -67,13 +72,18 @@ public class PagamentoController implements Initializable {
             throw new RuntimeException(e);
         }
         this.onBtnLimpar();
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Pagamento");
+        alerta.setHeaderText("Pagamento realizado com sucesso!");
+        alerta.setContentText("Seu pagamento foi realizado. Acesse a aba pagamentos para mais informações.");
+        alerta.showAndWait();
         ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
-        ScreenManager.getInstance().getClienteController();
-
+        //ScreenManager.getInstance().getClienteController();
+        this.onVoltar();
 
     }
 
-    public void onVoltar(ActionEvent event) throws IOException {
+    public void onVoltar() throws IOException {
         Stage stage;
         Parent root;
 
@@ -88,7 +98,9 @@ public class PagamentoController implements Initializable {
         boolean pagar;
         boolean limpar;
 
-        pagar=(txtNome.getText().isEmpty() |txtNumero.getText().isEmpty() | txtCVV.getText().isEmpty());
+        pagar=(txtNome.getText().isEmpty() | txtNumero.getText().isEmpty() | txtNumero.getText().length()< 16 |
+                txtNumero.getText().length()> 16 | txtCVV.getText().isEmpty() | txtCVV.getText().length() < 3 |
+                txtCVV.getText().length() > 3);
         btnPagar.setDisable(pagar);
         limpar = (txtNome.getText().isEmpty() & txtNumero.getText().isEmpty() & txtCVV.getText().isEmpty());
         btnLimpar.setDisable(limpar);

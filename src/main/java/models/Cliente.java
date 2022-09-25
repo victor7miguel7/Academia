@@ -52,7 +52,7 @@ public class  Cliente extends Usuario implements Serializable{
         return idade;
     }
 
-//    public double calcularImc() {
+    //    public double calcularImc() {
 //        double imc = peso / (altura * altura);
 //
 //        return imc;
