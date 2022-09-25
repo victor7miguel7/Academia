@@ -6,10 +6,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
+import models.Usuario;
+import negocio.ServidorAcademia;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ScreenManager {
+
+    ServidorAcademia servidor = ServidorAcademia.getInstance();
     private static ScreenManager instance;
     private Stage primaryStage;
 
@@ -155,4 +160,15 @@ public class ScreenManager {
     public PersonalController getPersonalController() {
         return personalController;
     }
+
+//    public Usuario logarCliente(){
+//        Usuario usuario = null;
+//        List<Usuario> usuarios = servidor.usuarioListar();
+//        for(int i = 0; i < usuarios.size(); i++){
+//            if(usuarios.get(i).isLogado()){
+//                usuario = usuarios.get(i);
+//            }
+//        }
+//        return usuario;
+//    }
 }

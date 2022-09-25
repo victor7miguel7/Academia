@@ -104,7 +104,6 @@ public class CadPersonalController {
 
             }
 
-
        }
        else if(txtNome.getText().isEmpty() | txtID.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty()){
            lblSenhasDiferentes.setText("Por favor, preencha os espaços em branco!");
@@ -143,6 +142,5 @@ public class CadPersonalController {
 
 
     }
-
 
 }

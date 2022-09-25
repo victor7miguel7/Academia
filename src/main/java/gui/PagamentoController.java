@@ -56,8 +56,9 @@ public class PagamentoController implements Initializable {
         valorAno = ano.getValue();
         String cvv = txtCVV.getText().toString();
 
-        Usuario cliente = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), "80",
-                "1.63");
+        //Usuario cliente = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), "80", "1.63");
+
+        Usuario cliente = this.logarCliente();
         Pagamento pagamento = new Pagamento((Cliente) cliente, nome, numero, cvv);
 
         try {
@@ -113,5 +114,16 @@ public class PagamentoController implements Initializable {
         txtCVV.setText("");
         btnLimpar.setDisable(true);
         btnPagar.setDisable(true);
+    }
+
+        public Usuario logarCliente(){
+        Usuario usuario = null;
+        List<Usuario> usuarios = servidor.usuarioListar();
+        for(int i = 0; i < usuarios.size(); i++){
+            if(usuarios.get(i).isLogado()){
+                usuario = usuarios.get(i);
+            }
+        }
+        return usuario;
     }
 }

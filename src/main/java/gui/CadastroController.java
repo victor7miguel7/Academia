@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -59,7 +60,8 @@ public class CadastroController {
     }
 
     @FXML
-    public void voltarLogin(ActionEvent event) throws IOException {
+    public void voltarLogin() throws IOException {
+
         Stage stage;
         Parent root;
 
@@ -70,7 +72,7 @@ public class CadastroController {
         stage.show();
     }
 
-    public void buttonCadastrar() throws ElementoJaExisteException {
+    public void buttonCadastrar(ActionEvent event) throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         String nome = txtNome.getText();
@@ -87,10 +89,9 @@ public class CadastroController {
 
             Usuario cliente = new Cliente("50", nome, genero, email, senha, dataNascimento, peso, altura);
 
-
             try {
                 servidor.inserir(cliente);
-                aviso.setText("Cadastro realizado!");
+                //aviso.setText("Cadastro realizado!");
             } catch (ElementoJaExisteException e) {
                 aviso.setText("O cliente já existe.");
                 System.out.println("Cliente já cadastrado");
@@ -101,15 +102,20 @@ public class CadastroController {
                 alerta.showAndWait();
                 throw new RuntimeException(e);
             }
-
-
+            this.onBtnLimpar();
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Cadastro de Cliente");
+            alerta.setHeaderText("Cadastro realizado com sucesso!");
+            alerta.setContentText("Agora você já pode logar em sua conta usando o email e senha registrados.");
+            alerta.showAndWait();
+            ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+            this.voltarLogin();
         }
         else{
             aviso.setText("As senhas digitadas são diferentes!");
             txtSenha.setText("");
             txtConfirmacaoSenha.setText("");
         }
-
     }
 
     public void onBtnLimpar() {

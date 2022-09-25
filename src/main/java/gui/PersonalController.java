@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 
 public class PersonalController {
-
+    ServidorAcademia servidor = ServidorAcademia.getInstance();
     @FXML
     private Label nomeTitulo;
     @FXML
@@ -52,7 +52,7 @@ public class PersonalController {
     }
 
     public void initialize() {
-        List<Usuario> usuarios = ServidorAcademia.getInstance().usuarioListar();
+        List<Usuario> usuarios = servidor.usuarioListar();
         List<PersonalTrainer> personais = new ArrayList<>();
 
 
@@ -94,4 +94,5 @@ public class PersonalController {
         stage.setScene(scene);
         stage.show();
     }
+
 }

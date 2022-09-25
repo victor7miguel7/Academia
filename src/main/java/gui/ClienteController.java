@@ -109,6 +109,9 @@ public class ClienteController {
     }
 
     public void userLogOut(ActionEvent event) throws IOException {
+        Usuario cliente = this.logarCliente();
+        cliente.setLogado(false);
+
         Stage stage;
         Parent root;
 
