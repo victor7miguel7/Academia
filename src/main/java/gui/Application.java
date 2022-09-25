@@ -38,7 +38,8 @@ public class Application extends javafx.application.Application {
         ServidorAcademia servidor = ServidorAcademia.getInstance();
 
 
-        Usuario personal1 = new PersonalTrainer("23", "João", "34", "joao@gmail.com", "12345", LocalDate.of(2000, 5, 20));
+        Usuario personal1 = new PersonalTrainer("23", "34", "João", "joao@gmail.com", "12345", LocalDate.of(2000, 5, 20));
+        Usuario personal2 = new PersonalTrainer("25", "35", "Pedro", "pedro@gmail.com", "p12345", LocalDate.of(2000, 5, 20));
         Usuario cliente1 = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), "80",
                 "1.63");
         Usuario cliente2 = new Cliente("55", "Stella", "F", "stella@gmail.com", "m15423", LocalDate.of(1995, 5, 19), "60",
@@ -114,6 +115,7 @@ public class Application extends javafx.application.Application {
             servidor.inserir(cliente2);
             servidor.inserir(cliente3);
             servidor.inserir(personal1);
+            servidor.inserir(personal2);
             servidor.inserir(adm1);
 
         } catch (ElementoJaExisteException jaExiste) {

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<TabPane prefHeight="390.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PersonalController">
+<TabPane prefHeight="390.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PersonalController">
     <tabs>
         <Tab closable="false" text="Perfil">
             <content>
@@ -24,13 +24,13 @@
                     <left>
                         <AnchorPane prefHeight="375.0" prefWidth="294.0" BorderPane.alignment="CENTER">
                             <children>
-                                <Label fx:id="lblNome" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="39.0" prefHeight="33.0" prefWidth="182.0" textAlignment="JUSTIFY" textFill="#f2c70a">
+                                <Label fx:id="nomeTitulo" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="20.0" prefHeight="104.0" prefWidth="267.0" textAlignment="JUSTIFY" textFill="#f2c70a">
                                     <font>
                                         <Font name="System Bold" size="28.0" />
                                     </font>
                                 </Label>
                                 <Button fx:id="logout" alignment="CENTER" layoutX="43.0" layoutY="302.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #f2c70a;" text="Sair" />
-                                <GridPane layoutX="47.0" layoutY="123.0">
+                                <GridPane layoutX="48.0" layoutY="143.0">
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,7 +46,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label prefHeight="20.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1">
+                                        <Label fx:id="id" prefHeight="20.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -56,7 +56,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label prefHeight="17.0" prefWidth="90.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label fx:id="cref" prefHeight="17.0" prefWidth="90.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -66,7 +66,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label prefHeight="17.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label fx:id="nascimento" prefHeight="17.0" prefWidth="96.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>

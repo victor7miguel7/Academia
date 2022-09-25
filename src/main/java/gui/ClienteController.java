@@ -64,7 +64,7 @@ public class ClienteController {
 
     public void initialize() {
 
-        Usuario cliente = this.logarCliente();
+        Usuario cliente = logarCliente();
         lblID.setText(String.valueOf((cliente.getId())));
         lblNome.setText(String.valueOf(cliente.getNome()));
         lblPeso.setText(String.valueOf((((Cliente)cliente).getPeso())));

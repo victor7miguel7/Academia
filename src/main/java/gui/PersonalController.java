@@ -35,7 +35,6 @@ public class PersonalController {
     @FXML
     private Button btnCadExercicio;
 
-    private String emailLogado;
 
     public PersonalController(){
 
@@ -44,36 +43,19 @@ public class PersonalController {
     @FXML
     private Button logout;
 
-//    public void recebendo(String recebe) {
-//        emailLogado = recebe;
-//    }
-    public void pegarDados(String nome){
-        emailLogado = nome;
-    }
 
     public void initialize() {
-        List<Usuario> usuarios = servidor.usuarioListar();
-        List<PersonalTrainer> personais = new ArrayList<>();
-
-
-        for(int i = 0; i < usuarios.size(); i++){
-            if(usuarios.get(i) instanceof PersonalTrainer){
-                personais.add((PersonalTrainer) usuarios.get(i));
-            }
-        }
-
-        for(int i = 0; i < personais.size(); i++){
-            if (personais.get(i).getEmail().equals(emailLogado)) {
-                nomeTitulo.setText(personais.get(i).getNome());
-                id.setText(personais.get(i).getId());
-                cref.setText(personais.get(i).getCref());
-                nascimento.setText(personais.get(i).getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-            }
-        }
+        PersonalTrainer personal = (PersonalTrainer) logarPersonal();
+        id.setText(String.valueOf((personal.getId())));
+        nomeTitulo.setText(String.valueOf(personal.getNome()));
+        cref.setText(String.valueOf(personal.getCref()));
+        nascimento.setText(String.valueOf(personal.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
 
     }
 
     public void userLogOut(ActionEvent event) throws IOException {
+        PersonalTrainer personal = (PersonalTrainer) logarPersonal();
+        personal.setLogado(false);
         Stage stage;
         Parent root;
 
@@ -93,6 +75,17 @@ public class PersonalController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public Usuario logarPersonal(){
+        Usuario usuario = null;
+        List<Usuario> usuarios = servidor.usuarioListar();
+        for(int i = 0; i < usuarios.size(); i++){
+            if(usuarios.get(i).isLogado()){
+                usuario = usuarios.get(i);
+            }
+        }
+        return usuario;
     }
 
 }

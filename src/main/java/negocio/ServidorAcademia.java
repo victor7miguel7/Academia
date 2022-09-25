@@ -160,6 +160,7 @@ public class ServidorAcademia {
 
         for (int i = 0; i < usuarios.size(); i++) {
             if (usuarios.get(i).getEmail().equals(email) && usuarios.get(i).getSenha().equals(senha)) {
+                (usuarios.get(i)).setLogado(true);
                 igual = true;
             }
         }

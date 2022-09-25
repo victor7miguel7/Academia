@@ -59,28 +59,24 @@ public class LoginController {
     private void checkLogin() throws IOException {
         Application m = new Application();
 
-        String nome = username.getText().toString();
-        String senha = password.getText().toString();
+        String nome = username.getText();
+        String senha = password.getText();
+        servidor.validarLogin(nome, senha);
         List<Usuario> usuarios = servidor.usuarioListar();
+
 
         for(int i = 0; i < usuarios.size(); i++){
 
-            if(usuarios.get(i) instanceof Cliente) {
-                if (servidor.validarLogin(nome, senha)) {
-                    (usuarios.get(i)).setLogado(true);
-                    m.changeScene("cliente.fxml");
-                }
+            if(usuarios.get(i).isLogado() == true && usuarios.get(i) instanceof Cliente){
+                m.changeScene("cliente.fxml");
             }
-            else if(usuarios.get(i) instanceof Administrador) {
-                if (usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)) {
-                    m.changeScene("adm.fxml");
-                }
+            else if(usuarios.get(i).isLogado() == true && usuarios.get(i) instanceof Administrador){
+                m.changeScene("adm.fxml");
             }
-            else if(usuarios.get(i) instanceof PersonalTrainer) {
-                if (usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)) {
-                        m.changeScene("personal.fxml");
-                }
+            else if(usuarios.get(i).isLogado() == true && usuarios.get(i) instanceof PersonalTrainer){
+                m.changeScene("personal.fxml");
             }
+
         }
 
         if(username.getText().isEmpty() && password.getText().isEmpty()) {
