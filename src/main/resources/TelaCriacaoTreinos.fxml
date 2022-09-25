@@ -80,10 +80,13 @@
                         <Tooltip fx:id="lplTooltip5" text="OK" />
                      </tooltip>
                   </Button>
-                  <Button fx:id="pnlbuttom2" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Limpar" GridPane.halignment="RIGHT">
+                  <Button fx:id="pnlbuttom2" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" style="-fx-background-color: #f2c70a;" text="Limpar" GridPane.halignment="RIGHT">
                      <tooltip>
                         <Tooltip fx:id="lplTooltip4" text="Limpar" />
                      </tooltip>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Button>
                   <Button fx:id="pnlbuttom3" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #f2c70a;" text="Voltar" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                      <font>
