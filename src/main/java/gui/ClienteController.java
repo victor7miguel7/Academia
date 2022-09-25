@@ -58,12 +58,13 @@ public class ClienteController {
     private ObservableList<Treino> observableListTreinos;
 
 
-    Login login = new Login("maria", "123");
-    Usuario cliente = new Cliente("32", "Maria Beatriz", "F", "maria@gmail.com", "m12345", LocalDate.of(2000, 2,14),"57","1.57");
+    //Login login = new Login("maria", "123");
+    //Usuario cliente = new Cliente("32", "Maria Beatriz", "F", "maria@gmail.com", "m12345", LocalDate.of(2000, 2,14),"57","1.57");
 
 
     public void initialize() {
 
+        Usuario cliente = this.logarCliente();
         lblID.setText(String.valueOf((cliente.getId())));
         lblNome.setText(String.valueOf(cliente.getNome()));
         lblPeso.setText(String.valueOf((((Cliente)cliente).getPeso())));
@@ -108,6 +109,9 @@ public class ClienteController {
     }
 
     public void userLogOut(ActionEvent event) throws IOException {
+        Usuario cliente = this.logarCliente();
+        cliente.setLogado(false);
+
         Stage stage;
         Parent root;
 
@@ -135,6 +139,17 @@ public class ClienteController {
         ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
         this.tableViewPagamento.setItems(observableListPagamentos);
 
+    }
+
+    public Usuario logarCliente(){
+        Usuario usuario = null;
+        List<Usuario> usuarios = servidor.usuarioListar();
+        for(int i = 0; i < usuarios.size(); i++){
+            if(usuarios.get(i).isLogado()){
+                usuario = usuarios.get(i);
+            }
+        }
+        return usuario;
     }
 
 }

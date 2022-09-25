@@ -22,6 +22,7 @@ import java.util.List;
 
 public class LoginController {
 
+    ServidorAcademia servidor = ServidorAcademia.getInstance();
     PersonalController enviaTexto;
 
     public LoginController() {
@@ -60,12 +61,13 @@ public class LoginController {
 
         String nome = username.getText().toString();
         String senha = password.getText().toString();
-        List<Usuario> usuarios = ServidorAcademia.getInstance().usuarioListar();
+        List<Usuario> usuarios = servidor.usuarioListar();
 
         for(int i = 0; i < usuarios.size(); i++){
 
             if(usuarios.get(i) instanceof Cliente) {
-                if (usuarios.get(i).getEmail().equals(nome) && usuarios.get(i).getSenha().equals(senha)) {
+                if (servidor.validarLogin(nome, senha)) {
+                    (usuarios.get(i)).setLogado(true);
                     m.changeScene("cliente.fxml");
                 }
             }

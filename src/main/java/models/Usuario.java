@@ -10,6 +10,7 @@ public abstract class Usuario {
     private String email;
     private String senha;
     private LocalDate dtNascimento;
+    private boolean logado;
 
     public Usuario(String id, String nome, String email, String senha, LocalDate dtNascimento) {
         this.id = id;
@@ -17,6 +18,7 @@ public abstract class Usuario {
         this.email = email;
         this.senha = senha;
         this.dtNascimento = dtNascimento;
+        this.logado = false;
     }
 
     public String getEmail() { return email; }
@@ -33,6 +35,13 @@ public abstract class Usuario {
 
     public String getId() {
         return id;
+    }
+    public boolean isLogado() {
+        return logado;
+    }
+
+    public void setLogado(boolean logado) {
+        this.logado = logado;
     }
 
 }

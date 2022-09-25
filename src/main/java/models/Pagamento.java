@@ -6,6 +6,8 @@ import java.time.LocalDate;
 public class Pagamento implements Serializable {
 
     private static final long serialVersionUID = 4864179243205862834L;
+
+    Cliente cliente;
     String nome;
     String numero;
     Double valor;
@@ -24,7 +26,8 @@ public class Pagamento implements Serializable {
         this.dtPagamento = LocalDate.now();
     }
 
-    public Pagamento(String nome, String numero, String cvv) {
+    public Pagamento(Cliente cliente, String nome, String numero, String cvv) {
+        this.cliente = cliente;
         this.nome = nome;
         this.numero = numero;
         this.cvv = cvv;
