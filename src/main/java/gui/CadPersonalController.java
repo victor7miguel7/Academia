@@ -7,6 +7,7 @@ import javafx.css.Size;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -52,7 +53,7 @@ public class CadPersonalController {
 
     ServidorAcademia servidor = ServidorAcademia.getInstance();
 
-    public void voltarAdm(ActionEvent event) throws IOException {
+    public void voltarAdm() throws IOException {
         Stage stage;
         Parent root;
 
@@ -63,7 +64,7 @@ public class CadPersonalController {
         stage.show();
     }
 
-    public void buttonCadastrar() throws ElementoJaExisteException {
+    public void buttonCadastrar(ActionEvent event) throws IOException {
         String nome;
         String email;
         String cref;
@@ -99,10 +100,11 @@ public class CadPersonalController {
                 alerta.showAndWait();
              //   lblPersonalExiste.setText("Personal já existe");
                 throw new RuntimeException(e);
-
-
-
             }
+           this.onBtnLimpar();
+           ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+           //ScreenManager.getInstance().getClienteController();
+           this.voltarAdm();
 
        }
        else if(txtNome.getText().isEmpty() | txtID.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty()){

@@ -44,4 +44,18 @@ public abstract class Usuario {
         this.logado = logado;
     }
 
+    @Override
+    public String toString() {
+        return this.nome;
+    }
+
+    public String infoUsuario() {
+        return "Usuario" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", dtNascimento=" + dtNascimento +
+                ", logado=" + logado;
+    }
 }

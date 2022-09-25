@@ -2,6 +2,7 @@ package models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class  Cliente extends Usuario implements Serializable{
@@ -59,8 +60,18 @@ public class  Cliente extends Usuario implements Serializable{
 //    }
 
     @Override
-    public String toString() {
-        return "Cliente: " + super.getNome();
+    public String infoUsuario(){
+        return "\n  Nome:  " + super.getNome() +
+                "\n  ID:  " + super.getId() +
+                "\n  Genero:  " + genero +
+                "\n  Peso:  " + peso +
+                "\n  Altura:  " + altura +
+                "\n  Email:  " + super.getEmail() +
+                "\n  Data de Nascimento:  " + super.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
+    @Override
+    public String toString() {
+        return super.getNome();
+    }
 }
