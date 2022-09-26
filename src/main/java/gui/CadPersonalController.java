@@ -7,6 +7,7 @@ import javafx.css.Size;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -26,8 +27,6 @@ public class CadPersonalController {
     private Label lblSenhasDiferentes;
     @FXML
     private TextField txtNome;
-    @FXML
-    private TextField txtID;
     //@FXML
     //private TextField txtDataNascimento;
     @FXML
@@ -47,19 +46,12 @@ public class CadPersonalController {
 
     @FXML
     private DatePicker dtDataNascimento;
-//    @FXML
-//    private Label lblPersonalExiste;
 
     @FXML
     private Label lblPersonalCadastrado;
 
     ServidorAcademia servidor = ServidorAcademia.getInstance();
 
-//    public void getDate(ActionEvent event){
-//
-//        LocalDate data = dataNascimento.getValue();
-//        System.out.println(data.toString());
-//    }
 
     public void voltarAdm(ActionEvent event) throws IOException {
         Stage stage;
@@ -73,33 +65,23 @@ public class CadPersonalController {
     }
 
     public void buttonCadastrar() throws ElementoJaExisteException {
-        String nome;
-        String email;
-        String cref;
-        LocalDate dataNascimento;
-        String senha;
-        String iD;
-        String confirmarSenha;
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        nome = txtNome.getText();
-        email =  txtEmail.getText();
-        cref = txtCref.getText();
-        senha =  txtSenha.getText();
-        confirmarSenha = txtConfirmarSenha.getText();
-        dataNascimento = dtDataNascimento.getValue();
-
+        String nome = txtNome.getText();
+        String email = txtEmail.getText();
+        String cref = txtCref.getText();
+        LocalDate dataNascimento = dtDataNascimento.getValue();
+        String senha = txtSenha.getText();
+        String confirmarSenha = txtConfirmarSenha.getText();
 
         if(senha.equals(confirmarSenha)) {
 
             Usuario personal = new PersonalTrainer(cref, nome, email, senha,dataNascimento);
 
             try {
-                lblPersonalCadastrado.setText("Personal cadastrado!");
                 servidor.inserir(personal);
                 personal.setId(String.valueOf(("p0" + servidor.personalID())));
-                onBtnLimpar();
+                lblPersonalCadastrado.setText("Personal cadastrado!");
             }catch (ElementoJaExisteException e){
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
                 alerta.setTitle("Erro no cadastro");
@@ -114,7 +96,7 @@ public class CadPersonalController {
 
 
         }
-        else if(txtNome.getText().isEmpty() | txtID.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | dtDataNascimento.getValue() == null){
+        else if(txtNome.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | dtDataNascimento.getValue() == null){
             lblSenhasDiferentes.setText("Por favor, preencha os espaços em branco!");
         }
         else{
@@ -128,7 +110,6 @@ public class CadPersonalController {
         txtNome.setText("");
         txtCref.setText("");
         txtEmail.setText("");
-        txtID.setText("");
         txtSenha.setText("");
         txtConfirmarSenha.setText("");
         dtDataNascimento.setValue(null);
@@ -143,10 +124,10 @@ public class CadPersonalController {
         boolean cadastrar;
         boolean limpar;
 
-        cadastrar =(txtNome.getText().isEmpty() | txtID.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | dtDataNascimento.getValue() == null);
+        cadastrar =(txtNome.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | dtDataNascimento.getValue() == null);
         btnCadastro.setDisable(cadastrar);
 
-        limpar =(txtNome.getText().isEmpty() & txtSenha.getText().isEmpty() & txtEmail.getText().isEmpty() & txtID.getText().isEmpty() & txtCref.getText().isEmpty() & txtConfirmarSenha.getText().isEmpty() & dtDataNascimento.getValue() == null);
+        limpar =(txtNome.getText().isEmpty() & txtSenha.getText().isEmpty() & txtEmail.getText().isEmpty()  & txtCref.getText().isEmpty() & txtConfirmarSenha.getText().isEmpty() & dtDataNascimento.getValue() == null);
         btnLimpar.setDisable(limpar);
 
 

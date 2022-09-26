@@ -23,7 +23,7 @@ import java.util.List;
 public class LoginController {
 
     ServidorAcademia servidor = ServidorAcademia.getInstance();
-    PersonalController enviaTexto;
+
 
     public LoginController() {
 

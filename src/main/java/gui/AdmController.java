@@ -69,6 +69,8 @@ public class AdmController implements Initializable {
 
     }
     public void voltarLogin(ActionEvent event) throws IOException {
+        Usuario adm = logarCliente();
+        adm.setLogado(false);
         Stage stage;
         Parent root;
 
