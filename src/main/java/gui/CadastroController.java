@@ -40,7 +40,7 @@ public class CadastroController {
     @FXML
     private TextField txtNome;
     @FXML
-    private TextField txtDataNascimento;
+    private DatePicker dpDataNascimento;
     @FXML
     private TextField txtPeso;
     @FXML
@@ -76,12 +76,11 @@ public class CadastroController {
     }
 
     public void buttonCadastrar(ActionEvent event) throws IOException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         String nome = txtNome.getText();
         String email = txtemail.getText();
         String genero = (String) generoBox.getValue();
-        LocalDate dataNascimento = LocalDate.parse(txtDataNascimento.getText(),formatter);
+        LocalDate dataNascimento = dpDataNascimento.getValue();
         String peso = txtPeso.getText();
         String altura = txtAltura.getText();
         String senha = txtSenha.getText();
@@ -105,7 +104,7 @@ public class CadastroController {
                 alerta.showAndWait();
                 throw new RuntimeException(e);
             }
-            if(txtNome.getText().isEmpty() || txtSenha.getText().isEmpty() || txtemail.getText().isEmpty() | txtConfirmacaoSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty())
+            if(txtNome.getText().isEmpty() || txtSenha.getText().isEmpty() || txtemail.getText().isEmpty() | txtConfirmacaoSenha.getText().isEmpty() | dpDataNascimento.getValue() == null)
             this.onBtnLimpar();
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Cadastro de Cliente");
@@ -129,7 +128,7 @@ public class CadastroController {
         txtAltura.setText("");
         txtPeso.setText("");
         txtConfirmacaoSenha.setText("");
-        txtDataNascimento.setText("");
+        dpDataNascimento.setValue(null);
         generoBox.setValue("");
         cadastro.setDisable(true);
         btnLimpar.setDisable(true);
@@ -141,11 +140,11 @@ public class CadastroController {
         boolean limpar;
 
         cadastrar=(txtNome.getText().isEmpty() | txtemail.getText().isEmpty() | txtSenha.getText().isEmpty() | txtAltura.getText().isEmpty() | txtPeso.getText().isEmpty()
-                | txtConfirmacaoSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty());
+                | txtConfirmacaoSenha.getText().isEmpty() | dpDataNascimento.getValue() == null);
         cadastro.setDisable(cadastrar);
 
         limpar = (txtNome.getText().isEmpty() & txtemail.getText().isEmpty() & txtSenha.getText().isEmpty() & txtAltura.getText().isEmpty() & txtPeso.getText().isEmpty()
-                & txtConfirmacaoSenha.getText().isEmpty() & txtDataNascimento.getText().isEmpty());
+                & txtConfirmacaoSenha.getText().isEmpty() & dpDataNascimento.getValue() == null);
         btnLimpar.setDisable(limpar);
 
     }
