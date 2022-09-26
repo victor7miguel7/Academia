@@ -52,19 +52,19 @@ public class PagamentoController implements Initializable {
         ano.setValueFactory(valueFactoryAno);
 
         valores.getItems().addAll(planos);
-        valores.setOnAction(this::getPlanos);
+        //valores.setOnAction(this::getPlanos);
     }
     public void onRealizarPagamento(ActionEvent event) throws IOException {
         String numero = txtNumero.getText().toString();
         String nome = txtNome.getText().toString();
         valorMes = mes.getValue();
         valorAno = ano.getValue();
-        String cvv = txtCVV.getText().toString();
+        Double valor = valorPlano();
 
         //Usuario cliente = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), "80", "1.63");
 
         Usuario cliente = this.logarCliente();
-        Pagamento pagamento = new Pagamento((Cliente) cliente, nome, numero, cvv);
+        Pagamento pagamento = new Pagamento((Cliente) cliente, nome, numero, valor);
 
         try {
             servidor.inserir(pagamento);
@@ -130,18 +130,19 @@ public class PagamentoController implements Initializable {
         }
         return usuario;
     }
-    public void getPlanos(ActionEvent event){
+    public Double valorPlano(){
         Double valor;
         String planos = valores.getValue();
         if(planos.equals("Mensal")){
             valor = 60.0;
         }
         else if(planos.equals("Semestral")){
-            valor = 300.0;
+            valor = 300.0/6;
         }
         else{
-            valor = 300.0;
+            valor = 540.0/12;
         }
 
+        return valor;
     }
 }

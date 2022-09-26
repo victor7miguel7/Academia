@@ -27,12 +27,11 @@ public class Pagamento implements Serializable {
         this.dtPagamento = LocalDate.now();
     }
 
-    public Pagamento(Cliente cliente, String nome, String numero, String cvv) {
+    public Pagamento(Cliente cliente, String nome, String numero, Double valor) {
         this.cliente = cliente;
         this.nome = nome;
         this.numero = numero;
-        this.cvv = cvv;
-        this.valor = 120.0;
+        this.valor = valor;
         this.dtPagamento = LocalDate.now();
     }
 

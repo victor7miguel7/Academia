@@ -62,9 +62,10 @@ public class AdmController implements Initializable {
         carregarListaPersonal();
         carregarListaCliente();
 
+        columnClientes.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
         columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
         columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        columnClientes.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
+
         carregarPagamentos();
 
     }
