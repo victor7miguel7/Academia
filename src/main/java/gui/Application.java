@@ -38,16 +38,16 @@ public class Application extends javafx.application.Application {
         ServidorAcademia servidor = ServidorAcademia.getInstance();
 
 
-        Usuario personal1 = new PersonalTrainer("23", "34", "João", "joao@gmail.com", "12345", LocalDate.of(2000, 5, 20));
-        Usuario personal2 = new PersonalTrainer("25", "35", "Pedro", "pedro@gmail.com", "p12345", LocalDate.of(2000, 5, 20));
-        Usuario cliente1 = new Cliente("54", "Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), "80",
+        Usuario personal1 = new PersonalTrainer("23", "João", "joao@gmail.com", "12345", LocalDate.of(2000, 5, 20));
+        Usuario personal2 = new PersonalTrainer("25", "Pedro", "pedro@gmail.com", "p12345", LocalDate.of(2000, 5, 20));
+        Usuario cliente1 = new Cliente("Maria", "F", "maria@gmail.com", "m12345", LocalDate.of(1994, 7, 2), "80",
                 "1.63");
-        Usuario cliente2 = new Cliente("55", "Stella", "F", "stella@gmail.com", "m15423", LocalDate.of(1995, 5, 19), "60",
+        Usuario cliente2 = new Cliente("Stella", "F", "stella@gmail.com", "m15423", LocalDate.of(1995, 5, 19), "60",
                 "1.65");
-        Usuario cliente3 = new Cliente("56", "Rafael", "M", "rafael@gmail.com", "m54321", LocalDate.of(2003, 8, 19), "75",
+        Usuario cliente3 = new Cliente("Rafael", "M", "rafael@gmail.com", "m54321", LocalDate.of(2003, 8, 19), "75",
                 "1.74");
 
-        Usuario adm1 = new Administrador("01", "Marina", "marina@gmail.com", "2002", LocalDate.of(2003, 3, 20));
+        Usuario adm1 = new Administrador( "Marina", "marina@gmail.com", "2002", LocalDate.of(2003, 3, 20));
 
         Exercicio exer1 = new Exercicio("Supino Reto", "Peito", Duration.ofMinutes(10), 4, 10);
         Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", Duration.ofMinutes(15), 4, 10);

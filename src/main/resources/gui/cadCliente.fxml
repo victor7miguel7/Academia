@@ -32,7 +32,7 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNome" layoutX="60.0" layoutY="108.0" prefHeight="25.0" prefWidth="174.0" promptText="Nome completo" />
+      <TextField fx:id="txtNome" layoutX="60.0" layoutY="108.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="Nome completo" />
       <Label layoutX="64.0" layoutY="146.0" prefHeight="19.0" prefWidth="117.0" text="Data de Nascimento" textFill="WHITE">
          <font>
             <Font size="13.0" />
@@ -48,19 +48,19 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPeso" layoutX="326.0" layoutY="165.0" prefHeight="25.0" prefWidth="174.0" promptText="Ex: 60" />
+      <TextField fx:id="txtPeso" layoutX="326.0" layoutY="165.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="Ex: 60" />
       <Label layoutX="65.0" layoutY="200.0" text="Altura" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtAltura" layoutX="60.0" layoutY="219.0" prefHeight="25.0" prefWidth="174.0" promptText="Ex: 1.75" />
+      <TextField fx:id="txtAltura" layoutX="60.0" layoutY="219.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="Ex: 1.75" />
       <Label layoutX="330.0" layoutY="200.0" text="E-mail" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="txtemail" layoutX="326.0" layoutY="219.0" prefHeight="25.0" prefWidth="174.0" promptText="exemplo@hotmail.com" />
+      <TextField fx:id="txtemail" layoutX="326.0" layoutY="219.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="exemplo@hotmail.com" />
       <Label layoutX="65.0" layoutY="256.0" text="Senha" textFill="WHITE">
          <font>
             <Font size="13.0" />
@@ -71,15 +71,15 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="generoBox" layoutX="326.0" layoutY="108.0" prefHeight="25.0" prefWidth="174.0" />
-      <PasswordField fx:id="txtSenha" layoutX="60.0" layoutY="275.0" prefHeight="25.0" prefWidth="174.0" promptText="Ex: xxxxxxxx" />
-      <PasswordField fx:id="txtConfirmacaoSenha" layoutX="326.0" layoutY="275.0" prefHeight="25.0" prefWidth="174.0" promptText="Ex: xxxxxxxx" />
-      <Button fx:id="cadastro" layoutX="147.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonCadastrar" onKeyReleased="#onKeyReleased" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: #f2c70a;" text="Cadastrar-se">
+      <ChoiceBox fx:id="generoBox" layoutX="326.0" layoutY="108.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="174.0" />
+      <PasswordField fx:id="txtSenha" layoutX="60.0" layoutY="275.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="Ex: xxxxxxxx" />
+      <PasswordField fx:id="txtConfirmacaoSenha" layoutX="326.0" layoutY="275.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="Ex: xxxxxxxx" />
+      <Button fx:id="cadastro" disable="true" layoutX="147.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonCadastrar" onKeyReleased="#onKeyReleased" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: #f2c70a;" text="Cadastrar-se">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnLimpar" layoutX="147.0" layoutY="407.0" mnemonicParsing="false" onAction="#onBtnLimpar" onKeyReleased="#onKeyReleased" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: #f2c70a;" text="Limpar">
+      <Button fx:id="btnLimpar" disable="true" layoutX="147.0" layoutY="407.0" mnemonicParsing="false" onAction="#onBtnLimpar" onKeyReleased="#onKeyReleased" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: #f2c70a;" text="Limpar">
          <font>
             <Font size="15.0" />
          </font>
@@ -89,6 +89,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDataNascimento" layoutX="60.0" layoutY="165.0" prefHeight="25.0" prefWidth="174.0" promptText="Nome completo" />
+      <TextField fx:id="txtDataNascimento" layoutX="60.0" layoutY="165.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="174.0" promptText="Nome completo" />
    </children>
 </AnchorPane>

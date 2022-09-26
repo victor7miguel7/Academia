@@ -10,8 +10,8 @@ public class PersonalTrainer extends Usuario implements Serializable{
 
     private String cref;
 
-    public PersonalTrainer(String id, String cref, String nome, String email, String senha, LocalDate dtNascimento) {
-        super(id, nome, email, senha, dtNascimento);
+    public PersonalTrainer(String cref, String nome, String email, String senha, LocalDate dtNascimento) {
+        super(nome, email, senha, dtNascimento);
         this.cref = cref;
     }
 

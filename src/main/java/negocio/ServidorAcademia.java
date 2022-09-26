@@ -166,4 +166,26 @@ public class ServidorAcademia {
         }
         return igual;
     }
+
+    public int clienteID(){
+        List<Usuario> usuarios = controladorUsuarios.listar();
+        List<Cliente> clientes = new ArrayList<>();
+        for(int i = 0; i < usuarios.size(); i++){
+            if(usuarios.get(i) instanceof Cliente) {
+                clientes.add((Cliente) usuarios.get(i));
+            }
+        }
+        return clientes.size();
+    }
+
+    public int personalID(){
+        List<Usuario> usuarios = controladorUsuarios.listar();
+        List<PersonalTrainer> personais = new ArrayList<>();
+        for(int i = 0; i < usuarios.size(); i++){
+            if(usuarios.get(i) instanceof PersonalTrainer) {
+                personais.add((PersonalTrainer) usuarios.get(i));
+            }
+        }
+        return personais.size();
+    }
 }

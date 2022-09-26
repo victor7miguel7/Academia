@@ -20,6 +20,8 @@ import negocio.ServidorAcademia;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.List;
 
 public class CadastroController {
 
@@ -56,6 +58,7 @@ public class CadastroController {
 
     @FXML
     private void initialize(){
+
         generoBox.setItems(generoList);
     }
 
@@ -77,21 +80,21 @@ public class CadastroController {
 
         String nome = txtNome.getText();
         String email = txtemail.getText();
-        String genero = generoBox.getAccessibleText();
+        String genero = (String) generoBox.getValue();
         LocalDate dataNascimento = LocalDate.parse(txtDataNascimento.getText(),formatter);
         String peso = txtPeso.getText();
         String altura = txtAltura.getText();
         String senha = txtSenha.getText();
         String confirmarSenha = txtConfirmacaoSenha.getText();
-        String iD;
 
         if(senha.equals(confirmarSenha)) {
 
-            Usuario cliente = new Cliente("50", nome, genero, email, senha, dataNascimento, peso, altura);
+            Usuario cliente = new Cliente(nome, genero, email, senha, dataNascimento, peso, altura);
 
             try {
                 servidor.inserir(cliente);
-                //aviso.setText("Cadastro realizado!");
+                cliente.setId(String.valueOf(("c0" + servidor.clienteID())));
+                aviso.setText("Cadastro realizado!");
             } catch (ElementoJaExisteException e) {
                 aviso.setText("O cliente já existe.");
                 System.out.println("Cliente já cadastrado");
@@ -102,6 +105,7 @@ public class CadastroController {
                 alerta.showAndWait();
                 throw new RuntimeException(e);
             }
+            if(txtNome.getText().isEmpty() || txtSenha.getText().isEmpty() || txtemail.getText().isEmpty() | txtConfirmacaoSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty())
             this.onBtnLimpar();
             Alert alerta = new Alert(Alert.AlertType.INFORMATION);
             alerta.setTitle("Cadastro de Cliente");
@@ -126,6 +130,7 @@ public class CadastroController {
         txtPeso.setText("");
         txtConfirmacaoSenha.setText("");
         txtDataNascimento.setText("");
+        generoBox.setValue("");
         cadastro.setDisable(true);
         btnLimpar.setDisable(true);
 
@@ -135,10 +140,12 @@ public class CadastroController {
         boolean cadastrar;
         boolean limpar;
 
-        cadastrar =(txtNome.getText().isEmpty() | txtSenha.getText().isEmpty() | txtemail.getText().isEmpty() | txtConfirmacaoSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty() );
+        cadastrar=(txtNome.getText().isEmpty() | txtemail.getText().isEmpty() | txtSenha.getText().isEmpty() | txtAltura.getText().isEmpty() | txtPeso.getText().isEmpty()
+                | txtConfirmacaoSenha.getText().isEmpty() | txtDataNascimento.getText().isEmpty());
         cadastro.setDisable(cadastrar);
 
-        limpar =(txtNome.getText().isEmpty() & txtSenha.getText().isEmpty() & txtemail.getText().isEmpty() & txtAltura.getText().isEmpty() & txtPeso.getText().isEmpty() & txtConfirmacaoSenha.getText().isEmpty() & txtDataNascimento.getText().isEmpty());
+        limpar = (txtNome.getText().isEmpty() & txtemail.getText().isEmpty() & txtSenha.getText().isEmpty() & txtAltura.getText().isEmpty() & txtPeso.getText().isEmpty()
+                & txtConfirmacaoSenha.getText().isEmpty() & txtDataNascimento.getText().isEmpty());
         btnLimpar.setDisable(limpar);
 
     }

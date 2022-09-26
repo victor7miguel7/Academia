@@ -1,10 +1,14 @@
 package models;
 
+import negocio.ServidorAcademia;
+
 import java.time.LocalDate;
+import java.util.Random;
 
 public abstract class Usuario {
 
-    private String id;
+    ServidorAcademia servidor = ServidorAcademia.getInstance();
+    protected String id;
     private String nome;
 
     private String email;
@@ -12,8 +16,7 @@ public abstract class Usuario {
     private LocalDate dtNascimento;
     private boolean logado;
 
-    public Usuario(String id, String nome, String email, String senha, LocalDate dtNascimento) {
-        this.id = id;
+    public Usuario(String nome, String email, String senha, LocalDate dtNascimento) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -36,6 +39,11 @@ public abstract class Usuario {
     public String getId() {
         return id;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public boolean isLogado() {
         return logado;
     }
@@ -57,5 +65,14 @@ public abstract class Usuario {
                 ", senha='" + senha + '\'' +
                 ", dtNascimento=" + dtNascimento +
                 ", logado=" + logado;
+    }
+
+    public static int randInt(int min, int max) {
+
+
+        Random rand = new Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+
+        return randomNum;
     }
 }

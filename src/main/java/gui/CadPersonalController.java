@@ -89,16 +89,16 @@ public class CadPersonalController {
         senha =  txtSenha.getText();
         confirmarSenha = txtConfirmarSenha.getText();
         dataNascimento = dtDataNascimento.getValue();
-        iD = txtID.getText();
 
 
         if(senha.equals(confirmarSenha)) {
 
-            Usuario personal = new PersonalTrainer(iD, cref, nome, email, senha,dataNascimento);
+            Usuario personal = new PersonalTrainer(cref, nome, email, senha,dataNascimento);
 
             try {
                 lblPersonalCadastrado.setText("Personal cadastrado!");
                 servidor.inserir(personal);
+                personal.setId(String.valueOf(("p0" + servidor.personalID())));
                 onBtnLimpar();
             }catch (ElementoJaExisteException e){
                 Alert alerta = new Alert(Alert.AlertType.ERROR);
@@ -106,7 +106,6 @@ public class CadPersonalController {
                 alerta.setHeaderText("cadastro já realizado anteriormente");
                 alerta.setContentText("Esse cadastro já foi realizado anteriormente");
                 alerta.showAndWait();
-                //   lblPersonalExiste.setText("Personal já existe");
                 throw new RuntimeException(e);
 
 
