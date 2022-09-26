@@ -28,31 +28,51 @@ import java.util.ResourceBundle;
 
 public class ClienteController {
 
-    @FXML private Button logout;
-    @FXML private Button btnPagar;
-    @FXML private Button btnAtualizar;
-    @FXML private Label lblID;
-    @FXML private Label lblDtNascimento;
-    @FXML private Label lblNome;
-    @FXML private Label lblPeso;
-    @FXML private Label lblAltura;
-    @FXML private Label lblGenero;
-    @FXML private TableView<Exercicio> tableViewExercicios;
-    @FXML private TableView<Treino> tableViewTreinos;
-    @FXML private TableColumn<Treino, String> columnTreinosTipo;
-    @FXML private TableColumn<Exercicio, String> columnExerciciosNome;
-    @FXML private TableColumn<Exercicio, String> columnExerciciosTipo;
-    @FXML private TableColumn<Exercicio, Duration> columnExerciciosIntervalo;
-    @FXML private TableColumn<Exercicio, Integer> columnExerciciosSeries;
-    @FXML private TableColumn<Exercicio, Integer> columnExerciciosRepeticoes;
-    @FXML private TableView<Pagamento> tableViewPagamento;
-    @FXML private TableColumn<Pagamento, Double> columnValor;
-    @FXML private TableColumn<Pagamento, LocalDate> columnDtPagamento;
+    @FXML
+    private Button logout;
+    @FXML
+    private Button btnPagar;
+    @FXML
+    private Button btnAtualizar;
+    @FXML
+    private Label lblID;
+    @FXML
+    private Label lblDtNascimento;
+    @FXML
+    private Label lblNome;
+    @FXML
+    private Label lblPeso;
+    @FXML
+    private Label lblAltura;
+    @FXML
+    private Label lblGenero;
+    @FXML
+    private TableView<Exercicio> tableViewExercicios;
+    @FXML
+    private TableView<Treino> tableViewTreinos;
+    @FXML
+    private TableColumn<Treino, String> columnTreinosTipo;
+    @FXML
+    private TableColumn<Exercicio, String> columnExerciciosNome;
+    @FXML
+    private TableColumn<Exercicio, String> columnExerciciosTipo;
+    @FXML
+    private TableColumn<Exercicio, Duration> columnExerciciosIntervalo;
+    @FXML
+    private TableColumn<Exercicio, Integer> columnExerciciosSeries;
+    @FXML
+    private TableColumn<Exercicio, Integer> columnExerciciosRepeticoes;
+    @FXML
+    private TableView<Pagamento> tableViewPagamento;
+    @FXML
+    private TableColumn<Pagamento, Double> columnValor;
+    @FXML
+    private TableColumn<Pagamento, LocalDate> columnDtPagamento;
 
     ServidorAcademia servidor = ServidorAcademia.getInstance();
 
     private List<Exercicio> listExercicios = new ArrayList();
-    private List<Treino> listTreinos = new ArrayList();
+    private List<Treino> listaTreinos = new ArrayList();
     private List<Pagamento> listPagamentos;
     private ObservableList<Exercicio> observableListExercicios;
     private ObservableList<Treino> observableListTreinos;
@@ -67,40 +87,38 @@ public class ClienteController {
         Usuario cliente = logarCliente();
         lblID.setText(String.valueOf((cliente.getId())));
         lblNome.setText(String.valueOf(cliente.getNome()));
-        lblPeso.setText(String.valueOf((((Cliente)cliente).getPeso())));
-        lblAltura.setText(String.valueOf((((Cliente)cliente).getAltura())));
+        lblPeso.setText(String.valueOf((((Cliente) cliente).getPeso())));
+        lblAltura.setText(String.valueOf((((Cliente) cliente).getAltura())));
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
         lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
 
         columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
         columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
         this.onBtnAtualizar();
+
         carregarTableView();
+        //clicarMouseItemListViewExercicio();
 
     }
+
     public void carregarTableView() {
 
         columnExerciciosNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnExerciciosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-        columnExerciciosIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
-        columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("qtdDeSeries"));
-        columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("qtdDeRepeticao"));
+//        columnExerciciosIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
+//        columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("qtdDeSeries"));
+//        columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("qtdDeRepeticao"));
         columnTreinosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
-        Exercicio exer1 = new Exercicio("Supino Reto", "Peito");
-        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas");
-        Exercicio exer3 = new Exercicio("Tríceps Pulley", "Tríceps");
 
-        listExercicios.add(exer1);
-        listExercicios.add(exer2);
-        listExercicios.add(exer3);
+        listaTreinos = servidor.treinos((Cliente) logarCliente());
+        //listExercicios = servidor.listaExercicio(listaTreinos);
 
-        listTreinos = servidor.treinos((Cliente) logarCliente());
 
         observableListExercicios = FXCollections.observableArrayList(listExercicios);
-        observableListTreinos = FXCollections.observableArrayList(listTreinos);
+        observableListTreinos = FXCollections.observableArrayList(listaTreinos);
 
-        tableViewExercicios.setItems(observableListExercicios);
+        //tableViewExercicios.setItems(observableListExercicios);
         tableViewTreinos.setItems(observableListTreinos);
     }
 
@@ -117,19 +135,20 @@ public class ClienteController {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     public void onbtnRealizarPagamento(ActionEvent event) throws IOException {
-            Stage stage;
-            Parent root;
+        Stage stage;
+        Parent root;
 
-            stage = (Stage) btnPagar.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("pagamento.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+        stage = (Stage) btnPagar.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("pagamento.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
-    public void onBtnAtualizar(){
+    public void onBtnAtualizar() {
 
         listPagamentos = servidor.pagamentolistar();
         ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
@@ -137,18 +156,27 @@ public class ClienteController {
 
     }
 
-    public Usuario logarCliente(){
+    public Usuario logarCliente() {
         Usuario usuario = null;
         List<Usuario> usuarios = servidor.usuarioListar();
-        for(int i = 0; i < usuarios.size(); i++){
-            if(usuarios.get(i).isLogado()){
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).isLogado()) {
                 usuario = usuarios.get(i);
             }
         }
         return usuario;
     }
 
+    public void clicarMouseItemListViewExercicio() {
+        try {
+            Treino treino = tableViewTreinos.getSelectionModel().getSelectedItem();
+            carregarTableView();
+
+        } catch (Exception e) {
+            //escrever
+        }
 
 
-
+    }
 }
+

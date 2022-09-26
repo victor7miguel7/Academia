@@ -6,6 +6,7 @@ import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import exception.ElementoJaExisteException;
 import exception.ElementoNaoExisteException;
+import models.Exercicio;
 import models.PlanoDeTreino;
 import models.Treino;
 
@@ -39,5 +40,6 @@ public class ControladorTreinos {
     public void atualizar(Treino newObj) throws ElementoNaoExisteException{
         this.repositorioTreino.atualizar(newObj);
     }
+
 
 }

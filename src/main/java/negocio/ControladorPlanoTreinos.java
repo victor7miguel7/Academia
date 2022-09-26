@@ -7,6 +7,7 @@ import dados.RepositorioGenerico;
 import exception.ElementoJaExisteException;
 import exception.ElementoNaoExisteException;
 import models.Cliente;
+import models.Exercicio;
 import models.PlanoDeTreino;
 import models.Treino;
 
@@ -52,5 +53,29 @@ public class ControladorPlanoTreinos {
 
         }
         return treino;
+    }
+    public List<Exercicio> listaExercicio(Treino treino){
+        List<Exercicio> exercicio = new ArrayList<>();
+        List<PlanoDeTreino> planoDeTreinos = this.repositorioPlanoDeTreinos.listar();
+        for(int i = 0;i < planoDeTreinos.size(); i++){
+            if(planoDeTreinos.get(i).getTreinos().equals(treino))
+                exercicio =  planoDeTreinos.get(i).getTreinos().get(i).getExercicios();
+        }
+        return exercicio;
+    }
+    public List<Exercicio> listaExercicio(List<Treino> treino){
+        List<Exercicio> exercicio = new ArrayList<>();
+        List<PlanoDeTreino> planoDeTreinos = this.repositorioPlanoDeTreinos.listar();
+        List <Treino> treinos  = treino;
+        for(int i = 0;i < treinos.size(); i++){
+            for(int a = 0;a < planoDeTreinos.size(); i++){
+                for(int b = 0 ; b < planoDeTreinos.get(a).getTreinos().size() ; b++ ){
+                    if(planoDeTreinos.get(a).getTreinos().get(b).equals(treino.get(i)))
+                        exercicio =  planoDeTreinos.get(a).getTreinos().get(b).getExercicios();
+                }
+            }
+
+        }
+        return exercicio;
     }
 }
