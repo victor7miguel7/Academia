@@ -32,7 +32,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="79.0" layoutY="111.0" text="Número do cartão" />
-            <TextField fx:id="txtNumero" layoutX="79.0" layoutY="129.0" onKeyReleased="#onKeyReleased" onKeyTyped="#jTextFieldKeyTyped" prefHeight="26.0" prefWidth="216.0" />
+            <TextField fx:id="txtNumero" layoutX="79.0" layoutY="129.0" onKeyReleased="#onKeyReleased" prefHeight="26.0" prefWidth="216.0" />
             <Label layoutX="79.0" layoutY="189.0" text="Nome do titular" />
             <TextField fx:id="txtNome" layoutX="79.0" layoutY="207.0" onKeyReleased="#onKeyReleased" prefHeight="26.0" prefWidth="216.0" />
             <Label layoutX="384.0" layoutY="111.0" text="Expira em:" />

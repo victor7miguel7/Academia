@@ -9,10 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Administrador;
 import models.*;
@@ -37,6 +35,13 @@ public class AdmController implements Initializable {
     @FXML private ListView<Usuario> listViewPersonal;
     @FXML private ListView<Usuario> listViewCliente;
     @FXML private Button buttonRemover;
+    @FXML private TableView<Pagamento> tableViewPagamento;
+    @FXML private TableColumn<Pagamento, Double> columnValor;
+    @FXML private TableColumn<Pagamento, LocalDate> columnDtPagamento;
+    @FXML private TableColumn<Pagamento, String> columnClientes;
+
+    private List<Pagamento> listPagamentos;
+    private ObservableList<Exercicio> observableListPagamentos;
 
     private List<Usuario> listPersonal = new ArrayList<>();
     private List<Usuario> listClientes = new ArrayList<>();
@@ -51,8 +56,14 @@ public class AdmController implements Initializable {
         lblID.setText(adm.getId());
         lblNome.setText(adm.getNome());
         lblDtNascimento.setText(String.valueOf(adm.getDtNascimento()));
+
         carregarListaPersonal();
         carregarListaCliente();
+
+        columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
+        columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        columnClientes.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        carregarPagamentos();
 
     }
     public void voltarLogin(ActionEvent event) throws IOException {
@@ -138,5 +149,13 @@ public class AdmController implements Initializable {
         }
         observableListCliente = FXCollections.observableArrayList(listClientes);
         listViewCliente.setItems(observableListCliente);
+    }
+
+    public void carregarPagamentos(){
+
+        listPagamentos = servidor.pagamentolistar();
+        ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
+        this.tableViewPagamento.setItems(observableListPagamentos);
+
     }
 }
