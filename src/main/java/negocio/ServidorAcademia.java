@@ -74,6 +74,18 @@ public class ServidorAcademia {
     public List<PlanoDeTreino> planoTreinoListar() {
         return this.controladorPlanoTreino.listar();
     }
+    public List<Treino> treinos(Cliente cliente) {
+        List<Treino> treino = new ArrayList<>();
+        List<PlanoDeTreino> planoDeTreinos = this.controladorPlanoTreino.listar();
+
+        for (int i = 0; i < planoDeTreinos.size(); i++) {
+            if (planoDeTreinos.get(i).getCliente().equals(cliente)) {
+                treino = planoDeTreinos.get(i).getTreinos();
+            }
+
+        }
+        return treino;
+    }
 
     public void remover(PlanoDeTreino obj) throws ElementoNaoExisteException {
         this.controladorPlanoTreino.remover(obj);

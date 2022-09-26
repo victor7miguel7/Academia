@@ -49,6 +49,8 @@ public class AdmController implements Initializable {
     private ObservableList<Usuario> observableListPersonal;
     private ObservableList<Usuario> observableListCliente;
 
+
+
     Usuario adm = logarCliente();
 
     @Override

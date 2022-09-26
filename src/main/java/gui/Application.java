@@ -76,7 +76,7 @@ public class Application extends javafx.application.Application {
 
         treinosA.add(treino1);
         treinosB.add(treino2);
-        treinosC.add(treino1);
+       // treinosC.add(treino1);
         treinosC.add(treino2);
 
         PlanoDeTreino planoTreino1 = new PlanoDeTreino(LocalDate.of(2022, 8, 20), Period.ofDays(45),

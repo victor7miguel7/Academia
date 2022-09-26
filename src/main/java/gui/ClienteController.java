@@ -95,11 +95,7 @@ public class ClienteController {
         listExercicios.add(exer2);
         listExercicios.add(exer3);
 
-        Treino treino1 = new Treino("Superior", listExercicios);
-        Treino treino2 = new Treino("Inferior", listExercicios);
-
-        listTreinos.add(treino1);
-        listTreinos.add(treino2);
+        listTreinos = servidor.treinos((Cliente) logarCliente());
 
         observableListExercicios = FXCollections.observableArrayList(listExercicios);
         observableListTreinos = FXCollections.observableArrayList(listTreinos);
