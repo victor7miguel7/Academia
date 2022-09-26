@@ -49,7 +49,7 @@ public class AdmController implements Initializable {
     private ObservableList<Usuario> observableListPersonal;
     private ObservableList<Usuario> observableListCliente;
 
-    Usuario adm = new Administrador("13","Lula","lula","123", LocalDate.of(1945,10,07));
+    Usuario adm = logarCliente();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -157,5 +157,15 @@ public class AdmController implements Initializable {
         ObservableList<Pagamento> observableListPagamentos = FXCollections.observableArrayList(listPagamentos);
         this.tableViewPagamento.setItems(observableListPagamentos);
 
+    }
+    public Usuario logarCliente(){
+        Usuario usuario = null;
+        List<Usuario> usuarios = servidor.usuarioListar();
+        for(int i = 0; i < usuarios.size(); i++){
+            if(usuarios.get(i).isLogado()){
+                usuario = usuarios.get(i);
+            }
+        }
+        return usuario;
     }
 }
