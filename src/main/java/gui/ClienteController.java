@@ -87,9 +87,9 @@ public class ClienteController {
         columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("qtdDeRepeticao"));
         columnTreinosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
-        Exercicio exer1 = new Exercicio("Supino Reto", "Peito", Duration.ofMinutes(1), 4, 10);
-        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", Duration.ofMinutes(1), 4, 10);
-        Exercicio exer3 = new Exercicio("Tríceps Pulley", "Tríceps", Duration.ofMinutes(1), 3, 12);
+        Exercicio exer1 = new Exercicio("Supino Reto", "Peito");
+        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas");
+        Exercicio exer3 = new Exercicio("Tríceps Pulley", "Tríceps");
 
         listExercicios.add(exer1);
         listExercicios.add(exer2);

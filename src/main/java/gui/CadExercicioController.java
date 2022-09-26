@@ -1,5 +1,6 @@
 package gui;
 
+import exception.ElementoJaExisteException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,14 +9,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import models.Cliente;
+import models.Exercicio;
+import models.Usuario;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static gui.Application.servidor;
 
 public class CadExercicioController implements Initializable {
 
@@ -29,6 +33,9 @@ public class CadExercicioController implements Initializable {
     private Button btnCadastrar;
     @FXML
     private Button btnVoltar;
+
+    @FXML
+    private Label aviso;
 
 
     @Override
@@ -46,5 +53,29 @@ public class CadExercicioController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void onBtnCadastrar(ActionEvent event) throws IOException {
+
+        String nome = txtNome.getText();
+        String tipo = tipoBox.getAccessibleText();
+
+
+            Exercicio exercicio = new Exercicio(nome, tipo);
+
+            try {
+                servidor.inserir(exercicio);
+                //aviso.setText("Cadastro realizado!");
+            } catch (ElementoJaExisteException e) {
+                aviso.setText("O exercício já existe.");
+                System.out.println("Exercício já cadastrado");
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("Erro no cadastro");
+                alerta.setHeaderText("Cadastro já realizado");
+                alerta.setContentText("Esse exercício já foi cadastrado");
+                alerta.showAndWait();
+                throw new RuntimeException(e);
+            }
     }
 }
