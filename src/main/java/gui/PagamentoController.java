@@ -35,6 +35,8 @@ public class PagamentoController implements Initializable {
     @FXML private Button voltar;
     @FXML private Button btnLimpar;
     @FXML private Label lblPagamentoCadastrado;
+    @FXML ChoiceBox<String> valores;
+    private String[] planos = {"Mensal", "Semestral", "Anual"};
     private int valorMes;
     private int valorAno;
     ServidorAcademia servidor = ServidorAcademia.getInstance();
@@ -48,6 +50,9 @@ public class PagamentoController implements Initializable {
 
         mes.setValueFactory(valueFactoryMes);
         ano.setValueFactory(valueFactoryAno);
+
+        valores.getItems().addAll(planos);
+        valores.setOnAction(this::getPlanos);
     }
     public void onRealizarPagamento(ActionEvent event) throws IOException {
         String numero = txtNumero.getText().toString();
@@ -124,5 +129,19 @@ public class PagamentoController implements Initializable {
             }
         }
         return usuario;
+    }
+    public void getPlanos(ActionEvent event){
+        Double valor;
+        String planos = valores.getValue();
+        if(planos.equals("Mensal")){
+            valor = 60.0;
+        }
+        else if(planos.equals("Semestral")){
+            valor = 300.0;
+        }
+        else{
+            valor = 300.0;
+        }
+
     }
 }

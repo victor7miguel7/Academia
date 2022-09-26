@@ -1,10 +1,12 @@
 package negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import exception.ElementoJaExisteException;
 import exception.ElementoNaoExisteException;
+import models.PlanoDeTreino;
 import models.Treino;
 
 public class ControladorTreinos {

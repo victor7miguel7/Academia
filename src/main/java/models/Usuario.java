@@ -7,7 +7,6 @@ import java.util.Random;
 
 public abstract class Usuario {
 
-    ServidorAcademia servidor = ServidorAcademia.getInstance();
     protected String id;
     private String nome;
 

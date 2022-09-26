@@ -7,14 +7,15 @@ public class Pagamento implements Serializable {
 
     private static final long serialVersionUID = 4864179243205862834L;
 
-    Cliente cliente;
-    String nome;
-    String numero;
-    Double valor;
-    int mes;
-    int ano;
-    String cvv;
-    LocalDate dtPagamento;
+    private Cliente cliente;
+    private String nomeCliente;
+    private String nome;
+    private String numero;
+    private Double valor;
+    private int mes;
+    private int ano;
+    private String cvv;
+    private LocalDate dtPagamento;
 
     public Pagamento(String nome, String numero, int mes, int ano, String cvv, Double valor, LocalDate dtPagamento) {
         this.nome = nome;
@@ -89,6 +90,11 @@ public class Pagamento implements Serializable {
 
     public void setDtPagamento(LocalDate dtPagamento) {
         this.dtPagamento = dtPagamento;
+    }
+
+    public String getNomeCliente() {
+
+        return cliente.getNome();
     }
 
     @Override
