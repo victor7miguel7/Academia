@@ -19,7 +19,9 @@ import negocio.ServidorAcademia;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,41 @@ public class PersonalController {
     private ObservableList<Exercicio> observableListExercicio;
 
 
+    // aba plano de treino - plano de treino
+    @FXML
+    private TableView<PlanoDeTreino> tableViewPlanoDeTreino;
+    @FXML
+    private TableColumn<PlanoDeTreino, String> columnCliente;
+    @FXML
+    private TableColumn<PlanoDeTreino, LocalDate> columnInicio;
+    @FXML
+    private TableColumn<PlanoDeTreino, Period> columnDuracao;
+    private List<PlanoDeTreino> listPlanosDeTreino;
+
+    // aba plano de treino - treinos
+    @FXML
+    private TableView<PlanoDeTreino> tableViewTreinos;
+    @FXML
+    private TableColumn<Treino, String> treino;
+
+
+    @FXML
+    private TableView<Exercicio> tableViewExercicios;
+    @FXML
+    private TableColumn<Exercicio, String> columnNomeExercicio;
+    @FXML
+    private TableColumn<Exercicio, String> columnTipoExercicio;
+    @FXML
+    private TableColumn<Exercicio, Duration> columnIntervalo;
+    @FXML
+    private TableColumn<Exercicio, Integer> columnSeries;
+    @FXML
+    private TableColumn<Exercicio, Integer> columnRepeticoes;
+
+    @FXML
+    private Label aviso;
+
+
 
     @FXML
     private Button logout;
@@ -57,6 +94,14 @@ public class PersonalController {
         columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         carregarExercicios();
+
+        columnInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
+        columnDuracao.setCellValueFactory(new PropertyValueFactory<>("duracao"));
+        columnCliente.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
+
+        listPlanosDeTreino = servidor.planoTreinoListar();
+        ObservableList<PlanoDeTreino> observableListPlanosDeTreinos = FXCollections.observableArrayList(listPlanosDeTreino);
+        this.tableViewPlanoDeTreino.setItems(observableListPlanosDeTreinos);
     }
 
     public void userLogOut(ActionEvent event) throws IOException {
@@ -121,6 +166,20 @@ public class PersonalController {
             servidor.remover(exercicio);
         } catch (Exception e) {
             //escrever
+        }
+    }
+
+    @FXML
+    public void clicarMouseItemTableViewPlanoTreino(){
+        try{
+            PlanoDeTreino b = tableViewPlanoDeTreino.getSelectionModel().getSelectedItem();
+            List<PlanoDeTreino> a = servidor.planoTreinoListar();
+            for (int i = 0; i < a.size(); i++) {
+                if(a.get(i).getCliente() == b.getCliente() && a.get(i).getDuracao() == b.getDuracao() && a.get(i).getDataInicio() == b.getDataInicio()){
+                    treino.setCellValueFactory(new PropertyValueFactory<>("a.get(i).getTreinos"));
+                }
+            }
+        } catch (Exception e) {
         }
     }
 }

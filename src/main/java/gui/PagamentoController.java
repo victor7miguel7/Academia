@@ -105,9 +105,9 @@ public class PagamentoController implements Initializable {
         boolean limpar;
 
         pagar=(txtNome.getText().isEmpty() | txtNumero.getText().isEmpty() | txtNumero.getText().length() != 16
-                | txtCVV.getText().isEmpty() | txtCVV.getText().length() != 3);
+                | txtCVV.getText().isEmpty() | txtCVV.getText().length() != 3 | valores.getValue() == null);
         btnPagar.setDisable(pagar);
-        limpar = (txtNome.getText().isEmpty() & txtNumero.getText().isEmpty() & txtCVV.getText().isEmpty());
+        limpar = (txtNome.getText().isEmpty() & txtNumero.getText().isEmpty() & txtCVV.getText().isEmpty() & valores.getValue() == null);
         btnLimpar.setDisable(limpar);
 
     }

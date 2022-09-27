@@ -13,6 +13,7 @@ public class PlanoDeTreino implements Serializable{
     private LocalDate dataInicio;
     private Period duracao;
     private Cliente cliente;
+    private String nomeCliente;
     private List<Treino> treinos;
 
     public PlanoDeTreino(LocalDate dataInicio, Period duracao, Cliente cliente, List<Treino> treinos) {
@@ -20,6 +21,12 @@ public class PlanoDeTreino implements Serializable{
         this.duracao = duracao;
         this.cliente = cliente;
         this.treinos = treinos;
+    }
+
+    public PlanoDeTreino(LocalDate dataInicio, Period duracao, Cliente cliente) {
+        this.dataInicio = dataInicio;
+        this.duracao = duracao;
+        this.cliente = cliente;
     }
 
     public LocalDate getDataInicio() {
@@ -36,6 +43,11 @@ public class PlanoDeTreino implements Serializable{
 
     public List<Treino> getTreinos() {
         return treinos;
+    }
+
+    public String getNomeCliente() {
+
+        return cliente.getNome();
     }
 
 
