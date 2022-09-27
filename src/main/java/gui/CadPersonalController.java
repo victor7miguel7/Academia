@@ -90,11 +90,7 @@ public class CadPersonalController {
                 alerta.showAndWait();
                 throw new RuntimeException(e);
 
-
-
             }
-
-
         }
         else if(txtNome.getText().isEmpty() | txtSenha.getText().isEmpty() | txtCref.getText().isEmpty() | txtEmail.getText().isEmpty() | txtConfirmarSenha.getText().isEmpty() | dtDataNascimento.getValue() == null){
             lblSenhasDiferentes.setText("Por favor, preencha os espaços em branco!");

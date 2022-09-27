@@ -41,7 +41,6 @@ public class AdmController implements Initializable {
     @FXML private TableColumn<Pagamento, String> columnClientes;
 
     private List<Pagamento> listPagamentos;
-    private ObservableList<Exercicio> observableListPagamentos;
 
     private List<Usuario> listPersonal = new ArrayList<>();
     private List<Usuario> listClientes = new ArrayList<>();

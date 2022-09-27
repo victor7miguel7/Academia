@@ -13,17 +13,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.Cliente;
-import models.PersonalTrainer;
 import models.Usuario;
 import negocio.ServidorAcademia;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.List;
 
-public class CadastroController {
+public class CadClienteController {
 
     ObservableList<String> generoList = FXCollections.observableArrayList("Feminino", "Masculino", "Outro");
 

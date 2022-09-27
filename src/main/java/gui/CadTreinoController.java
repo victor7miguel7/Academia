@@ -1,19 +1,22 @@
 package gui;
+import exception.ElementoJaExisteException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Exercicio;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import models.Treino;
 import negocio.ServidorAcademia;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -28,19 +31,31 @@ public class CadTreinoController implements Initializable {
 	@FXML
 	private Button btnCadastrar;
 	@FXML
-	private ListView lvExercicios;
-	@FXML
-	private ObservableList<Exercicio> observableListExercicio;
+	private ListView<Exercicio> lvExercicios;
+
 
 	ServidorAcademia servidor = ServidorAcademia.getInstance();
 
-	@FXML
-	private List<Exercicio> exercicio = servidor.listar();
+	private List<Exercicio> listExercicios = new ArrayList<>();
+	private ObservableList<Exercicio> observableListExercicio;
+
+	private List<Exercicio> listExerciciosSelected = new ArrayList<Exercicio>();
 	
 	
-	public void onBntCadastrarClick()
-	{
-		
+	public void onBntCadastrarTreino() {
+		String tipo = cBTipoTreino.getValue();
+		Treino treino = new Treino(tipo, listExerciciosSelected);
+		try {
+			servidor.inserir(treino);
+		} catch (ElementoJaExisteException e) {
+			System.out.println("Treino já cadastrado");
+			Alert alerta = new Alert(Alert.AlertType.ERROR);
+			alerta.setTitle("Erro no cadastro");
+			alerta.setHeaderText("Treino já cadastrado");
+			alerta.setContentText("Esse treino já foi cadastrado");
+			alerta.showAndWait();
+			throw new RuntimeException(e);
+		}
 	}
 	
 	 public void onBtnLimparClick() {
@@ -52,16 +67,16 @@ public class CadTreinoController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		lvExercicios.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		cBTipoTreino.getItems().addAll(tipo);
 		carregarListaExercicio();
 
+		lvExercicios.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		cBTipoTreino.getItems().addAll(tipo);
 	}
 	/* public void onKeyReleased () {
 	       boolean cadastrar;
-	       boolean limpar;*/
+	       boolean limpar;
 
-	      /*cadastrar =(txtTipoTreino.getText().isEmpty() | lvExercicios.getSelectionModel().getSelectedItems());
+	      cadastrar =(txtTipoTreino.getText().isEmpty() | lvExercicios.getSelectionModel().getSelectedItems());
 	       btnCadastrar.setDisable(cadastrar);
 
 	        limpar =(txtTipoTreino.getText().isEmpty() & lvExercicios.getSelectionModel().getSelectedItems());
@@ -80,9 +95,13 @@ public class CadTreinoController implements Initializable {
     }
 	public void carregarListaExercicio(){
 
-		observableListExercicio = FXCollections.observableArrayList(exercicio);
+		listExercicios = servidor.exercicioListar();
+		observableListExercicio = FXCollections.observableArrayList(listExercicios);
 		lvExercicios.setItems(observableListExercicio);
 
+	}
+	public void onAddListExercicio(ActionEvent event){
+		listExerciciosSelected.add(lvExercicios.getSelectionModel().getSelectedItem());
 	}
 
 }

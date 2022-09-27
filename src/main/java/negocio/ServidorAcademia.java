@@ -39,7 +39,7 @@ public class ServidorAcademia {
         controladorExercicios.inserir(obj);
     }
 
-    public List<Exercicio> listar() {
+    public List<Exercicio> exercicioListar() {
         return controladorExercicios.listar();
     }
 

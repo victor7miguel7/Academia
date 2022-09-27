@@ -23,12 +23,12 @@ import static gui.Application.servidor;
 
 public class CadExercicioController implements Initializable {
 
-    ObservableList<String> tipoList = FXCollections.observableArrayList("Costas", "Peito", "Bíceps", "Tríceps", "Ombro",
-                                                                        "Quadríceps", "Glúteos", "Posterior", "Panturrilha");
     @FXML
     private TextField txtNome;
     @FXML
-    private ChoiceBox tipoBox;
+    private ChoiceBox<String> tipoBox;
+    private String [] tipoExercicio = {"Costas", "Peito", "Bíceps", "Tríceps", "Ombro",
+            "Quadríceps", "Glúteos", "Posterior", "Panturrilha"};
     @FXML
     private Button btnCadastrar;
     @FXML
@@ -40,7 +40,8 @@ public class CadExercicioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tipoBox.setItems(tipoList);
+
+        tipoBox.getItems().addAll(tipoExercicio);
     }
 
     @FXML
@@ -59,8 +60,7 @@ public class CadExercicioController implements Initializable {
     public void onBtnCadastrar(ActionEvent event) throws IOException {
 
         String nome = txtNome.getText();
-        String tipo = tipoBox.getAccessibleText();
-
+        String tipo = tipoBox.getValue();
 
             Exercicio exercicio = new Exercicio(nome, tipo);
 
