@@ -1,34 +1,41 @@
 package gui;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Exercicio;
-import javafx.scene.control.Label;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import negocio.ServidorAcademia;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CadTreinoController implements Initializable {
 	@FXML
-	private TextField txtTipoTreino;
+	private ChoiceBox<String> cBTipoTreino;
+	private String [] tipo = {"Superior","Inferior"};
 	@FXML
 	private Button btnLimpar;
 	@FXML
+	private Button btnVoltar;
+	@FXML
 	private Button btnCadastrar;
 	@FXML
-	private ListView<Exercicio> lvExercicios;
+	private ListView lvExercicios;
 	@FXML
-	private Button btnVoltar;
-	
-	String [] Exercicios = {"Supino Reto", "Supino Inclinado","Voador Peitoral" };
+	private ObservableList<Exercicio> observableListExercicio;
+
+	ServidorAcademia servidor = ServidorAcademia.getInstance();
+
+	@FXML
+	private List<Exercicio> exercicio = servidor.listar();
 	
 	
 	public void onBntCadastrarClick()
@@ -37,14 +44,18 @@ public class CadTreinoController implements Initializable {
 	}
 	
 	 public void onBtnLimparClick() {
-	      // lvExercicios.setSelectionModel().setSelectedItems("");
-	        txtTipoTreino.setText("");
+	     // lvExercicios.setSelectionModel().setSelectedItems("");
+		   // cBTipoTreino.setItems();
 	        btnCadastrar.setDisable(true);
 	        btnLimpar.setDisable(true); 
 	 }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		lvExercicios.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		cBTipoTreino.getItems().addAll(tipo);
+		carregarListaExercicio();
+
 	}
 	/* public void onKeyReleased () {
 	       boolean cadastrar;
@@ -67,6 +78,12 @@ public class CadTreinoController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+	public void carregarListaExercicio(){
+
+		observableListExercicio = FXCollections.observableArrayList(exercicio);
+		lvExercicios.setItems(observableListExercicio);
+
+	}
 
 }
 
