@@ -1,12 +1,22 @@
 package gui;
-/*import javafx.fxml.FXML;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import models.Exercicio;
 import javafx.scene.control.Label;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class CadTreinoController {
+public class CadTreinoController implements Initializable {
 	@FXML
 	private TextField txtTipoTreino;
 	@FXML
@@ -14,7 +24,9 @@ public class CadTreinoController {
 	@FXML
 	private Button btnCadastrar;
 	@FXML
-	private ListView lvExercicios;
+	private ListView<Exercicio> lvExercicios;
+	@FXML
+	private Button btnVoltar;
 	
 	String [] Exercicios = {"Supino Reto", "Supino Inclinado","Voador Peitoral" };
 	
@@ -25,101 +37,37 @@ public class CadTreinoController {
 	}
 	
 	 public void onBtnLimparClick() {
-		
-	       // lvExercicios.set("");
+	      // lvExercicios.setSelectionModel().setSelectedItems("");
 	        txtTipoTreino.setText("");
 	        btnCadastrar.setDisable(true);
-	        btnLimpar.setDisable(true);
-		 
+	        btnLimpar.setDisable(true); 
 	 }
-	
-	 public void onKeyReleased () {
-	       boolean cadastrar;
-	       boolean limpar;
 
-	      //  cadastrar =(txtTipoTreino.getText().isEmpty() | lvExercicios.get().isEmpty();
-	      //  btnCadastrar.setDisable(cadastrar);
-
-	       // limpar =(txtTipoTreino.getText().isEmpty() & lvExercicios.getText().isEmpty();
-	       // btnLimpar.setDisable(limpar);
-
-
-	    }
-
-	
-
-}*/
-
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-
-
-
-public class CadTreinoController implements Initializable{
-	@FXML
-	private TextField txtTipoTreino;
-	@FXML
-	private Button btnLimpar;
-	@FXML
-	private Button btnCadastrar;
-	//@FXML
-	//private ListView lvExercicios;
-	@FXML
-	private ListView<String> lvExercicios;
-	//preciso criar metodo
-	public void onBntCadastrarClick()
-	{
-		
-	}
-	
-	 public void onBtnLimparClick() {
-		//preciso descobrir o set
-	       // lvExercicios.set("");
-	        txtTipoTreino.setText("");
-	        btnCadastrar.setDisable(true);
-	        btnLimpar.setDisable(true);
-		 
-	 }
-	
-	 public void onKeyReleased () {
-	       boolean cadastrar;
-	       boolean limpar;
-	     //preciso descobrir o get
-	      //  cadastrar =(txtTipoTreino.getText().isEmpty() | lvExercicios.get().isEmpty();
-	      //  btnCadastrar.setDisable(cadastrar);
-	     //preciso descobrir o get
-	       // limpar =(txtTipoTreino.getText().isEmpty() & lvExercicios.get().isEmpty();
-	       // btnLimpar.setDisable(limpar);
-
-
-	    }
-	//tentando preencher lista
-	String[] exercicio = {"Supino Reto","Supino Inclinado","Voador Peitoral"};
-	
-	String armazenaExercicio;
-	
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		lvExercicios.getItems().addAll(exercicio);
-		
-		lvExercicios.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
-			@Override
-			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-				
-				armazenaExercicio = lvExercicios.getSelectionModel().getSelectedItem();
-				
-				
-				
-			}	
-		});
+	public void initialize(URL location, ResourceBundle resources) {
 	}
+	/* public void onKeyReleased () {
+	       boolean cadastrar;
+	       boolean limpar;*/
+
+	      /*cadastrar =(txtTipoTreino.getText().isEmpty() | lvExercicios.getSelectionModel().getSelectedItems());
+	       btnCadastrar.setDisable(cadastrar);
+
+	        limpar =(txtTipoTreino.getText().isEmpty() & lvExercicios.getSelectionModel().getSelectedItems());
+	       btnLimpar.setDisable(limpar);
+	    }*/
+
+	public void onBtnVoltar() throws IOException {
+        Stage stage;
+        Parent root;
+
+		stage = (Stage) btnVoltar.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("personal.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
+
+

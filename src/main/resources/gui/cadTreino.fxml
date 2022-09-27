@@ -25,7 +25,7 @@
                   <Image url="@img/voltar.png" />
                </image>
             </ImageView>
-            <Button layoutX="9.0" layoutY="11.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="43.0" />
+            <Button fx:id="btnVoltar" layoutX="9.0" layoutY="11.0" mnemonicParsing="false" onAction="#onBtnVoltar" opacity="0.0" prefHeight="34.0" prefWidth="43.0" />
          </children>
       </AnchorPane>
    </top>
