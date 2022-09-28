@@ -16,6 +16,7 @@ import negocio.ServidorAcademia;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -33,16 +34,6 @@ private Button btnAdicionar;
 @FXML private Spinner<Integer> repeticoes;
 @FXML private Spinner<Integer> duracao;
 
-@FXML
-private Integer [] intervalos = {1,2,3,4,5};
-
-@FXML
-private Integer [] serie = {1,2,3,4,5,6,7,8,9,10};
-
-@FXML
-private Integer [] repeticao = {1,2,3,4,5,6,7,8,9,10};
-
-@FXML private Integer [] duracoes = {1,2,3,4,5,6,7,8,9,10};
 @FXML
 private ListView lvTreinos;
 @FXML
@@ -63,8 +54,25 @@ private List<Usuario>  listClientes = new ArrayList<>();
     ServidorAcademia servidor =  ServidorAcademia.getInstance();
 public void initialize(URL location, ResourceBundle resources) {
 
-   carregarListaExercicio();
+    carregarListaExercicio();
     carregarListaClientes();
+
+    SpinnerValueFactory<Integer> valueFactoryRepeticoes = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,10);
+    SpinnerValueFactory<Integer> valueFactorySeries = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,10);
+    SpinnerValueFactory<Integer> valueFactoryDuracao = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,10);
+    SpinnerValueFactory<Integer> valueFactoryIntervalo = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,5);
+
+    valueFactoryIntervalo.setValue(1);
+    valueFactoryDuracao.setValue(1);
+    valueFactoryRepeticoes.setValue(1);
+    valueFactorySeries.setValue(1);
+
+    intervalo.setValueFactory(valueFactoryIntervalo);
+    series.setValueFactory(valueFactorySeries);
+    duracao.setValueFactory(valueFactoryDuracao);
+    repeticoes.setValueFactory(valueFactoryRepeticoes);
+
+
 
 }
 public void onBtnVoltarClick(ActionEvent event) throws IOException {
