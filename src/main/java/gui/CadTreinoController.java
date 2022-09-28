@@ -72,16 +72,17 @@ public class CadTreinoController implements Initializable {
 		lvExercicios.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		cBTipoTreino.getItems().addAll(tipo);
 	}
-	/* public void onKeyReleased () {
-	       boolean cadastrar;
-	       boolean limpar;
-
-	      cadastrar =(txtTipoTreino.getText().isEmpty() | lvExercicios.getSelectionModel().getSelectedItems());
-	       btnCadastrar.setDisable(cadastrar);
-
-	        limpar =(txtTipoTreino.getText().isEmpty() & lvExercicios.getSelectionModel().getSelectedItems());
-	       btnLimpar.setDisable(limpar);
-	    }*/
+	 public void onKeyReleased() {
+//	       boolean cadastrar;
+//		   boolean addExercicio;
+//
+//	      cadastrar =(cBTipoTreino.getItems().isEmpty() | lvExercicios.getSelectionModel().getSelectedItems().isEmpty() |
+//				  		listViewCliente.getSelectionModel().getSelectedItems().isEmpty());
+//	       btnCadastrar.setDisable(cadastrar);
+//
+//		 addExercicio =(cBTipoTreino.isPressed() & lvExercicios.getSelectionModel().getSelectedItems().contains());
+//		 btnCadastrar.setDisable(addExercicio);
+	    }
 
 	public void onBtnVoltar() throws IOException {
         Stage stage;
