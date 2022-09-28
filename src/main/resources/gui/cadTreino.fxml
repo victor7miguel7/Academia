@@ -30,24 +30,24 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane fx:id="lplAnchor" prefHeight="287.0" prefWidth="400.0" style="-fx-background-color: #141413;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="lplAnchor" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #141413;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblLabel2" layoutX="80.0" layoutY="25.0" text="Tipo de treino" textAlignment="RIGHT" textFill="#fcfcf5">
+            <Label fx:id="lblLabel2" layoutX="39.0" layoutY="168.0" text="Tipo de treino" textAlignment="RIGHT" textFill="#fcfcf5">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <ListView fx:id="lvExercicios" layoutX="80.0" layoutY="109.0" prefHeight="104.0" prefWidth="244.0">
+            <ListView fx:id="lvExercicios" layoutX="39.0" layoutY="275.0" prefHeight="105.0" prefWidth="144.0">
                <tooltip>
                   <Tooltip fx:id="lplTooltip3" text="Deve-se selecionar o exercício de lista" />
                </tooltip>
             </ListView>
-            <Label fx:id="lblexercicios" layoutX="80.0" layoutY="87.0" text="Exercícios" textFill="#e1e0d7">
+            <Label fx:id="lblexercicios" layoutX="39.0" layoutY="253.0" text="Exercícios" textFill="#e1e0d7">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnLimpar" layoutX="80.0" layoutY="231.0" mnemonicParsing="false" onAction="#onAddListExercicio" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: #f2c70a;" text="Adicionar Exercicio">
+            <Button fx:id="btnLimpar" layoutX="230.0" layoutY="231.0" mnemonicParsing="false" onAction="#onAddListExercicio" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: #f2c70a;" text="Adicionar Exercicio">
                <tooltip>
                   <Tooltip fx:id="lplTooltip4" text="Limpar" />
                </tooltip>
@@ -55,7 +55,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnCadastrar" layoutX="242.0" layoutY="231.0" mnemonicParsing="false" onAction="#onBntCadastrarTreino" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #f2c70a;" text="Cadastrar">
+            <Button fx:id="btnCadastrar" layoutX="283.0" layoutY="275.0" mnemonicParsing="false" onAction="#onBntCadastrarTreino" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #f2c70a;" text="Cadastrar">
                <tooltip>
                   <Tooltip fx:id="lplTooltip41" text="Limpar" />
                </tooltip>
@@ -63,7 +63,17 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="cBTipoTreino" layoutX="80.0" layoutY="51.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="cBTipoTreino" layoutX="39.0" layoutY="194.0" prefWidth="150.0" />
+            <ListView fx:id="lvExercicios1" layoutX="39.0" layoutY="53.0" prefHeight="107.0" prefWidth="144.0">
+               <tooltip>
+                  <Tooltip fx:id="lplTooltip31" text="Deve-se selecionar o exercício de lista" />
+               </tooltip>
+            </ListView>
+            <Label fx:id="lblexercicios1" layoutX="39.0" layoutY="31.0" text="Cliente" textFill="#e1e0d7">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>
