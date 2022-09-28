@@ -75,7 +75,7 @@
                </font>
             </Label>
             <Button fx:id="btnAdicionar" layoutX="324.0" layoutY="258.0" mnemonicParsing="false" onAction="#onBtnAdicionarClick" style="-fx-background-color: #f2c70a;" text="Salvar" />
-            <ListView fx:id="lvExercicios1" layoutX="39.0" layoutY="57.0" prefHeight="116.0" prefWidth="146.0" />
+            <ListView fx:id="lvClientes" layoutX="39.0" layoutY="57.0" prefHeight="116.0" prefWidth="146.0" />
          </children>
       </AnchorPane>
    </center>
