@@ -15,6 +15,7 @@ public class PlanoDeTreino implements Serializable{
     private Cliente cliente;
     private String nomeCliente;
     private List<Treino> treinos;
+    private List<String> nomeTreino;
 
     public PlanoDeTreino(LocalDate dataInicio, Period duracao, Cliente cliente, List<Treino> treinos) {
         this.dataInicio = dataInicio;
@@ -54,6 +55,10 @@ public class PlanoDeTreino implements Serializable{
     public String toString() {
         return "\nPlanoDeTreino de " + cliente + "\nData de Inicio:" + dataInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
                 "\nDuracao: " + duracao.getDays() + " dias"  + treinos;
+    }
+
+    public String infoPlano() {
+        return  "" +treinos;
     }
 
 }

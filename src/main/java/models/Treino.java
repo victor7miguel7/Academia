@@ -29,28 +29,18 @@ public class Treino implements Serializable{
         return exercicios;
     }
 
-    public String getNome(int i) {
-        return exercicios.get(i).getNome();
-    }
 
-    public String getTipoExercicio(int i) {
-        return exercicios.get(i).getTipo();
-    }
-
-    public Duration getIntervalo(int i) {
-        return exercicios.get(i).getIntervalo();
-    }
-
-    public int getSeries(int i) {
-        return exercicios.get(i).getSeries();
-    }
-
-    public int getRepeticoes(int i) {
-        return repeticoes;
+    public String getTipoExercicio() {
+        return tipoExercicio;
     }
 
     @Override
     public String toString() {
         return "\nTreino " + tipo  + "\n" + exercicios;
+    }
+
+    public String infoTreino() {
+
+        return "\nTreino: " + tipo;
     }
 }

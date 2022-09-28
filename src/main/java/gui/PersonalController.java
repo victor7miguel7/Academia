@@ -8,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.*;
@@ -57,23 +54,9 @@ public class PersonalController {
 
     // aba plano de treino - treinos
     @FXML
-    private TableView<PlanoDeTreino> tableViewTreinos;
+    private ListView<String> listViewTreinos;
     @FXML
-    private TableColumn<Treino, String> treino;
-
-
-    @FXML
-    private TableView<Exercicio> tableViewExercicios;
-    @FXML
-    private TableColumn<Exercicio, String> columnNomeExercicio;
-    @FXML
-    private TableColumn<Exercicio, String> columnTipoExercicio;
-    @FXML
-    private TableColumn<Exercicio, Duration> columnIntervalo;
-    @FXML
-    private TableColumn<Exercicio, Integer> columnSeries;
-    @FXML
-    private TableColumn<Exercicio, Integer> columnRepeticoes;
+    private Label lblExercicios;
 
     @FXML
     private Label aviso;
@@ -158,7 +141,7 @@ public class PersonalController {
     }
 
     @FXML
-    public void onRemoverExercicio() throws ElementoNaoExisteException {
+    public void onRemoverExercicio() {
 
         try {
             Exercicio exercicio = tableViewExercicio.getSelectionModel().getSelectedItem();
@@ -169,17 +152,36 @@ public class PersonalController {
         }
     }
 
+
     @FXML
     public void clicarMouseItemTableViewPlanoTreino(){
         try{
             PlanoDeTreino b = tableViewPlanoDeTreino.getSelectionModel().getSelectedItem();
-            List<PlanoDeTreino> a = servidor.planoTreinoListar();
-            for (int i = 0; i < a.size(); i++) {
-                if(a.get(i).getCliente() == b.getCliente() && a.get(i).getDuracao() == b.getDuracao() && a.get(i).getDataInicio() == b.getDataInicio()){
-                    treino.setCellValueFactory(new PropertyValueFactory<>("a.get(i).getTreinos"));
-                }
+            List<String> listTreinos = new ArrayList<>();
+            for (int i = 0; i< b.getTreinos().size(); i++){
+                listTreinos.add(b.getTreinos().get(i).getTipo());
             }
+
+            ObservableList<String> observableListTreinos;
+            observableListTreinos = FXCollections.observableArrayList(listTreinos);
+            listViewTreinos.setItems(observableListTreinos);
         } catch (Exception e) {
         }
     }
+
+//    @FXML
+//    public void clicarMouseItemListViewTreinos(){
+//        try{
+//            String b = listViewTreinos.getSelectionModel().getSelectedItem();
+//            List<String> listTreinos = new ArrayList<>();
+//            for (int i = 0; i< b.getTreinos().size(); i++){
+//                listTreinos.add(b.getTreinos().get(i).getTipo());
+//            }
+//
+//            ObservableList<String> observableListTreinos;
+//            observableListTreinos = FXCollections.observableArrayList(listTreinos);
+//            listViewTreinos.setItems(observableListTreinos);
+//        } catch (Exception e) {
+//        }
+//    }
 }
