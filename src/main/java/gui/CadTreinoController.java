@@ -8,10 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import models.Cliente;
 import models.Exercicio;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import models.Treino;
+import models.Usuario;
 import negocio.ServidorAcademia;
 
 import java.io.IOException;
@@ -21,30 +23,27 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class CadTreinoController implements Initializable {
-	@FXML
-	private ChoiceBox<String> cBTipoTreino;
-	private String [] tipo = {"Superior","Inferior"};
-	@FXML
-	private Button btnLimpar;
-	@FXML
-	private Button btnVoltar;
-	@FXML
-	private Button btnCadastrar;
-	@FXML
-	private ListView<Exercicio> lvExercicios;
-
 
 	ServidorAcademia servidor = ServidorAcademia.getInstance();
+	@FXML private ChoiceBox<String> cBTipoTreino;
+	private String [] tipo = {"Superior","Inferior"};
+	@FXML private Button btnLimpar;
+	@FXML private Button btnVoltar;
+	@FXML private Button btnCadastrar;
+	@FXML private ListView<Usuario> listViewCliente;
+	@FXML private ListView<Exercicio> lvExercicios;
 
 	private List<Exercicio> listExercicios = new ArrayList<>();
 	private ObservableList<Exercicio> observableListExercicio;
+	private List<Exercicio> listExerciciosSelected = new ArrayList<>();
 
-	private List<Exercicio> listExerciciosSelected = new ArrayList<Exercicio>();
-	
-	
+	private List<Usuario> listClientes = new ArrayList<>();
+	private ObservableList<Usuario> observableListCliente;
+
 	public void onBntCadastrarTreino() {
 		String tipo = cBTipoTreino.getValue();
-		Treino treino = new Treino(tipo, listExerciciosSelected);
+		Usuario cliente = listViewCliente.getSelectionModel().getSelectedItem();
+		Treino treino = new Treino(tipo, listExerciciosSelected, (Cliente) cliente);
 		try {
 			servidor.inserir(treino);
 		} catch (ElementoJaExisteException e) {
@@ -68,20 +67,22 @@ public class CadTreinoController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		carregarListaExercicio();
+		carregarListaCliente();
 
 		lvExercicios.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		cBTipoTreino.getItems().addAll(tipo);
 	}
-	/* public void onKeyReleased () {
-	       boolean cadastrar;
-	       boolean limpar;
-
-	      cadastrar =(txtTipoTreino.getText().isEmpty() | lvExercicios.getSelectionModel().getSelectedItems());
-	       btnCadastrar.setDisable(cadastrar);
-
-	        limpar =(txtTipoTreino.getText().isEmpty() & lvExercicios.getSelectionModel().getSelectedItems());
-	       btnLimpar.setDisable(limpar);
-	    }*/
+	 public void onKeyReleased() {
+//	       boolean cadastrar;
+//		   boolean addExercicio;
+//
+//	      cadastrar =(cBTipoTreino.getItems().isEmpty() | lvExercicios.getSelectionModel().getSelectedItems().isEmpty() |
+//				  		listViewCliente.getSelectionModel().getSelectedItems().isEmpty());
+//	       btnCadastrar.setDisable(cadastrar);
+//
+//		 addExercicio =(cBTipoTreino.isPressed() & lvExercicios.getSelectionModel().getSelectedItems().contains());
+//		 btnCadastrar.setDisable(addExercicio);
+	    }
 
 	public void onBtnVoltar() throws IOException {
         Stage stage;
@@ -100,8 +101,20 @@ public class CadTreinoController implements Initializable {
 		lvExercicios.setItems(observableListExercicio);
 
 	}
+
 	public void onAddListExercicio(ActionEvent event){
 		listExerciciosSelected.add(lvExercicios.getSelectionModel().getSelectedItem());
+	}
+
+	public void carregarListaCliente(){
+		List<Usuario> usuario = servidor.usuarioListar();
+		for (int i = 0; i< usuario.size(); i++){
+			if( usuario.get(i) instanceof Cliente){
+				listClientes.add(usuario.get(i));
+			}
+		}
+		observableListCliente = FXCollections.observableArrayList(listClientes);
+		listViewCliente.setItems(observableListCliente);
 	}
 
 }

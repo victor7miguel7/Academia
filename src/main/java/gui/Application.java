@@ -24,7 +24,7 @@ public class Application extends javafx.application.Application {
     public void start(Stage primaryStage) throws Exception{
         stg = primaryStage;
         primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("cadPlanoDeTreinos.fxml"));
         primaryStage.setTitle("Academia MMRSV");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
@@ -45,10 +45,10 @@ public class Application extends javafx.application.Application {
         Usuario cliente2 = new Cliente("Stella", "F", "stella@gmail.com", "m15423", LocalDate.of(1995, 5, 19), "60",
                 "1.65");
         Usuario cliente3 = new Cliente("Rafael", "M", "rafael@gmail.com", "m54321", LocalDate.of(2003, 8, 19), "75",
-                "1.74");
+              "1.74");
 
         Usuario adm1 = new Administrador( "Marina", "marina@gmail.com", "2002", LocalDate.of(2003, 3, 20));
-        adm1.setId("a001");
+
         Exercicio exer1 = new Exercicio("Supino Reto", "Peito", Duration.ofMinutes(10), 4, 10);
         Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", Duration.ofMinutes(15), 4, 10);
         Exercicio exer3 = new Exercicio("Tríceps Pulley", "Tríceps", Duration.ofMinutes(7), 3, 12);
@@ -67,8 +67,8 @@ public class Application extends javafx.application.Application {
         exerciciosB.add(exer5);
         exerciciosB.add(exer6);
 
-        Treino treino1 = new Treino("Superior", exerciciosA);
-        Treino treino2 = new Treino("Inferior", exerciciosB);
+        Treino treino1 = new Treino("Superior", exerciciosA, (Cliente) cliente1);
+        Treino treino2 = new Treino("Inferior", exerciciosB, (Cliente) cliente2);
 
         List<Treino> treinosA = new ArrayList<>();
         List<Treino> treinosB = new ArrayList<>();
@@ -119,7 +119,7 @@ public class Application extends javafx.application.Application {
             servidor.inserir(adm1);
 //
         } catch (ElementoJaExisteException jaExiste) {
-            System.out.println("Elemento já existente");
+//            System.out.println("Elemento já existente");
             jaExiste.printStackTrace();
         }
         launch();
