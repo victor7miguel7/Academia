@@ -57,7 +57,7 @@
             </ImageView>
             <Button fx:id="btnPagar" disable="true" layoutX="413.0" layoutY="276.0" mnemonicParsing="false" onAction="#onRealizarPagamento" onKeyReleased="#onKeyReleased" style="-fx-background-color: #f2c70a;" text="Realizar pagamento" textFill="black" />
             <Button fx:id="btnLimpar" disable="true" layoutX="317.0" layoutY="276.0" mnemonicParsing="false" onAction="#onBtnLimpar" onKeyReleased="#onKeyReleased" style="-fx-background-color: #f2c70a;" text="Limpar" />
-            <ChoiceBox fx:id="valores" layoutX="79.0" layoutY="278.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="valores" layoutX="79.0" layoutY="278.0" onKeyReleased="#onKeyReleased" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </center>

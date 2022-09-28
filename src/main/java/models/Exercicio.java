@@ -36,6 +36,18 @@ public class Exercicio implements Serializable{
         return tipo;
     }
 
+    public Duration getIntervalo() {
+        return intervalo;
+    }
+
+    public int getSeries() {
+        return series;
+    }
+
+    public int getRepeticoes() {
+        return repeticoes;
+    }
+
     @Override
     public String toString() {
         return "\nExercicio: " + nome + ", tipo: " + tipo;
