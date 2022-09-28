@@ -10,15 +10,12 @@ public class Treino implements Serializable{
 
     private String tipo;
     private List<Exercicio> exercicios;
-    private String nome;
-    private String tipoExercicio;
-    private Duration intervalo;
-    private int series;
-    private int repeticoes;
+    private Cliente cliente;
 
-    public Treino(String tipo, List<Exercicio> exercicios) {
+    public Treino(String tipo, List<Exercicio> exercicios, Cliente cliente) {
         this.tipo = tipo;
         this.exercicios = exercicios;
+        this.cliente = cliente;
     }
 
     public String getTipo() {
@@ -29,25 +26,6 @@ public class Treino implements Serializable{
         return exercicios;
     }
 
-    public String getNome(int i) {
-        return exercicios.get(i).getNome();
-    }
-
-    public String getTipoExercicio(int i) {
-        return exercicios.get(i).getTipo();
-    }
-
-    public Duration getIntervalo(int i) {
-        return exercicios.get(i).getIntervalo();
-    }
-
-    public int getSeries(int i) {
-        return exercicios.get(i).getSeries();
-    }
-
-    public int getRepeticoes(int i) {
-        return repeticoes;
-    }
 
     @Override
     public String toString() {
