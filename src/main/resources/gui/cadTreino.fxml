@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadTreinoController">
+<BorderPane style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadTreinoController">
    <top>
       <AnchorPane prefHeight="60.0" prefWidth="400.0" style="-fx-background-color: #f2c70a;" BorderPane.alignment="CENTER">
          <children>
@@ -30,7 +30,7 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane fx:id="lplAnchor" prefHeight="315.0" prefWidth="400.0" style="-fx-background-color: #141413;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="lplAnchor" prefHeight="319.0" prefWidth="400.0" style="-fx-background-color: #141413;" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="lblLabel2" layoutX="24.0" layoutY="14.0" text="Tipo de Treino" textAlignment="RIGHT" textFill="#fcfcf5">
                <font>
@@ -47,7 +47,7 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnLimpar" layoutX="31.0" layoutY="272.0" mnemonicParsing="false" onAction="#onAddListExercicio" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: #f2c70a;" text="Adicionar Exercicio">
+            <Button fx:id="btnLimpar" layoutX="28.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAddListExercicio" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: #f2c70a;" text="Adicionar Exercicio">
                <tooltip>
                   <Tooltip fx:id="lplTooltip4" text="Limpar" />
                </tooltip>
@@ -64,7 +64,7 @@
                </font>
             </Button>
             <ChoiceBox fx:id="cBTipoTreino" layoutX="23.0" layoutY="38.0" prefHeight="25.0" prefWidth="189.0" />
-            <ListView fx:id="lvExercicios1" layoutX="228.0" layoutY="38.0" prefHeight="185.0" prefWidth="146.0">
+            <ListView fx:id="listViewCliente" layoutX="228.0" layoutY="38.0" prefHeight="185.0" prefWidth="146.0">
                <tooltip>
                   <Tooltip fx:id="lplTooltip31" text="Deve-se selecionar o exercício de lista" />
                </tooltip>

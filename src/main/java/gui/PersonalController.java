@@ -61,7 +61,6 @@ public class PersonalController {
     @FXML
     private TableColumn<Treino, String> treino;
 
-
     @FXML
     private TableView<Exercicio> tableViewExercicios;
     @FXML
