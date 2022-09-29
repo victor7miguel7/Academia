@@ -127,7 +127,7 @@ public class AdmController implements Initializable {
             Usuario usuario = listViewPersonal.getSelectionModel().getSelectedItem();
             infoPersonal.setText("");
             listViewPersonal.getItems().remove(usuario);
-            //servidor.remover(usuario);
+            servidor.remover(usuario);
         } catch (Exception e) {
             //escrever
         }
@@ -139,7 +139,7 @@ public class AdmController implements Initializable {
             Usuario usuario = listViewCliente.getSelectionModel().getSelectedItem();
             infoCliente.setText("");
             listViewCliente.getItems().remove(usuario);
-            //servidor.remover(usuario);
+            servidor.remover(usuario);
         } catch (Exception e) {
             //escrever
         }
