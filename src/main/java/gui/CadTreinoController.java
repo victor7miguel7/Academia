@@ -27,7 +27,7 @@ public class CadTreinoController implements Initializable {
 	ServidorAcademia servidor = ServidorAcademia.getInstance();
 	@FXML private ChoiceBox<String> cBTipoTreino;
 	private String [] tipo = {"Superior","Inferior"};
-	@FXML private Button btnLimpar;
+	@FXML private Button btnAdcionar;
 	@FXML private Button btnVoltar;
 	@FXML private Button btnCadastrar;
 	@FXML private ListView<Usuario> listViewCliente;
@@ -61,7 +61,7 @@ public class CadTreinoController implements Initializable {
 	     // lvExercicios.setSelectionModel().setSelectedItems("");
 		   // cBTipoTreino.setItems();
 	        btnCadastrar.setDisable(true);
-	        btnLimpar.setDisable(true); 
+	        btnAdcionar.setDisable(true);
 	 }
 
 	@Override
@@ -74,15 +74,18 @@ public class CadTreinoController implements Initializable {
 	}
 	//NÃO FUNCIONAAAAA
 	public void onKeyReleased() {
+
 	       boolean cadastrar;
 		   boolean addExercicio;
 
-	      cadastrar =(!cBTipoTreino.getItems().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty() &
+	      cadastrar =(!cBTipoTreino.getSelectionModel().getSelectedItem().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty() &
 				  		!listViewCliente.getSelectionModel().getSelectedItems().isEmpty());
 	       btnCadastrar.setDisable(cadastrar);
 
-		 addExercicio =(!cBTipoTreino.getItems().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty());
-		 btnCadastrar.setDisable(addExercicio);
+		 addExercicio =(!cBTipoTreino.getSelectionModel().getSelectedItem().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty());
+		 btnAdcionar.setDisable(addExercicio);
+
+
 	    }
 
 	public void onBtnVoltar() throws IOException {

@@ -47,7 +47,7 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnLimpar" layoutX="28.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAddListExercicio" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: #f2c70a;" text="Adicionar Exercicio">
+            <Button fx:id="btnAdcionar" layoutX="28.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAddListExercicio" onKeyReleased="#onKeyReleased" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: #f2c70a;" text="Adicionar Exercicio">
                <tooltip>
                   <Tooltip fx:id="lplTooltip4" text="Limpar" />
                </tooltip>
@@ -55,7 +55,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnCadastrar" layoutX="292.0" layoutY="272.0" mnemonicParsing="false" onAction="#onBntCadastrarTreino" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #f2c70a;" text="Cadastrar">
+            <Button fx:id="btnCadastrar" layoutX="292.0" layoutY="272.0" mnemonicParsing="false" onAction="#onBntCadastrarTreino" onKeyReleased="#onKeyReleased" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #f2c70a;" text="Cadastrar">
                <tooltip>
                   <Tooltip fx:id="lplTooltip41" text="Limpar" />
                </tooltip>

@@ -28,6 +28,8 @@ import java.util.ResourceBundle;
 
 public class PersonalController {
     ServidorAcademia servidor = ServidorAcademia.getInstance();
+
+    private static Stage stg;
     @FXML
     private Label nomeTitulo;
     @FXML
@@ -233,5 +235,13 @@ public class PersonalController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    public void start(Stage primaryStage) throws Exception{
+        stg = primaryStage;
+        primaryStage.setResizable(false);
+        Parent root = FXMLLoader.load(getClass().getResource("PersonalController.fxml"));
+        primaryStage.setTitle("Academia MMRSV");
+        primaryStage.setScene(new Scene(root, 400, 200));
+        primaryStage.show();
     }
     }
