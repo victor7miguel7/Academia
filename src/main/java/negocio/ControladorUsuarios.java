@@ -6,7 +6,6 @@ import dados.IRepositorioGenerico;
 import dados.RepositorioGenerico;
 import exception.ElementoJaExisteException;
 import exception.ElementoNaoExisteException;
-import models.Login;
 import models.Usuario;
 
 public class ControladorUsuarios {

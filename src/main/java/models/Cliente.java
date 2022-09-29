@@ -12,7 +12,6 @@ public class  Cliente extends Usuario implements Serializable{
     private String genero;
     private String peso;
     private String altura;
-    private double imc;
 
     public Cliente(String nome, String genero, String email, String senha, LocalDate dtNascimento,
                    String peso, String altura) {
@@ -20,7 +19,6 @@ public class  Cliente extends Usuario implements Serializable{
         this.genero = genero;
         this.peso = peso;
         this.altura = altura;
-        //this.imc = calcularImc();
     }
 
     public String getPeso() {
@@ -29,14 +27,6 @@ public class  Cliente extends Usuario implements Serializable{
 
     public void setPeso(String peso) {
         this.peso = peso;
-    }
-
-    public double getImc() {
-        return imc;
-    }
-
-    public void setImc(double imc) {
-        this.imc = imc;
     }
 
     public String getGenero() {
@@ -56,12 +46,6 @@ public class  Cliente extends Usuario implements Serializable{
         int idade = (int) dtNascimento.until(hoje, ChronoUnit.YEARS);
         return idade;
     }
-
-    //    public double calcularImc() {
-//        double imc = peso / (altura * altura);
-//
-//        return imc;
-//    }
 
     @Override
     public String infoUsuario(){

@@ -1,7 +1,6 @@
 package models;
 
 import java.io.Serializable;
-import java.time.Duration;
 import java.util.List;
 
 public class Treino implements Serializable{
