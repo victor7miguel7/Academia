@@ -142,6 +142,6 @@ public class CadClienteController {
         limpar = (txtNome.getText().isEmpty() & txtemail.getText().isEmpty() & txtSenha.getText().isEmpty() & txtAltura.getText().isEmpty() & txtPeso.getText().isEmpty()
                 & txtConfirmacaoSenha.getText().isEmpty() & dpDataNascimento.getValue() == null);
         btnLimpar.setDisable(limpar);
-
     }
+
 }

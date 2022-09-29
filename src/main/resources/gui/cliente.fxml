@@ -149,7 +149,7 @@
                <bottom>
                   <Pane prefHeight="47.0" prefWidth="602.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="buttonExecutar" layoutX="473.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Executar Treino" />
+                        <Button fx:id="buttonExecutar" layoutX="473.0" layoutY="11.0" mnemonicParsing="false" onAction="#onBtnExecutar" prefHeight="25.0" prefWidth="114.0" text="Executar Treino" />
                      </children>
                   </Pane>
                </bottom>

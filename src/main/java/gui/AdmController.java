@@ -121,7 +121,7 @@ public class AdmController implements Initializable {
         }
     }
     @FXML
-    public void removerPersonal() throws ElementoNaoExisteException {
+    public void removerPersonal() {
 
         try{
             Usuario usuario = listViewPersonal.getSelectionModel().getSelectedItem();
@@ -133,7 +133,7 @@ public class AdmController implements Initializable {
         }
     }
     @FXML
-    public void removerCliente() throws ElementoNaoExisteException {
+    public void removerCliente(){
 
         try{
             Usuario usuario = listViewCliente.getSelectionModel().getSelectedItem();

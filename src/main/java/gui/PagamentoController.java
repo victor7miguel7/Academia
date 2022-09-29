@@ -52,7 +52,6 @@ public class PagamentoController implements Initializable {
         ano.setValueFactory(valueFactoryAno);
 
         valores.getItems().addAll(planos);
-        //valores.setOnAction(this::getPlanos);
     }
     public void onRealizarPagamento(ActionEvent event) throws IOException {
         String numero = txtNumero.getText().toString();
@@ -84,7 +83,6 @@ public class PagamentoController implements Initializable {
         alerta.setContentText("Seu pagamento foi realizado. Acesse a aba pagamentos para mais informações.");
         alerta.showAndWait();
         ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
-        //ScreenManager.getInstance().getClienteController();
         this.onVoltar();
 
     }
