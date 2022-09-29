@@ -15,7 +15,7 @@ public class PlanoDeTreino implements Serializable{
     private Cliente cliente;
     private String nomeCliente;
     private List<Treino> treinos;
-    private List<String> nomeTreino;
+
 
     public PlanoDeTreino(LocalDate dataInicio, Period duracao, Cliente cliente, List<Treino> treinos) {
         this.dataInicio = dataInicio;

@@ -140,7 +140,7 @@
                      <children>
                         <Button fx:id="btnCadExercicio1" layoutX="428.0" layoutY="11.0" mnemonicParsing="false" onAction="#onBtnCadExercicio" text="Cadastrar Plano de Treinos" />
                         <Button fx:id="btnCadExercicio11" layoutX="306.0" layoutY="12.0" mnemonicParsing="false" onAction="#onBtnCadTreino" text="Cadastrar Treino" />
-                        <Button fx:id="btnCadExercicio111" layoutX="13.0" layoutY="11.0" mnemonicParsing="false" onAction="#onBtnCadExercicio" text="Remover" />
+                        <Button fx:id="btnCadExercicio111" layoutX="13.0" layoutY="11.0" mnemonicParsing="false" onAction="#onRemoverTreino" text="Remover" />
                       <AnchorPane layoutX="418.0" layoutY="-95.0" minHeight="0.0" minWidth="0.0" prefHeight="243.0" prefWidth="200.0" />
                         <Label fx:id="aviso" alignment="CENTER" layoutX="88.0" layoutY="2.0" prefHeight="45.0" prefWidth="209.0" textFill="#fc0101">
                            <font>
@@ -164,12 +164,12 @@
                            </columnResizePolicy>
                         </TableView>
                      </top>
-                     <right>
-                        <Label fx:id="lblExercicios" prefHeight="137.0" prefWidth="469.0" BorderPane.alignment="CENTER" />
-                     </right>
                      <left>
-                        <ListView fx:id="listViewTreinos" prefHeight="137.0" prefWidth="130.0" BorderPane.alignment="CENTER" />
+                        <ListView fx:id="listViewTreinos" onMouseClicked="#clicarMouseItemListViewTreinos" prefHeight="137.0" prefWidth="130.0" BorderPane.alignment="CENTER" />
                      </left>
+                     <right>
+                        <ListView fx:id="listViewExercicios" prefHeight="137.0" prefWidth="470.0" BorderPane.alignment="CENTER" />
+                     </right>
                   </BorderPane>
                </center>
             </BorderPane>
