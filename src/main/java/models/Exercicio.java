@@ -15,12 +15,7 @@ public class Exercicio implements Serializable{
     private int series;
     private int repeticoes;
 
-    public Exercicio(String nome, String tipo) {
-        this.nome = nome;
-        this.tipo = tipo;
-    }
-
-    public Exercicio(String nome, String tipo, Duration intervalo, int series, int repeticoes) {
+    public Exercicio(String nome, String tipo, int series, int repeticoes, Duration intervalo) {
         this.nome = nome;
         this.tipo = tipo;
         this.intervalo = intervalo;

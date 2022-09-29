@@ -51,6 +51,12 @@ public class PersonalController {
     private TableColumn<Exercicio, String> columnNome;
     @FXML
     private TableColumn<Exercicio, String> columnTipo;
+    @FXML
+    private TableColumn<Exercicio, Integer> columnIntervalo;
+    @FXML
+    private TableColumn<Exercicio, Integer> columnSerie;
+    @FXML
+    private TableColumn<Exercicio, Integer> columnRepeticao;
     private List<Exercicio> listExercicios;
     private ObservableList<Exercicio> observableListExercicio;
 
@@ -95,6 +101,9 @@ public class PersonalController {
 
         columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        columnSerie.setCellValueFactory(new PropertyValueFactory<>("series"));
+        columnRepeticao.setCellValueFactory(new PropertyValueFactory<>("repeticoes"));
+        columnIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
         carregarExercicios();
 
         columnInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
@@ -241,7 +250,7 @@ public class PersonalController {
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("PersonalController.fxml"));
         primaryStage.setTitle("Academia MMRSV");
-        primaryStage.setScene(new Scene(root, 400, 200));
+        primaryStage.setScene(new Scene(root, 480, 321));
         primaryStage.show();
     }
     }

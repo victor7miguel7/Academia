@@ -49,12 +49,12 @@ public class Application extends javafx.application.Application {
 
         Usuario adm1 = new Administrador( "Marina", "marina@gmail.com", "2002", LocalDate.of(2003, 3, 20));
 
-        Exercicio exer1 = new Exercicio("Supino Reto", "Peito");
-        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas");
-        Exercicio exer3 = new Exercicio("Tríceps Pulley", "Tríceps");
-        Exercicio exer4 = new Exercicio("Agachamento Livre", "Quadríceps/Glúteos");
-        Exercicio exer5 = new Exercicio("Extensora", "Quadríceps");
-        Exercicio exer6 = new Exercicio("Stiff", "Posterior");
+        Exercicio exer1 = new Exercicio("Supino Reto", "Peito", 4, 10, Duration.ofMinutes(1));
+        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", 4, 10, Duration.ofMinutes(1));
+        Exercicio exer3 = new Exercicio("Tríceps Pulley", "Tríceps", 3, 12, Duration.ofMinutes(1));
+        Exercicio exer4 = new Exercicio("Agachamento Livre", "Quadríceps/Glúteos",  4, 10, Duration.ofMinutes(1));
+        Exercicio exer5 = new Exercicio("Extensora", "Quadríceps", 4, 12, Duration.ofMinutes(1));
+        Exercicio exer6 = new Exercicio("Stiff", "Posterior", 3, 12, Duration.ofMinutes(1));
 
         List<Exercicio> exerciciosA = new ArrayList<>();
         List<Exercicio> exerciciosB = new ArrayList<>();
