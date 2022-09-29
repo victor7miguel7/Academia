@@ -51,6 +51,14 @@ public abstract class Usuario {
         this.logado = logado;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     @Override
     public String toString() {
         return this.nome;

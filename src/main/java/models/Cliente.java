@@ -47,6 +47,10 @@ public class  Cliente extends Usuario implements Serializable{
         return altura;
     }
 
+    public void setAltura(String altura) {
+        this.altura = altura;
+    }
+
     public int calcularIdade(LocalDate dtNascimento) {
         LocalDate hoje = LocalDate.now();
         int idade = (int) dtNascimento.until(hoje, ChronoUnit.YEARS);

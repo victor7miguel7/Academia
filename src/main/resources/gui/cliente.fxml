@@ -98,6 +98,7 @@
                                 </children>
                             </GridPane>
                         <Button fx:id="logout" layoutX="43.0" layoutY="302.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="25.0" prefWidth="55.0" text="Sair" />
+                        <Button fx:id="atualizarCad" layoutX="134.0" layoutY="302.0" mnemonicParsing="false" onAction="#btnAtualizarCad" prefHeight="25.0" prefWidth="115.0" text="Atualizar cadastro" />
                         </children>
                     </AnchorPane>
                </left>

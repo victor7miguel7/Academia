@@ -17,6 +17,7 @@ public class Pagamento implements Serializable {
     private String cvv;
     private LocalDate dtPagamento;
 
+
     public Pagamento(String nome, String numero, int mes, int ano, String cvv, Double valor, LocalDate dtPagamento) {
         this.nome = nome;
         this.numero = numero;

@@ -68,6 +68,8 @@ public class ClienteController {
     private TableColumn<Pagamento, Double> columnValor;
     @FXML
     private TableColumn<Pagamento, LocalDate> columnDtPagamento;
+    @FXML
+    private Button atualizarCad;
 
     ServidorAcademia servidor = ServidorAcademia.getInstance();
 
@@ -177,6 +179,19 @@ public class ClienteController {
         }
 
 
+    }
+
+    @FXML
+    public void btnAtualizarCad() throws IOException {
+
+        Stage stage;
+        Parent root;
+
+        stage = (Stage) atualizarCad.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("atualizarDados.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
 
