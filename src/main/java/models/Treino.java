@@ -31,4 +31,8 @@ public class Treino implements Serializable{
     public String toString() {
         return "\nTreino " + tipo  + "\n" + exercicios;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
 }

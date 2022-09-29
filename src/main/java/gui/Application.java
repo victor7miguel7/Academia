@@ -24,7 +24,7 @@ public class Application extends javafx.application.Application {
     public void start(Stage primaryStage) throws Exception{
         stg = primaryStage;
         primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("cadPlanoDeTreinos.fxml"));
         primaryStage.setTitle("Academia MMRSV");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
@@ -69,6 +69,7 @@ public class Application extends javafx.application.Application {
 
         Treino treino1 = new Treino("Superior", exerciciosA, (Cliente) cliente1);
         Treino treino2 = new Treino("Inferior", exerciciosB, (Cliente) cliente2);
+        Treino treino3 = new Treino("Unha",exerciciosA,(Cliente)cliente3);
 
         List<Treino> treinosA = new ArrayList<>();
         List<Treino> treinosB = new ArrayList<>();
@@ -77,7 +78,7 @@ public class Application extends javafx.application.Application {
         treinosA.add(treino1);
         treinosB.add(treino2);
        // treinosC.add(treino1);
-        treinosC.add(treino2);
+        treinosC.add(treino3);
 
         PlanoDeTreino planoTreino1 = new PlanoDeTreino(LocalDate.of(2022, 8, 20), Period.ofDays(45),
                 (Cliente) cliente1, treinosA);
@@ -101,6 +102,7 @@ public class Application extends javafx.application.Application {
 
             servidor.inserir(treino1);
             servidor.inserir(treino2);
+            servidor.inserir(treino3);
 
             servidor.inserir(planoTreino1);
             servidor.inserir(planoTreino2);

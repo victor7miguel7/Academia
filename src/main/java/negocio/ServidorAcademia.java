@@ -102,6 +102,7 @@ public class ServidorAcademia {
         return exercicio;
     }
 
+
     public void remover(PlanoDeTreino obj) throws ElementoNaoExisteException {
         this.controladorPlanoTreino.remover(obj);
     }
@@ -118,14 +119,20 @@ public class ServidorAcademia {
         return this.controladorTreino.listar();
     }
 
-//    public List<Exercicio> listaExercicio(){
-//        List<Exercicio> exercicio = new ArrayList<>();
-//        List<Treino> treino = this.controladorTreino.listar();
-//        for(int i = 0;i < treino.size(); i++){
-//            exercicio = treino.get(i).getExercicios();
-//        }
-//        return exercicio;
-//    }
+    public List<Exercicio> listarExercicioCliente(Cliente cliente){
+        List<Exercicio> listExercicio =  new ArrayList<>();
+        List<Treino> listTreino = controladorTreino.listar();
+
+        for(int i = 0; i < listTreino.size() ; i++){
+            if(listTreino.get(i).getCliente().equals(cliente)){
+                for(int j = 0 ; j < listTreino.get(i).getExercicios().size(); j++) {
+                    listExercicio.add(listTreino.get(i).getExercicios().get(j));
+                }
+            }
+        }
+
+        return  listExercicio;
+    }
 
     public void remover(Treino obj) throws ElementoNaoExisteException {
         this.controladorTreino.remover(obj);

@@ -11,6 +11,7 @@ import models.Cliente;
 import models.Exercicio;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import models.Treino;
 import models.Usuario;
 import negocio.ServidorAcademia;
 
@@ -35,11 +36,11 @@ private Button btnAdicionar;
 @FXML private Spinner<Integer> duracao;
 
 @FXML
-private ListView lvTreinos;
+private ListView<Treino> lvTreinos;
 @FXML
 private ListView<Exercicio> lvExercicios;
 @FXML
-private ListView lvClientes;
+private ListView<Usuario> lvClientes;
 @FXML
 private DatePicker dpDataIni;
 @FXML
@@ -86,17 +87,17 @@ public void onBtnVoltarClick(ActionEvent event) throws IOException {
     stage.show();
 }
 public void onBtnAdicionarClick(ActionEvent event) throws IOException {
+
 }
 public void onBtnCadastrarClick(ActionEvent event) throws IOException {
 }
 
     public void carregarListaExercicio(){
-
-        listExercicios = servidor.exercicioListar();
+        Usuario  cliente = lvClientes.getSelectionModel().getSelectedItem();
+        listExercicios = servidor.listarExercicioCliente((Cliente) cliente);
         observableListExercicio = FXCollections.observableArrayList(listExercicios);
         lvExercicios.setItems(observableListExercicio);
     }
-
     public void carregarListaClientes(){
         List<Usuario> usuario = servidor.usuarioListar();
         for (int i = 0; i< usuario.size(); i++){
@@ -109,6 +110,7 @@ public void onBtnCadastrarClick(ActionEvent event) throws IOException {
         lvClientes.setItems(observableListCliente);
 
     }
+
 
 
 
