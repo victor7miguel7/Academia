@@ -107,9 +107,9 @@ public class ClienteController {
 
         columnExerciciosNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         columnExerciciosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-//        columnExerciciosIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
-//        columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("qtdDeSeries"));
-//        columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("qtdDeRepeticao"));
+        columnExerciciosIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
+        columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("series"));
+        columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("repeticoes"));
         columnTreinosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
 
@@ -172,7 +172,11 @@ public class ClienteController {
     public void clicarMouseItemListViewExercicio() {
         try {
             Treino treino = tableViewTreinos.getSelectionModel().getSelectedItem();
-            carregarTableView();
+            List<Exercicio> listTreinos = treino.getExercicios();
+            ObservableList<Exercicio> observableListTreinos = FXCollections.observableArrayList(listTreinos);
+            this.tableViewExercicios.setItems(observableListTreinos);
+
+            //carregarTableView();
 
         } catch (Exception e) {
             //escrever
