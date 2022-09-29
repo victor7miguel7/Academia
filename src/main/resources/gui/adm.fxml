@@ -114,10 +114,9 @@
             </Tab>
             <Tab closable="false" text="Pagamentos">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #323232;">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="368.0" prefWidth="578.0" style="-fx-background-color: #323232;">
                      <children>
-                        <Button fx:id="buttonRemover11" layoutX="254.0" layoutY="296.0" mnemonicParsing="false" onAction="#removerCliente" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #f2c70a;" text="Remover" />
-                        <TableView fx:id="tableViewPagamento" layoutX="12.0" layoutY="14.0" prefHeight="341.0" prefWidth="587.0">
+                        <TableView fx:id="tableViewPagamento" layoutX="20.0" layoutY="21.0" prefHeight="325.0" prefWidth="571.0">
                           <columns>
                             <TableColumn fx:id="columnClientes" prefWidth="75.0" text="Clientes" />
                             <TableColumn fx:id="columnDtPagamento" prefWidth="129.0" text="Data de Pagamento" />

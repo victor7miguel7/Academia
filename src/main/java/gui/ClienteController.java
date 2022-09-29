@@ -1,5 +1,6 @@
 package gui;
 
+import exception.ElementoJaExisteException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -112,10 +113,8 @@ public class ClienteController {
         columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("repeticoes"));
         columnTreinosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
-
         listaTreinos = servidor.treinos((Cliente) logarCliente());
         //listExercicios = servidor.listaExercicio(listaTreinos);
-
 
         observableListExercicios = FXCollections.observableArrayList(listExercicios);
         observableListTreinos = FXCollections.observableArrayList(listaTreinos);
@@ -181,8 +180,6 @@ public class ClienteController {
         } catch (Exception e) {
             //escrever
         }
-
-
     }
 
     @FXML
@@ -196,6 +193,20 @@ public class ClienteController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void onBtnExecutar(){
+        Treino treino = tableViewTreinos.getSelectionModel().getSelectedItem();
+        Cliente cliente = (Cliente) logarCliente();
+
+        TreinoExecutado treinoExecutado = new TreinoExecutado(cliente, treino);
+
+        try {
+            servidor.inserir(treinoExecutado);
+        } catch (ElementoJaExisteException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
 

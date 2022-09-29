@@ -87,10 +87,10 @@ public class Application extends javafx.application.Application {
         PlanoDeTreino planoTreino3 = new PlanoDeTreino(LocalDate.of(2022, 8, 20), Period.ofDays(45),
                 (Cliente) cliente3, treinosC);
 
-        TreinoExecutado treinoExe1 = new TreinoExecutado((Cliente) cliente1, treino1, LocalDate.of(2022, 8, 21));
-        TreinoExecutado treinoExe2 = new TreinoExecutado((Cliente) cliente2, treino2, LocalDate.of(2022, 8, 22));
-        TreinoExecutado treinoExe3 = new TreinoExecutado((Cliente) cliente3, treino2, LocalDate.of(2022, 8, 22));
-        TreinoExecutado treinoExe4 = new TreinoExecutado((Cliente) cliente3, treino1, LocalDate.of(2022, 8, 22));
+        TreinoExecutado treinoExe1 = new TreinoExecutado((Cliente) cliente1, treino1);
+        TreinoExecutado treinoExe2 = new TreinoExecutado((Cliente) cliente2, treino2);
+        TreinoExecutado treinoExe3 = new TreinoExecutado((Cliente) cliente3, treino2);
+        TreinoExecutado treinoExe4 = new TreinoExecutado((Cliente) cliente3, treino1);
 
         try {
             servidor.inserir(exer1);

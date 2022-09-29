@@ -13,10 +13,10 @@ public class TreinoExecutado implements Serializable{
 
 
     //Construtor
-    public TreinoExecutado(Cliente cliente, Treino treino, LocalDate data) {
+    public TreinoExecutado(Cliente cliente, Treino treino) {
         this.cliente = cliente;
         this.treino = treino;
-        this.data = data;
+        this.data = LocalDate.now();
     }
 
     // Gets
