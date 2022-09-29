@@ -138,10 +138,9 @@
                <bottom>
                   <Pane prefHeight="49.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="btnCadExercicio1" layoutX="428.0" layoutY="11.0" mnemonicParsing="false" onAction="#onBtnCadExercicio" text="Cadastrar Plano de Treinos" />
+                        <Button fx:id="btnCadPlano" layoutX="428.0" layoutY="11.0" mnemonicParsing="false" onAction="#onBtnCadPlano" text="Cadastrar Plano de Treinos" />
                         <Button fx:id="btnCadExercicio11" layoutX="306.0" layoutY="12.0" mnemonicParsing="false" onAction="#onBtnCadTreino" text="Cadastrar Treino" />
                         <Button fx:id="btnCadExercicio111" layoutX="13.0" layoutY="11.0" mnemonicParsing="false" onAction="#onRemoverTreino" text="Remover" />
-                      <AnchorPane layoutX="418.0" layoutY="-95.0" minHeight="0.0" minWidth="0.0" prefHeight="243.0" prefWidth="200.0" />
                         <Label fx:id="aviso" alignment="CENTER" layoutX="88.0" layoutY="2.0" prefHeight="45.0" prefWidth="209.0" textFill="#fc0101">
                            <font>
                               <Font name="System Bold" size="14.0" />

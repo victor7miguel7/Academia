@@ -40,6 +40,8 @@ public class PersonalController {
     private Button btnCadExercicio;
     @FXML
     private Button remover;
+    @FXML
+    private Button btnCadPlano;
 
     @FXML
     private TableView<Exercicio> tableViewExercicio;
@@ -222,5 +224,14 @@ public class PersonalController {
 
             }
         }
-    }
+    public void onBtnCadPlano(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
 
+        stage = (Stage) btnCadPlano.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("cadPlanoDeTreinos.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    }

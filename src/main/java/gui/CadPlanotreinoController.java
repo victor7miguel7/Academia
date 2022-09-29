@@ -37,8 +37,6 @@ private Button btnAdicionar;
 @FXML private DatePicker dtInicio;
 
 @FXML
-private ListView<Treino> lvTreinos;
-@FXML
 private ListView<Exercicio> lvExercicios;
 @FXML
 private ListView<Usuario> lvClientes;
@@ -131,10 +129,6 @@ public void onBtnCadastrarClick(ActionEvent event) throws IOException {
         lvClientes.setItems(observableListCliente);
 
     }
-
-
-
-
 
 
 }

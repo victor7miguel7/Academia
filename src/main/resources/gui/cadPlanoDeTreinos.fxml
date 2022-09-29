@@ -37,7 +37,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <DatePicker fx:id="dpDataIni" layoutX="39.0" layoutY="225.0" prefHeight="25.0" prefWidth="131.0" />
+            <DatePicker fx:id="dtInicio" layoutX="39.0" layoutY="225.0" prefHeight="25.0" prefWidth="131.0" />
             <Label layoutX="39.0" layoutY="270.0" text="Duração" textFill="WHITE">
                <font>
                   <Font size="15.0" />
