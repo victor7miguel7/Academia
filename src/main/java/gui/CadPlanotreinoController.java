@@ -1,4 +1,5 @@
 package gui;
+import exception.ElementoJaExisteException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,17 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import models.Cliente;
-import models.Exercicio;
+import models.*;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import models.Treino;
-import models.Usuario;
 import negocio.ServidorAcademia;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +34,7 @@ private Button btnAdicionar;
 @FXML private Spinner<Integer> series;
 @FXML private Spinner<Integer> repeticoes;
 @FXML private Spinner<Integer> duracao;
+@FXML private DatePicker dtInicio;
 
 @FXML
 private ListView<Treino> lvTreinos;
@@ -42,8 +42,7 @@ private ListView<Treino> lvTreinos;
 private ListView<Exercicio> lvExercicios;
 @FXML
 private ListView<Usuario> lvClientes;
-@FXML
-private DatePicker dpDataIni;
+
 @FXML
 private ObservableList<Exercicio> observableListExercicio;
 @FXML
@@ -74,8 +73,6 @@ public void initialize(URL location, ResourceBundle resources) {
     duracao.setValueFactory(valueFactoryDuracao);
     repeticoes.setValueFactory(valueFactoryRepeticoes);
 
-
-
 }
 public void onBtnVoltarClick(ActionEvent event) throws IOException {
     Stage stage;
@@ -96,6 +93,24 @@ public void onBtnAdicionarClick(ActionEvent event) throws IOException {
 
 }
 public void onBtnCadastrarClick(ActionEvent event) throws IOException {
+
+    Usuario cliente = lvClientes.getSelectionModel().getSelectedItem();
+    LocalDate dataInicio = dtInicio.getValue();
+    Period tempo = Period.ofDays(duracao.getValue());
+    PlanoDeTreino planoDeTreino = new PlanoDeTreino(dataInicio, tempo, (Cliente)cliente);
+
+    try {
+        servidor.inserir(planoDeTreino);
+    } catch (ElementoJaExisteException e) {
+        //aviso.setText("O Plano já existe.");
+        System.out.println("Plano de Treino já cadastrado");
+        Alert alerta = new Alert(Alert.AlertType.ERROR);
+        alerta.setTitle("Erro no cadastro");
+        alerta.setHeaderText("Cadastro já realizado");
+        alerta.setContentText("Esse Plano de Treino já foi cadastrado");
+        alerta.showAndWait();
+        throw new RuntimeException(e);
+    }
 }
 
     public void carregarListaExercicio(){

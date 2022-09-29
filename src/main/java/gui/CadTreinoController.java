@@ -72,16 +72,17 @@ public class CadTreinoController implements Initializable {
 		lvExercicios.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		cBTipoTreino.getItems().addAll(tipo);
 	}
-	 public void onKeyReleased() {
-//	       boolean cadastrar;
-//		   boolean addExercicio;
-//
-//	      cadastrar =(cBTipoTreino.getItems().isEmpty() | lvExercicios.getSelectionModel().getSelectedItems().isEmpty() |
-//				  		listViewCliente.getSelectionModel().getSelectedItems().isEmpty());
-//	       btnCadastrar.setDisable(cadastrar);
-//
-//		 addExercicio =(cBTipoTreino.isPressed() & lvExercicios.getSelectionModel().getSelectedItems().contains());
-//		 btnCadastrar.setDisable(addExercicio);
+	//NÃO FUNCIONAAAAA
+	public void onKeyReleased() {
+	       boolean cadastrar;
+		   boolean addExercicio;
+
+	      cadastrar =(!cBTipoTreino.getItems().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty() &
+				  		!listViewCliente.getSelectionModel().getSelectedItems().isEmpty());
+	       btnCadastrar.setDisable(cadastrar);
+
+		 addExercicio =(!cBTipoTreino.getItems().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty());
+		 btnCadastrar.setDisable(addExercicio);
 	    }
 
 	public void onBtnVoltar() throws IOException {
