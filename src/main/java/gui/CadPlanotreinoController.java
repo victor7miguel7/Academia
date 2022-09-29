@@ -18,6 +18,7 @@ import negocio.ServidorAcademia;
 import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -87,6 +88,11 @@ public void onBtnVoltarClick(ActionEvent event) throws IOException {
     stage.show();
 }
 public void onBtnAdicionarClick(ActionEvent event) throws IOException {
+    Exercicio exercicio = lvExercicios.getSelectionModel().getSelectedItem();
+
+    exercicio.setSeries(series.getValue());
+    exercicio.setIntervalo(Duration.ofMinutes(intervalo.getValue()));
+    exercicio.setRepeticoes(repeticoes.getValue());
 
 }
 public void onBtnCadastrarClick(ActionEvent event) throws IOException {

@@ -48,8 +48,21 @@ public class Exercicio implements Serializable{
         return repeticoes;
     }
 
+    public void setIntervalo(Duration intervalo) {
+        this.intervalo = intervalo;
+    }
+
+    public void setSeries(int series) {
+        this.series = series;
+    }
+
+    public void setRepeticoes(int repeticoes) {
+        this.repeticoes = repeticoes;
+    }
+
     @Override
     public String toString() {
         return nome + ",    tipo: " + tipo + ",    intervalo: " + intervalo + ",    séries: " + series + ",    repetições: " + repeticoes;
     }
+
 }
