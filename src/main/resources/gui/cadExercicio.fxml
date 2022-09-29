@@ -48,7 +48,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label fx:id="aviso" layoutX="72.0" layoutY="153.0" text="Label" />
+            <Label fx:id="aviso" layoutX="42.0" layoutY="153.0" prefHeight="25.0" prefWidth="136.0" textFill="#4dae24" />
          </children>
       </AnchorPane>
    </center>

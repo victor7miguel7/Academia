@@ -33,7 +33,6 @@ public class CadExercicioController implements Initializable {
     private Button btnCadastrar;
     @FXML
     private Button btnVoltar;
-
     @FXML
     private Label aviso;
 
@@ -66,7 +65,7 @@ public class CadExercicioController implements Initializable {
 
             try {
                 servidor.inserir(exercicio);
-                //aviso.setText("Cadastro realizado!");
+                aviso.setText("Cadastro realizado!");
             } catch (ElementoJaExisteException e) {
                 aviso.setText("O exercício já existe.");
                 System.out.println("Exercício já cadastrado");
