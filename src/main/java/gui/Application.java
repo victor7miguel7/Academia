@@ -47,7 +47,7 @@ public class Application extends javafx.application.Application {
 //        Usuario cliente3 = new Cliente("Rafael", "M", "rafael@gmail.com", "m54321", LocalDate.of(2003, 8, 19), "75",
 //              "1.74");
 
-        Usuario adm1 = new Administrador( "Marina", "marina@gmail.com", "2002", LocalDate.of(2003, 3, 20));
+        Usuario adm1 = new Administrador( "Leandro", "admin", "123", LocalDate.of(2003, 3, 20));
 
 //        Exercicio exer1 = new Exercicio("Supino Reto", "Peito", 4, 10, Duration.ofMinutes(1));
 //        Exercicio exer2 = new Exercicio("Puxada Aberta", "Costas", 4, 10, Duration.ofMinutes(1));

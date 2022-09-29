@@ -36,6 +36,8 @@ public class ClienteController {
     @FXML
     private Button btnAtualizar;
     @FXML
+    private Button buttonExecutar;
+    @FXML
     private Label lblID;
     @FXML
     private Label lblFrequencia;
@@ -81,22 +83,17 @@ public class ClienteController {
     private List<Pagamento> listPagamentos;
     private ObservableList<Exercicio> observableListExercicios;
 
-
-
-    //Login login = new Login("maria", "123");
-    //Usuario cliente = new Cliente("32", "Maria Beatriz", "F", "maria@gmail.com", "m12345", LocalDate.of(2000, 2,14),"57","1.57");
-
+    Usuario cliente = logarCliente();
 
     public void initialize() {
 
-        Usuario cliente = logarCliente();
         lblID.setText(String.valueOf((cliente.getId())));
         lblNome.setText(String.valueOf(cliente.getNome()));
-        lblPeso.setText(String.valueOf((((Cliente) cliente).getPeso())));
-        lblAltura.setText(String.valueOf((((Cliente) cliente).getAltura())));
+        lblPeso.setText(String.valueOf((((Cliente) cliente).getPeso()))+" Kg");
+        lblAltura.setText(String.valueOf((((Cliente) cliente).getAltura()))+" m");
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
         lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
-        lblFrequencia.setText(String.valueOf(servidor.consultarFrequenciaCliente2((Cliente) cliente)));
+
 
         columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
         columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
@@ -210,10 +207,11 @@ public class ClienteController {
 
         try {
             servidor.inserir(treinoExecutado);
+            lblFrequencia.setText(String.valueOf(servidor.consultarFrequenciaCliente2(cliente)));
         } catch (ElementoJaExisteException e) {
             throw new RuntimeException(e);
         }
-
     }
+
 }
 
