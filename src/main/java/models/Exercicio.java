@@ -31,8 +31,8 @@ public class Exercicio implements Serializable{
         return tipo;
     }
 
-    public Duration getIntervalo() {
-        return intervalo;
+    public String getIntervalo() {
+        return String.format("%02d min", intervalo.getSeconds()/60);
     }
 
     public int getSeries() {
@@ -57,7 +57,7 @@ public class Exercicio implements Serializable{
 
     @Override
     public String toString() {
-        return nome + ",    tipo: " + tipo + ",    intervalo: " + intervalo + ",    séries: " + series + ",    repetições: " + repeticoes;
+        return nome + ",    tipo: " + tipo + ",    intervalo: " + String.format("%02d min", intervalo.getSeconds()/60) + ",    séries: " + series + ",    repetições: " + repeticoes;
     }
 
 }

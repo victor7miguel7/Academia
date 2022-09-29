@@ -67,9 +67,9 @@ public class Application extends javafx.application.Application {
         exerciciosB.add(exer5);
         exerciciosB.add(exer6);
 
-        Treino treino1 = new Treino("Superior", exerciciosA, (Cliente) cliente1);
-        Treino treino2 = new Treino("Inferior", exerciciosB, (Cliente) cliente2);
-        Treino treino3 = new Treino("Unha",exerciciosA,(Cliente)cliente3);
+        Treino treino1 = new Treino("Superior", exerciciosA);
+        Treino treino2 = new Treino("Inferior", exerciciosB);
+        Treino treino3 = new Treino("Unha",exerciciosA);
 
         List<Treino> treinosA = new ArrayList<>();
         List<Treino> treinosB = new ArrayList<>();

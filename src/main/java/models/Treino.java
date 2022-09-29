@@ -10,12 +10,10 @@ public class Treino implements Serializable{
 
     private String tipo;
     private List<Exercicio> exercicios;
-    private Cliente cliente;
 
-    public Treino(String tipo, List<Exercicio> exercicios, Cliente cliente) {
+    public Treino(String tipo, List<Exercicio> exercicios) {
         this.tipo = tipo;
         this.exercicios = exercicios;
-        this.cliente = cliente;
     }
 
     public String getTipo() {
@@ -32,7 +30,4 @@ public class Treino implements Serializable{
         return "\nTreino " + tipo  + "\n" + exercicios;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
 }

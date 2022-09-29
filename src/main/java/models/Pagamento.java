@@ -2,6 +2,7 @@ package models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Pagamento implements Serializable {
 
@@ -84,8 +85,8 @@ public class Pagamento implements Serializable {
         this.valor = valor;
     }
 
-    public LocalDate getDtPagamento() {
-        return dtPagamento;
+    public String getDtPagamento() {
+        return dtPagamento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     public void setDtPagamento(LocalDate dtPagamento) {

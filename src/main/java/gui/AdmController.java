@@ -19,6 +19,7 @@ import negocio.ServidorAcademia;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -56,7 +57,7 @@ public class AdmController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lblID.setText(adm.getId());
         lblNome.setText(adm.getNome());
-        lblDtNascimento.setText(String.valueOf(adm.getDtNascimento()));
+        lblDtNascimento.setText(String.valueOf(adm.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
 
         carregarListaPersonal();
         carregarListaCliente();

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadTreinoController">
+<BorderPane prefHeight="364.0" prefWidth="400.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadTreinoController">
    <top>
       <AnchorPane prefHeight="60.0" prefWidth="400.0" style="-fx-background-color: #f2c70a;" BorderPane.alignment="CENTER">
          <children>
@@ -32,22 +32,22 @@
    <center>
       <AnchorPane fx:id="lplAnchor" prefHeight="319.0" prefWidth="400.0" style="-fx-background-color: #141413;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblLabel2" layoutX="24.0" layoutY="14.0" text="Tipo de Treino" textAlignment="RIGHT" textFill="#fcfcf5">
+            <Label fx:id="lblLabel2" layoutX="28.0" layoutY="23.0" text="Tipo de Treino" textAlignment="RIGHT" textFill="#fcfcf5">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <ListView fx:id="lvExercicios" layoutX="26.0" layoutY="101.0" onKeyReleased="#onKeyReleased" prefHeight="162.0" prefWidth="184.0">
+            <ListView fx:id="lvExercicios" layoutX="26.0" layoutY="110.0" prefHeight="120.0" prefWidth="341.0">
                <tooltip>
                   <Tooltip fx:id="lplTooltip3" text="Deve-se selecionar o exercício de lista" />
                </tooltip>
             </ListView>
-            <Label fx:id="lblexercicios" layoutX="28.0" layoutY="76.0" text="Exercícios" textFill="#e1e0d7">
+            <Label fx:id="lblexercicios" layoutX="28.0" layoutY="85.0" text="Exercícios" textFill="#e1e0d7">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnAdcionar" layoutX="28.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAddListExercicio" onKeyReleased="#onKeyReleased" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: #f2c70a;" text="Adicionar Exercicio">
+            <Button fx:id="btnAdicionar" layoutX="26.0" layoutY="249.0" mnemonicParsing="false" onAction="#onAddListExercicio" prefHeight="29.0" prefWidth="135.0" style="-fx-background-color: #f2c70a;" text="Adicionar Exercicio">
                <tooltip>
                   <Tooltip fx:id="lplTooltip4" text="Limpar" />
                </tooltip>
@@ -55,7 +55,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnCadastrar" layoutX="292.0" layoutY="272.0" mnemonicParsing="false" onAction="#onBntCadastrarTreino" onKeyReleased="#onKeyReleased" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #f2c70a;" text="Cadastrar">
+            <Button fx:id="btnCadastrar" layoutX="285.0" layoutY="249.0" mnemonicParsing="false" onAction="#onBntCadastrarTreino" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: #f2c70a;" text="Cadastrar">
                <tooltip>
                   <Tooltip fx:id="lplTooltip41" text="Limpar" />
                </tooltip>
@@ -63,17 +63,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="cBTipoTreino" layoutX="23.0" layoutY="38.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="189.0" />
-            <ListView fx:id="listViewCliente" layoutX="228.0" layoutY="38.0" onKeyReleased="#onKeyReleased" prefHeight="185.0" prefWidth="146.0">
-               <tooltip>
-                  <Tooltip fx:id="lplTooltip31" text="Deve-se selecionar o exercício de lista" />
-               </tooltip>
-            </ListView>
-            <Label fx:id="lblexercicios1" layoutX="278.0" layoutY="14.0" text="Cliente" textFill="#e1e0d7">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Label>
+            <ChoiceBox fx:id="cBTipoTreino" layoutX="27.0" layoutY="46.0" onKeyReleased="#onKeyReleased" prefHeight="25.0" prefWidth="189.0" />
+            <Label fx:id="aviso" layoutX="232.0" layoutY="23.0" prefHeight="17.0" prefWidth="146.0" textFill="#0e750e" />
          </children>
       </AnchorPane>
    </center>

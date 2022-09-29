@@ -30,12 +30,12 @@ public class PlanoDeTreino implements Serializable{
         this.cliente = cliente;
     }
 
-    public LocalDate getDataInicio() {
-        return dataInicio;
+    public String getDataInicio() {
+        return dataInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
-    public Period getDuracao() {
-        return duracao;
+    public String getDuracao() {
+        return duracao.getDays() + " dias";
     }
 
     public Cliente getCliente() {

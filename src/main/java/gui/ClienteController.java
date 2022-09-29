@@ -78,7 +78,7 @@ public class ClienteController {
     private List<Treino> listaTreinos = new ArrayList();
     private List<Pagamento> listPagamentos;
     private ObservableList<Exercicio> observableListExercicios;
-    private ObservableList<Treino> observableListTreinos;
+
 
 
     //Login login = new Login("maria", "123");
@@ -99,7 +99,11 @@ public class ClienteController {
         columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
         this.onBtnAtualizar();
 
-        carregarTableView();
+        columnTreinosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        listaTreinos = servidor.treinos((Cliente) logarCliente());
+        ObservableList<Treino> observableListTreinos = FXCollections.observableArrayList(listaTreinos);
+        this.tableViewTreinos.setItems(observableListTreinos);
+        //carregarTableView();
         //clicarMouseItemListViewExercicio();
 
     }
@@ -111,16 +115,16 @@ public class ClienteController {
         columnExerciciosIntervalo.setCellValueFactory(new PropertyValueFactory<>("intervalo"));
         columnExerciciosSeries.setCellValueFactory(new PropertyValueFactory<>("series"));
         columnExerciciosRepeticoes.setCellValueFactory(new PropertyValueFactory<>("repeticoes"));
-        columnTreinosTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
-        listaTreinos = servidor.treinos((Cliente) logarCliente());
+
+
         //listExercicios = servidor.listaExercicio(listaTreinos);
 
-        observableListExercicios = FXCollections.observableArrayList(listExercicios);
-        observableListTreinos = FXCollections.observableArrayList(listaTreinos);
+        //observableListExercicios = FXCollections.observableArrayList(listExercicios);
+
 
         //tableViewExercicios.setItems(observableListExercicios);
-        tableViewTreinos.setItems(observableListTreinos);
+
     }
 
     public void userLogOut(ActionEvent event) throws IOException {
@@ -171,11 +175,11 @@ public class ClienteController {
     public void clicarMouseItemListViewExercicio() {
         try {
             Treino treino = tableViewTreinos.getSelectionModel().getSelectedItem();
-            List<Exercicio> listTreinos = treino.getExercicios();
-            ObservableList<Exercicio> observableListTreinos = FXCollections.observableArrayList(listTreinos);
-            this.tableViewExercicios.setItems(observableListTreinos);
+            listExercicios = treino.getExercicios();
+            observableListExercicios = FXCollections.observableArrayList(listExercicios);
+            this.tableViewExercicios.setItems(observableListExercicios);
 
-            //carregarTableView();
+            carregarTableView();
 
         } catch (Exception e) {
             //escrever

@@ -25,27 +25,47 @@ import java.util.ResourceBundle;
 public class CadTreinoController implements Initializable {
 
 	ServidorAcademia servidor = ServidorAcademia.getInstance();
-	@FXML private ChoiceBox<String> cBTipoTreino;
-	private String [] tipo = {"Superior","Inferior"};
-	@FXML private Button btnAdcionar;
-	@FXML private Button btnVoltar;
-	@FXML private Button btnCadastrar;
-	@FXML private ListView<Usuario> listViewCliente;
-	@FXML private ListView<Exercicio> lvExercicios;
 
+	@FXML
+	private Label aviso;
+	@FXML
+	private ChoiceBox<String> cBTipoTreino;
+	private String[] tipo = {"Superior", "Inferior"};
+	@FXML
+	private Button btnVoltar;
+	@FXML
+	private Button btnCadastrar;
+	@FXML
+	private Button btnAdicionar;
+
+	@FXML
+	private ListView<Exercicio> lvExercicios;
 	private List<Exercicio> listExercicios = new ArrayList<>();
+	private List<Exercicio> listExerciciosSelecionados = new ArrayList<>();
 	private ObservableList<Exercicio> observableListExercicio;
-	private List<Exercicio> listExerciciosSelected = new ArrayList<>();
 
-	private List<Usuario> listClientes = new ArrayList<>();
-	private ObservableList<Usuario> observableListCliente;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		carregarListaExercicio();
+
+		cBTipoTreino.getItems().addAll(tipo);
+	}
+
+	public void carregarListaExercicio() {
+
+		listExercicios = servidor.exercicioListar();
+		observableListExercicio = FXCollections.observableArrayList(listExercicios);
+		lvExercicios.setItems(observableListExercicio);
+	}
 
 	public void onBntCadastrarTreino() {
 		String tipo = cBTipoTreino.getValue();
-		Usuario cliente = listViewCliente.getSelectionModel().getSelectedItem();
-		Treino treino = new Treino(tipo, listExerciciosSelected, (Cliente) cliente);
+		Treino treino = new Treino(tipo, listExerciciosSelecionados);
+
 		try {
 			servidor.inserir(treino);
+			aviso.setText("Treino cadastrado");
 		} catch (ElementoJaExisteException e) {
 			System.out.println("Treino já cadastrado");
 			Alert alerta = new Alert(Alert.AlertType.ERROR);
@@ -56,71 +76,31 @@ public class CadTreinoController implements Initializable {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	 public void onBtnLimparClick() {
-	     // lvExercicios.setSelectionModel().setSelectedItems("");
-		   // cBTipoTreino.setItems();
-	        btnCadastrar.setDisable(true);
-	        btnAdcionar.setDisable(true);
-	 }
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		carregarListaExercicio();
-		carregarListaCliente();
-
-		lvExercicios.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		cBTipoTreino.getItems().addAll(tipo);
+	public void onAddListExercicio() {
+		Exercicio exercicio = lvExercicios.getSelectionModel().getSelectedItem();
+		listExerciciosSelecionados.add(exercicio);
 	}
-	//NÃO FUNCIONAAAAA
-	public void onKeyReleased() {
-
-	       boolean cadastrar;
-		   boolean addExercicio;
-
-	      cadastrar =(!cBTipoTreino.getSelectionModel().getSelectedItem().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty() &
-				  		!listViewCliente.getSelectionModel().getSelectedItems().isEmpty());
-	       btnCadastrar.setDisable(cadastrar);
-
-		 addExercicio =(!cBTipoTreino.getSelectionModel().getSelectedItem().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty());
-		 btnAdcionar.setDisable(addExercicio);
-
-
-	    }
 
 	public void onBtnVoltar() throws IOException {
-        Stage stage;
-        Parent root;
+		Stage stage;
+		Parent root;
 
 		stage = (Stage) btnVoltar.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("personal.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-	public void carregarListaExercicio(){
-
-		listExercicios = servidor.exercicioListar();
-		observableListExercicio = FXCollections.observableArrayList(listExercicios);
-		lvExercicios.setItems(observableListExercicio);
-
+		root = FXMLLoader.load(getClass().getResource("personal.fxml"));
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 
-	public void onAddListExercicio(ActionEvent event){
-		listExerciciosSelected.add(lvExercicios.getSelectionModel().getSelectedItem());
-	}
+	public void onKeyReleased() {
+		boolean cadastrar;
+		boolean addExercicio;
 
-	public void carregarListaCliente(){
-		List<Usuario> usuario = servidor.usuarioListar();
-		for (int i = 0; i< usuario.size(); i++){
-			if( usuario.get(i) instanceof Cliente){
-				listClientes.add(usuario.get(i));
-			}
-		}
-		observableListCliente = FXCollections.observableArrayList(listClientes);
-		listViewCliente.setItems(observableListCliente);
-	}
+		cadastrar = (!cBTipoTreino.getItems().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty());
+		btnCadastrar.setDisable(cadastrar);
 
+		addExercicio = (!cBTipoTreino.getItems().isEmpty() & !lvExercicios.getSelectionModel().getSelectedItems().isEmpty());
+		btnCadastrar.setDisable(addExercicio);
+	}
 }
-
-

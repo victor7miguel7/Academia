@@ -1,8 +1,7 @@
 package models;
 
-import negocio.ServidorAcademia;
-
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public abstract class Usuario {

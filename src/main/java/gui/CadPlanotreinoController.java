@@ -27,6 +27,8 @@ public class CadPlanotreinoController implements Initializable {
 @FXML
 private Button btnVoltar;
 @FXML
+private Label aviso;
+@FXML
 private Button btnCadastrar;
 @FXML
 private Button btnAdicionar;
@@ -53,7 +55,7 @@ private List<Usuario>  listClientes = new ArrayList<>();
     ServidorAcademia servidor =  ServidorAcademia.getInstance();
 public void initialize(URL location, ResourceBundle resources) {
 
-    carregarListaExercicio();
+    //carregarListaExercicio();
     carregarListaClientes();
 
     SpinnerValueFactory<Integer> valueFactoryRepeticoes = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,10);
@@ -99,6 +101,7 @@ public void onBtnCadastrarClick(ActionEvent event) throws IOException {
 
     try {
         servidor.inserir(planoDeTreino);
+        aviso.setText("Cadastro realizado.");
     } catch (ElementoJaExisteException e) {
         //aviso.setText("O Plano já existe.");
         System.out.println("Plano de Treino já cadastrado");
@@ -111,12 +114,12 @@ public void onBtnCadastrarClick(ActionEvent event) throws IOException {
     }
 }
 
-    public void carregarListaExercicio(){
-        Usuario  cliente = lvClientes.getSelectionModel().getSelectedItem();
-        listExercicios = servidor.listarExercicioCliente((Cliente) cliente);
-        observableListExercicio = FXCollections.observableArrayList(listExercicios);
-        lvExercicios.setItems(observableListExercicio);
-    }
+//    public void carregarListaExercicio(){
+//        Usuario  cliente = lvClientes.getSelectionModel().getSelectedItem();
+//        listExercicios = servidor.listarExercicioCliente((Cliente) cliente);
+//        observableListExercicio = FXCollections.observableArrayList(listExercicios);
+//        lvExercicios.setItems(observableListExercicio);
+//    }
     public void carregarListaClientes(){
         List<Usuario> usuario = servidor.usuarioListar();
         for (int i = 0; i< usuario.size(); i++){
@@ -127,9 +130,6 @@ public void onBtnCadastrarClick(ActionEvent event) throws IOException {
 
         observableListCliente = FXCollections.observableArrayList(listClientes);
         lvClientes.setItems(observableListCliente);
-
     }
 
-
 }
-

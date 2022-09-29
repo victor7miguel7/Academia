@@ -42,19 +42,18 @@ public class ControladorTreinos {
         this.repositorioTreino.atualizar(newObj);
     }
 
-    public List<Exercicio> listarExercicioCliente(Cliente cliente){
-        List<Exercicio> listExercicio =  new ArrayList<>();
-        List<Treino> listTreino = repositorioTreino.listar();
-
-        for(int i = 0; i < listTreino.size() ; i++){
-            if(listTreino.get(i).getCliente().equals(cliente)){
-                for(int j = 0 ; j < listTreino.get(i).getExercicios().size(); j++) {
-                    listExercicio.add(listTreino.get(i).getExercicios().get(j));
-                }
-            }
-        }
-
-        return  listExercicio;
-    }
-
+//    public List<Exercicio> listarExercicioCliente(Cliente cliente){
+//        List<Exercicio> listExercicio =  new ArrayList<>();
+//        List<Treino> listTreino = repositorioTreino.listar();
+//
+//        for(int i = 0; i < listTreino.size() ; i++){
+//            if(listTreino.get(i).getCliente().equals(cliente)){
+//                for(int j = 0 ; j < listTreino.get(i).getExercicios().size(); j++) {
+//                    listExercicio.add(listTreino.get(i).getExercicios().get(j));
+//                }
+//            }
+//        }
+//
+//        return  listExercicio;
+//    }
 }
