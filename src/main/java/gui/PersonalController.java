@@ -56,22 +56,10 @@ public class PersonalController {
     @FXML private TableView<PlanoDeTreino> tableViewTreinos;
     @FXML private TableColumn<Treino, String> treino;
     private ObservableList<String> observableListCliente;
+    private ObservableList<Exercicio> observableListTreino;
 
     @FXML private ListView<String> listViewTreinos;
-
-
-    @FXML
-    private TableView<Exercicio> tableViewExercicios;
-    @FXML
-    private TableColumn<Exercicio, String> columnNomeExercicio;
-    @FXML
-    private TableColumn<Exercicio, String> columnTipoExercicio;
-    @FXML
-    private TableColumn<Exercicio, Duration> columnIntervalo;
-    @FXML
-    private TableColumn<Exercicio, Integer> columnSeries;
-    @FXML
-    private TableColumn<Exercicio, Integer> columnRepeticoes;
+    @FXML private ListView<Exercicio> listViewExercicios;
 
     @FXML
     private Label aviso;
@@ -168,16 +156,19 @@ public class PersonalController {
     }
 
 
+    private PlanoDeTreino planoSelecionado;
+
     @FXML
     public void clicarMouseItemTableViewPlanoTreino(){
         try{
-            PlanoDeTreino b = tableViewPlanoDeTreino.getSelectionModel().getSelectedItem();
+            planoSelecionado = tableViewPlanoDeTreino.getSelectionModel().getSelectedItem();
             List<String> listTreinos = new ArrayList<>();
-            for (int i = 0; i< b.getTreinos().size(); i++){
-                listTreinos.add(b.getTreinos().get(i).getTipo());
+            for (int i = 0; i< planoSelecionado.getTreinos().size(); i++){
+                listTreinos.add(planoSelecionado.getTreinos().get(i).getTipo());
             }
             observableListCliente = FXCollections.observableArrayList(listTreinos);
             listViewTreinos.setItems(observableListCliente);
+            listViewExercicios.setItems(null);
         } catch (Exception e) {
         }
     }
@@ -185,14 +176,39 @@ public class PersonalController {
     @FXML
     public void clicarMouseItemListViewTreinos(){
         try{
-            PlanoDeTreino b = tableViewPlanoDeTreino.getSelectionModel().getSelectedItem();
-            List<String> listTreinos = new ArrayList<>();
-            for (int i = 0; i< b.getTreinos().size(); i++){
-                listTreinos.add(b.getTreinos().get(i).getTipo());
+            String treinoSelec = listViewTreinos.getSelectionModel().getSelectedItem();
+            List<Exercicio> listExercicios = new ArrayList<>();
+
+            for (int i = 0; i< planoSelecionado.getTreinos().size(); i++){
+                if(planoSelecionado.getTreinos().get(i).getTipo() == treinoSelec) {
+                    listExercicios = planoSelecionado.getTreinos().get(i).getExercicios();
+                }
             }
-            observableListCliente = FXCollections.observableArrayList(listTreinos);
-            listViewTreinos.setItems(observableListCliente);
+            observableListTreino = FXCollections.observableArrayList(listExercicios);
+            listViewExercicios.setItems(observableListTreino);
+
         } catch (Exception e) {
+        }
+    }
+
+    @FXML
+    public void onRemoverTreino() {
+
+        try {
+            String treino = listViewTreinos.getSelectionModel().getSelectedItem();
+
+            for (int i = 0; i< planoSelecionado.getTreinos().size(); i++){
+
+                if(planoSelecionado.getTreinos().get(i).getTipo() == treino) {
+
+                    listViewTreinos.getItems().remove(planoSelecionado.getTreinos().get(i).getTipo());
+                    servidor.remover(planoSelecionado.getTreinos().get(i));
+                    listViewExercicios.setItems(null);
+                }
+            }
+
+        } catch (Exception e) {
+
         }
     }
 }

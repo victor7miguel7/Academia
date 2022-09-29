@@ -50,6 +50,6 @@ public class Exercicio implements Serializable{
 
     @Override
     public String toString() {
-        return "\nExercicio: " + nome + ", tipo: " + tipo;
+        return nome + ",    tipo: " + tipo + ",    intervalo: " + intervalo + ",    séries: " + series + ",    repetições: " + repeticoes;
     }
 }
