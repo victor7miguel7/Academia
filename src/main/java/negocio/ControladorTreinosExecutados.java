@@ -9,6 +9,7 @@ import exception.ElementoJaExisteException;
 import exception.ElementoNaoExisteException;
 import models.Cliente;
 import models.TreinoExecutado;
+import models.Usuario;
 
 
 public class ControladorTreinosExecutados {
@@ -52,6 +53,12 @@ public class ControladorTreinosExecutados {
             }
         }
         return frequencia;
+    }
+
+    public int consultarFrequenciaCliente2(Usuario c) {
+        List<TreinoExecutado> lista = repositorioTreinosExecutados.listar();
+
+        return lista.size();
     }
     public List<TreinoExecutado> listarFrequenciaCliente(Cliente c) {
         List<TreinoExecutado> lista = repositorioTreinosExecutados.listar();

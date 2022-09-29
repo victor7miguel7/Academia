@@ -231,4 +231,10 @@ public class ServidorAcademia {
         }
         return personais.size();
     }
+
+    public int consultarFrequenciaCliente2(Usuario c) {
+        List<TreinoExecutado> lista = controladorTreinoExecutado.listar();
+
+        return lista.size();
+    }
 }

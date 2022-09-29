@@ -40,6 +40,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <children>
                                     <Label text="ID:" textFill="#f2c70a">
@@ -91,6 +92,16 @@
                                  </font>
                               </Label>
                               <Label fx:id="lblDtNascimento" layoutX="10.0" layoutY="94.0" prefHeight="21.0" prefWidth="115.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="103.0" text="Frequência:" textFill="#f2c70a" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblFrequencia" layoutX="112.0" layoutY="103.0" prefHeight="21.0" prefWidth="115.0" textFill="#f2c70a" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <font>
                                     <Font size="15.0" />
                                  </font>

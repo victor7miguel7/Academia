@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="530.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadPlanotreinoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="494.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroPlano">
     <top>
         <AnchorPane prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #f2c70a;" BorderPane.alignment="CENTER">
             <children>
@@ -20,64 +20,50 @@
                         <Font name="Arial Rounded MT Bold" size="30.0" />
                     </font>
                 </Label>
-            <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/voltar.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnVoltar" layoutX="7.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBtnVoltarClick" opacity="0.0" prefHeight="36.0" prefWidth="53.0" />
+                <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/voltar.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="btnVoltar" layoutX="7.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBtnVoltarClick" opacity="0.0" prefHeight="36.0" prefWidth="53.0" />
             </children>
         </AnchorPane>
     </top>
-   <center>
-      <AnchorPane prefHeight="328.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="39.0" layoutY="198.0" text="Data de Início" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="dtInicio" layoutX="39.0" layoutY="225.0" prefHeight="25.0" prefWidth="131.0" />
-            <Label layoutX="39.0" layoutY="270.0" text="Duração" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Spinner fx:id="duracao" layoutX="40.0" layoutY="298.0" prefHeight="25.0" prefWidth="74.0" />
-            <Label layoutX="39.0" layoutY="31.0" text="Cliente" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnCadastrar" layoutX="423.0" layoutY="298.0" mnemonicParsing="false" onAction="#onBtnCadastrarClick" style="-fx-background-color: #f2c70a;" text="Cadastrar" />
-            <Label layoutX="419.0" layoutY="31.0" text="Intervalo" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Spinner fx:id="intervalo" layoutX="419.0" layoutY="58.0" prefHeight="25.0" prefWidth="74.0" />
-            <Label layoutX="420.0" layoutY="110.0" text="Séries" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Spinner fx:id="series" layoutX="420.0" layoutY="137.0" prefHeight="25.0" prefWidth="74.0" />
-            <Label layoutX="419.0" layoutY="186.0" text="Repetições" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Spinner fx:id="repeticoes" layoutX="420.0" layoutY="214.0" prefHeight="25.0" prefWidth="74.0" />
-            <ListView fx:id="lvExercicios" layoutX="226.0" layoutY="57.0" prefHeight="182.0" prefWidth="146.0" />
-            <Label layoutX="226.0" layoutY="31.0" text="Exercicios" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnAdicionar" layoutX="324.0" layoutY="258.0" mnemonicParsing="false" onAction="#onBtnAdicionarClick" style="-fx-background-color: #f2c70a;" text="Salvar" />
-            <ListView fx:id="lvClientes" layoutX="39.0" layoutY="57.0" onMouseClicked="#carregarListaExercicio" prefHeight="116.0" prefWidth="146.0" />
-            <Label fx:id="aviso" layoutX="212.0" layoutY="302.0" prefHeight="17.0" prefWidth="156.0" textFill="#00ff1a" />
-         </children>
-      </AnchorPane>
-   </center>
+    <center>
+        <AnchorPane prefHeight="348.0" prefWidth="524.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="232.0" layoutY="164.0" text="Data de Início" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="dtInicio" layoutX="232.0" layoutY="189.0" prefHeight="25.0" prefWidth="131.0" />
+                <Label layoutX="406.0" layoutY="164.0" text="Duração" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Spinner fx:id="duracao" layoutX="406.0" layoutY="189.0" prefHeight="25.0" prefWidth="74.0" />
+                <Label layoutX="20.0" layoutY="164.0" text="Cliente" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnCadastrar" layoutX="329.0" layoutY="296.0" mnemonicParsing="false" onAction="#onBtnCadastrarClick" style="-fx-background-color: #f2c70a;" text="Cadastrar" />
+                <ListView fx:id="lvTreinos" layoutX="16.0" layoutY="35.0" onMouseClicked="#clicarMouseItemListViewTreino" prefHeight="119.0" prefWidth="400.0" />
+                <Label layoutX="16.0" layoutY="14.0" text="Treino" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <ListView fx:id="lvClientes" layoutX="14.0" layoutY="189.0" onMouseClicked="#clicarMouseItemListViewClientes" prefHeight="132.0" prefWidth="161.0" />
+                <Label fx:id="aviso" layoutX="235.0" layoutY="247.0" prefHeight="31.0" prefWidth="240.0" textFill="#0ceb0c">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Button fx:id="salvarTreino" layoutX="428.0" layoutY="35.0" mnemonicParsing="false" onMouseDragged="#onBtnAdicionarClick" style="-fx-background-color: #f2c70a;" text="Salvar" />
+            </children>
+        </AnchorPane>
+    </center>
 </BorderPane>

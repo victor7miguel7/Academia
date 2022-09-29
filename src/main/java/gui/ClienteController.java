@@ -38,6 +38,8 @@ public class ClienteController {
     @FXML
     private Label lblID;
     @FXML
+    private Label lblFrequencia;
+    @FXML
     private Label lblDtNascimento;
     @FXML
     private Label lblNome;
@@ -94,6 +96,7 @@ public class ClienteController {
         lblAltura.setText(String.valueOf((((Cliente) cliente).getAltura())));
         lblGenero.setText(String.valueOf((((Cliente) cliente).getGenero())));
         lblDtNascimento.setText(String.valueOf(cliente.getDtNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
+        lblFrequencia.setText(String.valueOf(servidor.consultarFrequenciaCliente2((Cliente) cliente)));
 
         columnDtPagamento.setCellValueFactory(new PropertyValueFactory<>("dtPagamento"));
         columnValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
