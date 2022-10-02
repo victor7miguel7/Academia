@@ -21,7 +21,7 @@ O seguinte projeto, tem como principal funcionalidade implementar um sistema res
  * **REQ4** - O cliente terá acesso e escolha de um plano, dentre eles o mensal,semestral e anual.
  * **REQ5** - O sistema deve permitir a consulta dos treinos diários, além da consulta da frequência.
  * **REQ6** - O personal terá acesso as telas de cadastros de exercícios,treinos e plano de treinos.
- * **REQ7** - O cliente terá acesso a um plano de treino personalizado feito pelo personal..
+ * **REQ7** - O cliente terá acesso a um plano de treino personalizado feito pelo personal.
  
  
 
